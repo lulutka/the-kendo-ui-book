@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>The Kendo UI Book</title>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="http://cdn.kendostatic.com/2014.2.716/styles/kendo.common.min.css" rel="stylesheet" />
+    <link href="http://cdn.kendostatic.com/2014.2.716/styles/kendo.uniform.min.css" rel="stylesheet" />
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+    <script src="//cdn.jsdelivr.net/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style>
+        body,html{
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: "Open Sans","Clear Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+            text-rendering: optimizeLegibility;
+        }
+
+        #container {
+            display: table; 
+            width: 100%;
+            height: 100%;
+            color: #000;
+            border: none;
+        }
+
+        #container > div {   
+            display: table-row;   
+            width: 100%;
+        }
+
+        #container > div > div {   
+            display: table-cell;   
+            width: 100%;
+        }
+
+        #header > div {
+            height:50px;
+            border-bottom: 1px solid #EDEDED;
+            background-color: #fff;
+            z-index: 1000000000000000000000;
+            width: 100%;
+            display: table-row;   
+            width: 100%;
+        }
+
+        #content > div {
+            height: 100%;    
+        }
+
+        h1{
+            margin: 0;
+            padding: 0;
+            font-size: 20px;
+            text-align: center;
+            line-height: 50px;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            color: #7e888b;
+            font-weight: normal;
+        }
+
+        h2{
+            margin:0;
+            padding:0 0 0 0;
+            font-weight: bold;
+            color: #000;
+            letter-spacing: .01rem;
+            font-size: 40px;
+            margin-bottom: 40px;
+            line-height: 1.2em;
+        }
+
+        h3{
+            margin:0;
+            padding:0 0 10px 0;
+            line-height: 1.2em;
+            font-weight: normal;
+            color: #000;
+            letter-spacing: .01rem;
+            font-size: 26px;
+            margin-bottom: 10px;
+            margin-top: 20px;
+            border-bottom:1px solid #eee;
+        }
+
+        p{
+            color:#000;
+            line-height: 25px;
+            margin: 20px 0;
+        }
+
+        .k-widget.k-splitter{
+            border: none;
+        }
+
+        .k-splitbar{
+            border-color: #EDEDED;
+        }
+
+        #splitter{
+            height: 100%;
+        }
+
+        h5,h6{
+            letter-spacing: .01rem;
+            line-height: 1.5em;
+            color: #364149;
+            font-size: 14px;
+            padding:0;
+            margin: 0 0 20px 0;
+            font-weight: normal;
+        }
+
+        h6{
+            margin-left: 20px;
+        }
+
+        h5 a:link, h5 a:active, h5 a:visited, h6 a:link, h6 a:active, h6 a:visited{
+            color:#364149;
+            text-decoration: none;
+        }
+
+        h5 a:hover,h5 a:hover{
+            color:#008cff;
+        }
+
+        #toc-padding{
+            padding: 20px 20px;
+        }
+
+        #book{
+            letter-spacing: .01rem;
+            line-height: 1.5em;
+        }
+
+        #center-book{
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 50px 20px;
+        }
+
+        .header-btn{
+            width:50px;
+            height: 50px;
+            color:#7E888B;
+            line-height: 50px;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .header-btn:hover{
+            background-color: #f0f2f4;
+            cursor: pointer;
+        }
+
+        .float-left{
+            float: left;
+        }
+
+        .float-right{
+            float: right;
+        }
+        
+    </style>
+</head>
+<body>
+
+    <div id="container">
+        <div id="header"><div>
+        <i class="fa fa-bars fa-align-center fa-lg float-left header-btn" id="toggle-toc"></i>
+        <a href="http://www.codylindley.com" target="_blank" class="fa fa-github fa-align-center fa-lg float-right header-btn" id="github"></a>
+        <h1>The Kendo UI Book</h1>
+
+        </div></div>
+        <div id="content"><div>
+                <div id="splitter">
+                    <div id="toc">
+                        <div id="toc-padding"></div>
+                    </div>
+                    <div id="book">
+                        <div id="center-book">
+
+                            <!--_____________-->
+                            <!--  toc 1  -->
+                            <!--_____________-->
+                            <div id="toc1" class="toc">
+                            <h2>Foreword</h2>
+                            <h2>Introduction</h2>
+                            <h2>Preface</h2>
+                            <h2>About the Author</h2>
+                            </div>
+
+                            <!--_____________-->
+                            <!--  chapter 1  -->
+                            <!--_____________-->
+                            <div id="chapter1" class="chapter">
+                            <h2><strong>Chapter 1.</strong> Why Kendo UI</h2>
+                            <h3><strong>1.1</strong> Who Should Read This Book</h3>
+                            <p>Unlike traditional encyclopedias, Wikipedia can be edited by any reader. Except for particularly sensitive and/or vandalism-prone pages that are "protected" to some degree,[23] Wikipedia visitors can edit articles even if they do not have a Wikipedia account. Certain language editions offer a modified version of this policy; for example, only registered users may create a new article in the English edition.[24] A frequently vandalized article can be semi-protected, meaning that only established, verified users are able to make edits to that article.[25] A particularly contentious article may be locked so that only administrators are able to make changes.[26] An article is not considered to be owned by its creator or any other editor and is not vetted by any recognized authority.[27] Rather, editors are encouraged to discuss differing options regarding the content and structure of articles in order to come to agreement.</p>
+
+                            <iframe width="100%" height="500" src="http://jsfiddle.net/codylindley/UvGUz/embedded/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+        </div></div>
+    </div>
+
+    <!-- SCRIPTS -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="http://cdn.kendostatic.com/2014.2.716/js/kendo.all.min.js"></script>
+    <script src="bower_components/jquery.breakpoints/breakpoints.js"></script>
+    <script>
+
+        //setup splitter
+        var splitter = $("#splitter").kendoSplitter({
+            panes: [
+                { collapsible: true, size: "20%" },
+                { collapsible: false},
+            ]
+        }).data("kendoSplitter");
+
+        //toggle
+        $( "#toggle-toc" ).on('click',function() {
+            splitter.toggle('.k-pane:first');
+        });
+
+        //create TOC
+        jQuery('.toc').each(function(index){
+    
+            jQuery('h2','#toc'+(index+1)).each(function(i){
+                $(this).attr('id',$(this).text().replace(/ /g,''));
+                $('#toc-padding')
+                    .append('<h5><a href="#'+($(this).text().replace(/[ .]/g,''))+'">'+$(this).html()+'</a></h5>');
+            });
+
+            jQuery('h3','#toc'+(index+1)).each(function(i){
+                $(this).attr('id',$(this).text().replace(/ /g,''));
+                $('#toc-padding')
+                    .append('<h6><a href="#'+($(this).text().replace(/[ .]/g,''))+'">'+$(this).html()+'</a></h6>');
+            });
+            
+        });
+
+        jQuery('.chapter').each(function(index){
+    
+            jQuery('h2','#chapter'+(index+1)).each(function(i){
+                $(this).attr('id',(index+1));
+                $('#toc-padding').append('<h5><a href="#'+(index+1)+'">'+$(this).html()+'</a></h5>');
+            });
+
+            jQuery('h3','#chapter'+(index+1)).each(function(i){
+                $(this).attr('id',(index+1)+'.'+(i+1));
+                $('#toc-padding').append('<h6><a href="#'+(index+1)+'.'+(i+1)+'">'+$(this).html()+'</a></h6>');
+            });
+            
+        });
+
+        //detect and reset panels for phones, tablets, and desktop
+        $(window).setBreakpoints({distinct: true, breakpoints: [320,480,768,1024] });
+
+        $(window).on('enterBreakpoint320',function() {
+            splitter.size('.k-pane:first', '70%');
+            splitter.toggle('.k-pane:first',false);
+        });
+        $(window).on('enterBreakpoint480',function() {
+            splitter.size('.k-pane:first', '70%');
+            splitter.toggle('.k-pane:first',false);
+        });
+        $(window).on('enterBreakpoint768',function() {
+            splitter.size('.k-pane:first', '30%');
+            splitter.toggle('.k-pane:first',false);
+        });
+        $(window).on('enterBreakpoint1024',function() {
+            splitter.size('.k-pane:first', '20%');
+            splitter.toggle('.k-pane:first',true);
+        });
+
+    </script>
+</body>
+</html>
