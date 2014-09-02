@@ -131,7 +131,7 @@
         }
 
         h6{
-            margin-left: 20px;
+            margin-left: 10px;
             margin-bottom: 10px;
         }
 
@@ -149,7 +149,7 @@
         }
 
         #toc-padding{
-            padding: 20px 20px;
+            padding: 0px 20px 20px 20px;
         }
 
         #toc{
@@ -176,9 +176,14 @@
             text-decoration: none;
         }
 
+        #header a:link, #header a:visited, #header a:active{
+            color: #7E888B;
+        }
+
         .header-btn:hover{
             background-color: #f0f2f4;
             cursor: pointer;
+            text-decoration: none;
         }
 
         .float-left{
@@ -213,6 +218,30 @@
         code{
             font-family: "Courier New", Courier, monospace;
         }
+
+        #author{
+            font-size: 11px;
+            text-align: center;
+            padding:11px 0;
+            border-bottom: 1px solid #EDEDED;
+        }
+
+        #draft{
+            background-color: #d9534f;
+            color: #fff;
+            font-weight: normal;
+            text-transform: uppercase;
+            font-size: 10px;
+            padding: 0px 6px;
+            margin: 18px 0 0 10px;
+        }
+
+        #book img{
+            display: inline-block;
+            width: 100% \9;
+            max-width: 100%;
+            height: auto;
+        }
         
     </style>
 </head>
@@ -222,29 +251,28 @@
         <div id="header"><div>
         <i class="fa fa-bars fa-align-center fa-lg float-left header-btn" id="toggle-toc"></i>
         <a href="https://github.com/codylindley/the-kendo-ui-book" target="_blank" class="fa fa-github fa-align-center fa-lg float-right header-btn" id="github"></a>
+        <span id="draft" class="float-left">DRAFT</span>
         <h1>The Kendo UI Book</h1>
 
         </div></div>
         <div id="content"><div>
                 <div id="splitter">
                     <div id="toc">
-                        <div id="toc-padding"></div>
+                        <div id="author">by <a href="http://www.codylindley.com" target="_blank">cody lindley</a> </div>
+                        <div id="toc-padding">
+                            
+                        </div>
                     </div>
                     <div id="book">
                         <div id="center-book">
-
-                            <!--_____________-->
-                            <!--  toc 1  -->
-                            <!--_____________-->
-                            <div id="toc1" class="toc">
-                            </div>
+                            <img src="images/kendo.png" style="margin-top:50px;" />
 
                             <!--_____________-->
                             <!--  chapter 1  -->
                             <!--_____________-->
                             <div id="chapter1" class="chapter">
 
-                            <h2><strong>Chapter 1.</strong> Why Kendo UI</h2>
+                            <h2><strong>Chapter 1. Why Kendo UI</strong></h2>
 
                             <h3><strong>1.1</strong> Comprehensive set of widgets &amp; tools for building web sites and applications</h3>
                             <p>Kendo UI is first and foremost a comprehensive set of <a href="http://en.wikipedia.org/wiki/Graphical_control_element">reusable user interface widgets</a>, based on jQuery and written in JavaScript, to be used in the creation of applications written for the web platform (i.e. browsers running on computers, tablets, phones).</p>
@@ -258,7 +286,7 @@
                                 <li><strong>Mobile widgets & Mobile Application/Framework tools</strong> - User interface widgets and set of application tools for building browser based applications on a phone or tablet (e.g. <a href="http://demos.telerik.com/kendo-ui/navbar/adaptive-toolbar">Tool Bar</a>).</li>
                             </ol>
                             
-                            <p>Kendo UI is the most complete set of JavaScript widgets and tools from one source that go anywhere and do anything on any platform, handheld device, or computer.</p>
+                            <p>The totality of Kendo UI parts makes it the most complete set of JavaScript widgets and tools from one source that run in the widest range of browsers on the widest range of hand held devices and computers.</p>
 
                             <div class="note">
                                 <div class="notes-title">Notes</div>
@@ -277,7 +305,10 @@
                             <h3><strong>1.2</strong> The bulk of Kendo UI is free and open source</h3>
 
                             <p>
-Most of Kendo UI is free (AKA <a href="http://www.telerik.com/download/kendo-ui-core">Kendo UI Core</a>), and can be found on <a href="https://github.com/telerik/kendo-ui-core">Github</a> under the permissive Apache 2.0 license. Telerik also offers a set of <a href="http://www.telerik.com/kendo-ui/comparison">commercially licensed</a> (AKA Kendo UI Professional) DataViz widgets (i.e. <a href="http://www.telerik.com/kendo-ui/charts">charts</a>, <a href="http://www.telerik.com/kendo-ui/gauges">gauges</a>, <a href="http://demos.telerik.com/kendo-ui/barcode/index">barcode</a>, <a href="http://demos.telerik.com/kendo-ui/qrcode/index">QR code</a>, <a href="http://www.telerik.com/kendo-ui/stock-chart">stock chart</a>, and <a href="http://demos.telerik.com/kendo-ui/treemap/index">treemap</a> widgets) and the following Web widgets:</p>
+Most of Kendo UI is free (AKA <a href="http://www.telerik.com/download/kendo-ui-core">Kendo UI Core</a>), and can be found on <a href="https://github.com/telerik/kendo-ui-core">Github</a> under the permissive Apache 2.0 license. Historically Kendo UI Core was a commercial solution but as of April 2014 it's freely available to anyone to be used for anything. No catch! You get a commercial and enterprise grade solutions for free!</p>
+
+
+<p>Telerik also offers a set of <a href="http://www.telerik.com/kendo-ui/comparison">commercially licensed</a> (AKA Kendo UI Professional) DataViz widgets (i.e. <a href="http://www.telerik.com/kendo-ui/charts">charts</a>, <a href="http://www.telerik.com/kendo-ui/gauges">gauges</a>, <a href="http://demos.telerik.com/kendo-ui/barcode/index">barcode</a>, <a href="http://demos.telerik.com/kendo-ui/qrcode/index">QR code</a>, <a href="http://www.telerik.com/kendo-ui/stock-chart">stock chart</a>, and <a href="http://demos.telerik.com/kendo-ui/treemap/index">treemap</a> widgets) and the following Web widgets:</p>
 
                             <ul>
                             <li><a style="background-color: initial" href="http://www.telerik.com/kendo-ui/diagram">Diagram</a></li>
@@ -291,13 +322,53 @@ Most of Kendo UI is free (AKA <a href="http://www.telerik.com/download/kendo-ui-
                             <li><a style="background-color: initial" href="http://www.telerik.com/kendo-ui/upload">Upload</a></li>
                             </ul>
 
+                            <div class="note">
+                                <div class="notes-title">Notes</div>
+                                <div class="notes">
+                                    <ul>
+                                        <li>A <a href="http://www.telerik.com/download/kendo-ui">30-day trail is available for Kendo UI Professional</a> and requires signing up for a Telerik account.</li>
+                                    </ul>
+                                </div>
+                            </div>
+
                             <h3><strong>1.3</strong> In-depth Getting Started docs and API docs</h3>
-                            <h3><strong>1.4</strong> Detailed Demos</h3>
-                            <h3><strong>1.5</strong> Accessibility Minded Widgets</h3>
+
+                            <p>Kendo UI provides API documentation which details options, methods, and events for each widget or tool. Additionally, above and beyond the API documentation a <a href="http://docs.telerik.com/kendo-ui/getting-started/introduction">Getting Started</a> overview is provided for each widget or tool. Very few commercial solutions provide such a resource, and if they do, its nowhere as in depth as what is found in Kendo UI Getting Started documents.</p>
+
+                            <h3><strong>1.4</strong> Detailed demos immediately runnable and editable</h3>
+
+                            <p>Each widget contains a plethora of demos (e.g. the grid offers 36+ unique demos), all of which are immediately available to be edited in an <a href="http://dojo.telerik.com/">official live, online code editor</a>. The fact that the demos are immediately editable in an <b>official</b> editor sets Kendo UI apart from its competitors.</p>
+
+                            <h3><strong>1.5</strong> Accessibility minded widgets</h3>
+
                             <h3><strong>1.6</strong> Officially integrates with AngularJS</h3>
-                            <h3><strong>1.7</strong> Numerous options for including Kendo</h3>
+
+                            <h3><strong>1.7</strong> Numerous options for including Kendo UI JavaScript</h3>
+
+                            <p>Kendo UI provides the most comprehensive set of options for including Kendo in a web page.  You can include Kendo UI in one of the following four ways:</p>
+
+                            <ol>
+                            <li><strong>One JavaScript file</strong> - Kendo UI can be included in a web page using a single JavaScript file</li>
+                            <li><strong>Individual source files</strong> - <a href="http://docs.telerik.com/kendo-ui/getting-started/javascript-dependencies#individual-scripts">Kendo UI source is divided into a set of individual JavaScript modules, which have dependencies</a> on each other. These files can individually be added to a web page and the dependencies will have to be managed manually as opposed to using a dependency manager/loader like RequireJS.</li>
+                            <li><strong>AMD module/dependency loader</strong> - Because each source file is an AMD module, a modular loading system such as <a href="http://docs.telerik.com/kendo-ui/getting-started/using-kendo-with/using-kendo-with-requirejs">RequireJS can be used to load and manage Kendo UI dependencies</a>. Using a dependency loader alleviates having to manage dependencies by manually ordering inline <code>&lt;script&gt;</code> tags.</li>
+                            <li><strong>One custom built file</strong> - Using the Custom Download Tool a custom version of Kendo UI can be downloaded as a single file.</li>
+                            </ol>
+
+                            <p>This makes Kendo UI the most versatile commercial solution for developers of varying skill, creating varying types of projects, from simple web pages to complex applications.</p>
+
+                            <div class="note">
+                                <div class="notes-title">Notes</div>
+                                <div class="notes">
+                                    <ul>
+                                        <li>Options 1-3 above can be done locally or by using an official CDN.</li>
+                                        <li>To make a custom build of Kendo UI you <a href="http://www.telerik.com/download/custom-download">must create an account</a> and be logged in to use the Custom Download tool.</li>
+                                    </ul>
+                                </div>
+                            </div>
+
                             <h3><strong>1.8</strong> Official Twitter Bootstrap theme</h3>
                             <h3><strong>1.9</strong> Chrome Devtool extension to aid development</h3>
+                            <h3><strong>1.10</strong> Out-of-the-box themes and tools to customize themes</h3>
 
                             </div><!--  /chapter 1  -->
 
@@ -306,7 +377,7 @@ Most of Kendo UI is free (AKA <a href="http://www.telerik.com/download/kendo-ui-
                             <!--_____________-->
                             <div id="chapter2" class="chapter">
                             
-                            <h2><strong>Chapter 2.</strong> Kendo UI Basics</h2>
+                            <h2><strong>Chapter 2. Kendo UI Basics</strong></h2>
 
                             </div>
 
@@ -315,7 +386,7 @@ Most of Kendo UI is free (AKA <a href="http://www.telerik.com/download/kendo-ui-
                             <!--_____________-->
                             <div id="chapter3" class="chapter">
                             
-                            <h2><strong>Chapter 3.</strong> <code>DataSource</code></h2>
+                            <h2><strong>Chapter 3. <code>DataSource</code></strong></h2>
 
                             </div>
 
@@ -324,7 +395,7 @@ Most of Kendo UI is free (AKA <a href="http://www.telerik.com/download/kendo-ui-
                             <!--_____________-->
                             <div id="chapter4" class="chapter">
                             
-                            <h2><strong>Chapter 4.</strong> MVVM</h2>
+                            <h2><strong>Chapter 4. MVVM</strong></h2>
 
                             </div>
 
@@ -333,7 +404,7 @@ Most of Kendo UI is free (AKA <a href="http://www.telerik.com/download/kendo-ui-
                             <!--_____________-->
                             <div id="chapter5" class="chapter">
                             
-                            <h2><strong>Chapter 5.</strong> Templates</h2>
+                            <h2><strong>Chapter 5. Templates</strong></h2>
 
                             </div>
 
@@ -342,7 +413,7 @@ Most of Kendo UI is free (AKA <a href="http://www.telerik.com/download/kendo-ui-
                             <!--_____________-->
                             <div id="chapter6" class="chapter">
                             
-                            <h2><strong>Chapter 6.</strong> Custom Kendo UI Widgets</h2>
+                            <h2><strong>Chapter 6. Custom Kendo UI Widgets</strong></h2>
 
                             </div>
 
