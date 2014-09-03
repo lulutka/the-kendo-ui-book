@@ -108,6 +108,10 @@
             margin: 20px 0;
         }
 
+        ol li, ul li{
+            line-height: 2em;
+        }
+
         .k-widget.k-splitter{
             border: none;
         }
@@ -209,6 +213,7 @@
         .notes ul{
             margin: 0px;
             color: inherit;
+            padding-left: 20px;
         }
 
         .notes-title{
@@ -234,7 +239,7 @@
             text-transform: uppercase;
             font-size: 10px;
             padding: 0px 6px;
-            margin: 18px 0 0 10px;
+            margin: 0 10px 0 0;
         }
 
         #book img{
@@ -263,14 +268,13 @@
         <div id="header"><div>
         <i class="fa fa-bars fa-align-center fa-lg float-left header-btn" id="toggle-toc"></i>
         <a href="https://github.com/codylindley/the-kendo-ui-book" target="_blank" class="fa fa-github fa-align-center fa-lg float-right header-btn" id="github"></a>
-        <span id="draft" class="float-left">DRAFT</span>
         <h1>The Kendo UI Book</h1>
 
         </div></div>
         <div id="content"><div>
                 <div id="splitter">
                     <div id="toc">
-                        <div id="author">by <a href="http://www.codylindley.com" target="_blank">cody lindley</a> </div>
+                         <div id="author"><span id="draft">DRAFT</span> by <a href="http://www.codylindley.com" target="_blank">cody lindley</a> </div>
                         <div id="toc-padding">
                             
                         </div>
