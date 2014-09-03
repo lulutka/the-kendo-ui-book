@@ -500,15 +500,15 @@ Most of Kendo UI is free (41+ widgets), and can be found on <a href="https://git
         $('#book a').attr('target', '_blank');
 
         //setup splitter
-        var splitter = $("#splitter").kendoSplitter({
+        var splitter = $('#splitter').kendoSplitter({
             panes: [
-                { collapsible: true, size: "25%" },
+                { collapsible: true, size: '25%', collapsed: true },
                 { collapsible: false},
             ]
-        }).data("kendoSplitter");
+        }).data('kendoSplitter');
 
         //toggle
-        $( "#toggle-toc" ).on('click',function() {
+        $( '#toggle-toc' ).on('click',function() {
             splitter.toggle('.k-pane:first');
         });
 
