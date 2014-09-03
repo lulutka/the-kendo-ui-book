@@ -296,7 +296,7 @@
                                         <li>Mobile widgets, by design, function on laptop and desktop browsers. &nbsp;This makes responsive, mobile-first UIs trivial to implement on phone and tablet devices, as well as desktop and laptop computers (desktop support for mobile specific widgets: Chrome Latest, Firefox latest, Opera 15+, Safari 5+, and IE 10+).</li>
                                         <li>The Web and DataViz widgets are <a href="http://docs.telerik.com/kendo-ui/getting-started/browsers-support">supported on all the obvious modern browsers</a>, but &nbsp;also include full support for IE7+ on Windows XP and Server 2003.</li>
                                         <li>The DataViz widgets function on iPhones and tablet devices.</li>
-                                        <li>The Web and DataViz widgets are designed to function on both a mouse-driven and touch-driven interface, and many of the web widgets (e.g. <a href="http://docs.telerik.com/kendo-ui/getting-started/web/grid/adaptive">Grid</a> and <a href="http://demos.telerik.com/kendo-ui/scheduler/adaptive">Scheduler</a>) offer an auto-mobile mode (aka <a href="http://demos.telerik.com/kendo-ui/scheduler/adaptive">mobile adaptive rendering</a>).</li>
+                                        <li>The Web and DataViz widgets are designed to function on both a mouse-driven and touch-driven interface, and a couple of the web widgets (e.g. <a href="http://docs.telerik.com/kendo-ui/getting-started/web/grid/adaptive">Grid</a> and <a href="http://demos.telerik.com/kendo-ui/scheduler/adaptive">Scheduler</a>) offer an auto-mobile mode (aka <a href="http://demos.telerik.com/kendo-ui/scheduler/adaptive">mobile adaptive rendering</a>).</li>
                                         <li>Kendo UI boasts the widest reaching mobile widgets by supporting the broadest range of devices/platforms (iOS 6.0+, Android 2.3+ (In Android 2.3 dataviz widgets support only Canvas rendering mode), BlackBerry OS 10+, Windows Phone 8+, Chrome for Android latest)</li>
                                     </ul>
                                 </div>
@@ -445,7 +445,7 @@ Most of Kendo UI is free (AKA <a href="http://www.telerik.com/download/kendo-ui-
         //setup splitter
         var splitter = $("#splitter").kendoSplitter({
             panes: [
-                { collapsible: true, size: "20%" },
+                { collapsible: true, size: "25%" },
                 { collapsible: false},
             ]
         }).data("kendoSplitter");
@@ -498,11 +498,11 @@ Most of Kendo UI is free (AKA <a href="http://www.telerik.com/download/kendo-ui-
             splitter.toggle('.k-pane:first',false);
         });
         $(window).on('enterBreakpoint768',function() {
-            splitter.size('.k-pane:first', '30%');
+            splitter.size('.k-pane:first', '20%');
             splitter.toggle('.k-pane:first',false);
         });
         $(window).on('enterBreakpoint1024',function() {
-            splitter.size('.k-pane:first', '20%');
+            splitter.size('.k-pane:first', '25%');
             splitter.toggle('.k-pane:first',true);
         });
 
