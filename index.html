@@ -151,7 +151,7 @@
         }
 
         h5 a:hover, h6 a:hover{
-            color:#008cff;
+            color:#4183c4;
         }
 
         #toc-padding{
@@ -256,7 +256,7 @@
         }
 
         #book .syntaxhighlighter{
-            padding: 8px 0;
+            padding: 12px 0;
             display: inline-block;
             width: 100% \9;
             max-width: 100%;
@@ -391,11 +391,11 @@ Most of Kendo UI is free (41+ widgets), and can be found on <a href="https://git
 
                             <p>The fact that the demos are immediately editable and runnable after edits in an <b>official</b> online editor sets Kendo UI apart from similar solutions.</p>
 
-                            <h3><strong>1.5</strong> Accessibility minded widgets</h3>
+                            <h3><strong>1.5</strong> Accessibility</h3>
 
-                            <p>Kendo UI boast the following Accessibility features:</p>
+                            <p>Kendo UI Web &amp; DataVix widgets boast the following accessibility features:</p>
 
-                            <p><strong>Full ARIA support for the web widgets</strong></p>
+                            <p><strong>Full ARIA support</strong></p>
 
                             <p>
 </b>Following the W3C’s “<a href="http://www.w3.org/WAI/PF/aria-practices/#aria_ex">Widget Design Patterns</a>” in the WAI-ARIA specification, Kendo UI will automatically add <a href="http://docs.telerik.com/kendo-ui/tutorials/accessibility/wai-aria-support-in-kendo">WAI-ARIA support</a> when the appropriate role value and additional attributes are needed. &nbsp;For example, examine below the changes made to a number input when it’s converted to a Kendo UI <a href="http://demos.telerik.com/kendo-ui/numerictextbox/index">NumericTextBox</a> widget.</p>
@@ -403,20 +403,52 @@ Most of Kendo UI is free (41+ widgets), and can be found on <a href="https://git
                             <p>Initial number input before a Kendo <a href="http://demos.telerik.com/kendo-ui/numerictextbox/index">NumericTextBox</a> is initiated:</p>
 
                             <pre class="brush: html">
-                                &nbsp;
                                 <input id="amountOwed" type="number" value="17" min="0" max="100" step="1" />
-                                &nbsp;
                             </pre>
 
                             <p>After Kendo UI adds <a href="http://docs.telerik.com/kendo-ui/tutorials/accessibility/wai-aria-support-in-kendo">WAI-ARIA support</a>:</p>
 
                             <pre class="brush: html">
-                                &nbsp;
                                 <input id="numeric" type="text" value="17" min="0" max="100" step="1" data-role="numerictextbox" class="k-input" role="spinbutton" style="display: none;" tabindex="0" aria-valuemin="0" aria-valuemax="100" aria-valuenow="17" />
-                                &nbsp;
                             </pre>
 
+                            <p><strong>Accesskeys</strong></p>
 
+                            <p>Kendo UI recognizes and preserves accesskey attributes used to activate or focus elements in the page using the keyboard.</p>
+
+                            <p><strong>Right-to-left languages</strong></p>
+
+                            <p>Kendo UI supports setting up right-to-left languages globally (i.e. an entire application) or on-demand for specific widgets.</p>
+
+                            <p><strong>Keyboard navigation</strong></p>
+
+                            <p>The following Kendo UI widgets come preconfigured with widget-specific keyboard navigation controls:</p>
+
+                            <ul>
+                            <li><a href="http://demos.telerik.com/kendo-ui/web/autocomplete/navigation.html">AutoComplete</a></li>
+                            <li><a href="http://demos.telerik.com/kendo-ui/web/calendar/navigation.html">Calendar</a></li>
+                            <li><a href="http://demos.telerik.com/kendo-ui/web/combobox/navigation.html">ComboBox</a></li>
+                            <li><a href="http://demos.telerik.com/kendo-ui/web/datepicker/navigation.html">DatePicker</a></li>
+                            <li><a href="http://demos.telerik.com/kendo-ui/web/datetimepicker/navigation.html">DateTimePicker</a></li>
+                            <li><a href="http://demos.telerik.com/kendo-ui/web/dropdownlist/navigation.html">DropDownList</a></li>
+                            <li><a href="http://demos.telerik.com/kendo-ui/web/editor/navigation.html">Editor</a></li>
+                            <li><a href="http://demos.telerik.com/kendo-ui/gantt/keyboard-navigation">Gantt</a></li>
+                            <li><a href="http://demos.telerik.com/kendo-ui/web/grid/navigation.html">Grid</a></li>
+                            <li><a href="http://demos.telerik.com/kendo-ui/web/listview/navigation.html">ListView</a></li>
+                            <li><a href="http://demos.telerik.com/kendo-ui/web/menu/navigation.html">Menu</a></li>
+                            <li><a href="http://demos.telerik.com/kendo-ui/web/numerictextbox/navigation.html">NumericTextBox</a></li>
+                            <li><a href="http://demos.telerik.com/kendo-ui/web/panelbar/navigation.html">PanelBar</a></li>
+                            <li><a href="http://demos.telerik.com/kendo-ui/web/slider/navigation.html">Slider</a></li>
+                            <li><a href="http://demos.telerik.com/kendo-ui/web/splitter/navigation.html">Splitter</a></li>
+                            <li><a href="http://demos.telerik.com/kendo-ui/web/tabstrip/navigation.html">TabStrip</a></li>
+                            <li><a href="http://demos.telerik.com/kendo-ui/web/timepicker/navigation.html">TimePicker</a></li>
+                            <li><a href="http://demos.telerik.com/kendo-ui/web/treeview/navigation.html">TreeView</a></li>
+                            <li><a href="http://demos.telerik.com/kendo-ui/web/window/navigation.html">Window</a></li>
+                            </ul>
+
+                            <p><strong>High-contrast CSS theme</strong></p>
+
+                            <p>for users with low vision or other visual disabilities</p>
 
                             <h3><strong>1.6</strong> Officially integrates with AngularJS</h3>
 
@@ -455,7 +487,7 @@ Most of Kendo UI is free (41+ widgets), and can be found on <a href="https://git
                             <p>Telerik offers a Chrome Devtool extension so that a developer can gain information about widget configuration values, widget events, and any global Kendo UI errors that might be occurring during development.</p>
 
                             <div class="image">
-                                <video width="100%" poster="http://thumbs.gfycat.com/RelievedDopeyBobwhite-poster.jpg" controls>
+                                <video width="100%" poster="http://thumbs.gfycat.com/RelievedDopeyBobwhite-poster.jpg" controls loop>
                                 <source src="http://fat.gfycat.com/RelievedDopeyBobwhite.webm" type="video/webm">
                                 <source src="http://fat.gfycat.com/RelievedDopeyBobwhite.mp4" type="video/mp4">
                                 </video>
