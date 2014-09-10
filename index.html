@@ -104,6 +104,11 @@
             border-bottom:1px solid #eee;
         }
 
+        h3 a:link, h3 a:active, h3 a:visited, h3 a:hover, h2 a:link, h2 a:active, h2 a:visited, h2 a:hover{
+            color:#000;
+            text-decoration: none;
+        }
+
         p,ol,ul{
             color:#000;
             line-height: 25px;
@@ -138,7 +143,7 @@
 
         h6{
             margin-left: 10px;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
         }
 
         h5{
@@ -416,7 +421,7 @@ Most of Kendo UI is free (41+ widgets), and can be found on <a href="https://git
 
                             <p>Kendo UI recognizes and preserves <a href="http://en.wikipedia.org/wiki/Access_key">accesskey attributes</a> used to activate or focus elements in the page using the keyboard. In the code below the <code>accesskey</code> attribute is honored by Kendo UI once it's initialized.</p>
                             
-                            <iframe width="100%" height="200" src="http://jsfiddle.net/codylindley/9878nw2b/embedded/html,css,js,result,resources" allowfullscreen="allowfullscreen" frameborder="0"></iframe> 
+                            <iframe width="100%" height="125" src="http://jsfiddle.net/codylindley/9878nw2b/embedded/html,js,result,resources" allowfullscreen="allowfullscreen" frameborder="0"></iframe> 
 
 
                             <p><strong>Right-to-left languages</strong></p>
@@ -455,7 +460,7 @@ Most of Kendo UI is free (41+ widgets), and can be found on <a href="https://git
 
                             <p>Give it a try (i.e. click on calendar to focus then use the keyboard to navigate the calendar):</p>
 
-                            <iframe width="100%" height="375" src="http://jsfiddle.net/codylindley/ujk0uh4e/embedded/result,html,css,js,resources" allowfullscreen="allowfullscreen" frameborder="0"></iframe> 
+                            <iframe width="100%" height="370" src="http://jsfiddle.net/codylindley/ujk0uh4e/embedded/result,html,css,js,resources" allowfullscreen="allowfullscreen" frameborder="0"></iframe> 
 
                             <p><strong>High-contrast CSS theme</strong></p>
 
@@ -531,8 +536,7 @@ Most of Kendo UI is free (41+ widgets), and can be found on <a href="https://git
 
                             <h3><strong>1.12</strong> Localized widgets</h3>
 
-                            <p>By default, all widget messages are in English. This can be overwritten by including a language specific <code>kendo.messages.&lt;language&gt;.js</code> file along with your Kendo UI code. Kendo UI offers <a href="https://github.com/telerik/kendo-ui-core/tree/master/src/messages">20 official language packages</a> or you can create a custom language specific file with the necessary translations.
-                            </p>
+                            <p>By default, all widget messages are in <a href="https://github.com/telerik/kendo-ui-core/blob/master/src/messages/kendo.messages.en-US.js">English</a>. This can be overwritten by including a language specific <code>kendo.messages.&lt;language&gt;.js</code> file along with your Kendo UI code. Kendo UI offers <a href="https://github.com/telerik/kendo-ui-core/tree/master/src/messages">20 official language packages</a> or you can create a custom language specific file with the necessary translations.</p>
 
                             <div class="note">
                                 <div class="notes-title">Notes</div>
@@ -713,11 +717,13 @@ Most of Kendo UI is free (41+ widgets), and can be found on <a href="https://git
     
             jQuery('h2','#chapter'+(index+1)).each(function(i){
                 $(this).attr('id',(index+1));
+                $(this).wrapInner('<a href="#'+(index+1)+'"></a>');
                 $('#toc-padding').append('<h5><a href="#'+(index+1)+'">'+$(this).html()+'</a></h5>');
             });
 
             jQuery('h3','#chapter'+(index+1)).each(function(i){
                 $(this).attr('id',(index+1)+'.'+(i+1));
+                $(this).wrapInner('<a href="#'+(index+1)+'.'+(i+1)+'"></a>');
                 $('#toc-padding').append('<h6><a href="#'+(index+1)+'.'+(i+1)+'">'+$(this).html()+'</a></h6>');
             });
             
