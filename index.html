@@ -536,7 +536,7 @@ Most of Kendo UI is free (41+ widgets), and can be found on <a href="https://git
 
                             <h3><strong>1.12</strong> Localized widgets</h3>
 
-                            <p>By default, all widget messages are in <a href="https://github.com/telerik/kendo-ui-core/blob/master/src/messages/kendo.messages.en-US.js">English</a>. This can be overwritten by including a language specific <code>kendo.messages.&lt;language&gt;.js</code> file along with your Kendo UI code. Kendo UI offers <a href="https://github.com/telerik/kendo-ui-core/tree/master/src/messages">20 official language packages</a> or you can create a custom language specific file with the necessary translations.</p>
+                            <p>By default, all widget messages are in <a href="https://github.com/telerik/kendo-ui-core/blob/master/src/messages/kendo.messages.en-US.js">English</a>. This can be overwritten by including a language specific <code>kendo.messages.[language here].js</code> file along with your Kendo UI code. Kendo UI offers <a href="https://github.com/telerik/kendo-ui-core/tree/master/src/messages">20 official language packages</a> or you can create a custom language specific file with the necessary translations.</p>
 
                             <div class="note">
                                 <div class="notes-title">Notes</div>
@@ -552,10 +552,10 @@ Most of Kendo UI is free (41+ widgets), and can be found on <a href="https://git
 
                             <p>Kendo UI provides <a href="https://github.com/telerik/kendo-ui-core/tree/master/src/cultures">culture specific overrides</a> (aka <a href="http://docs.telerik.com/kendo-ui/getting-started/framework/globalization/overview">Globalization</a>) for widgets (i.e. Calendar, DatePicker, TimePicker, DateTimePicker, NumericTextBox) that make use of number formats, week and month names, and date and time formats.</p>
 
-                            <p>Over ridding the default kendo.culture.en-US.min.js file is as simple as including a different culture file and telling Kendo UI to use it with the <code>kendo.culture()</code> method.</p>
+                            <p>Over ridding the default <code>kendo.culture.en-US.min.js</code> file is as simple as including a different culture file and telling Kendo UI to use it with the <code>kendo.culture()</code> method.</p>
 
                             <pre class="brush: js">
-                            <script src="http://cdn.kendostatic.com/<version>/js/cultures/kendo.culture.en-GB.min.js"></script>
+                            <script src="http://cdn.kendostatic.com/2014.2.716/js/cultures/kendo.culture.en-GB.min.js"></script>
 
                             <script type="text/javascript">
                                  //set current to the "en-GB" culture script
