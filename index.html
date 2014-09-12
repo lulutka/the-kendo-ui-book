@@ -26,6 +26,7 @@
             height: 100%;
             font-family: "Open Sans","Clear Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
             text-rendering: optimizeLegibility;
+            overflow: hidden;
         }
 
         a:link, a:visited, a:active{
@@ -737,7 +738,7 @@ Most of Kendo UI is free (41+ widgets), and can be found on <a href="https://git
             splitter.toggle('.k-pane:first',false);
         });
         $(window).on('enterBreakpoint480',function() {
-            splitter.size('.k-pane:first', '70%');
+            splitter.size('.k-pane:first', '40%');
             splitter.toggle('.k-pane:first',false);
         });
         $(window).on('enterBreakpoint768',function() {
