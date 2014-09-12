@@ -556,12 +556,12 @@ Most of Kendo UI is free (41+ widgets), and can be found on <a href="https://git
                             <p>Over ridding the default <code>kendo.culture.en-US.min.js</code> file is as simple as including a different culture file and telling Kendo UI to use it with the <code>kendo.culture()</code> method.</p>
 
                             <pre class="brush: js">
-                            <script src="http://cdn.kendostatic.com/2014.2.716/js/cultures/kendo.culture.en-GB.min.js"></script>
+                            &lt;script src=&quot;http://cdn.kendostatic.com/2014.2.716/js/cultures/kendo.culture.en-GB.min.js&quot;&gt;&lt;/script&gt;
 
-                            <script type="text/javascript">
-                                 //set current to the "en-GB" culture script
-                                 kendo.culture("en-GB");
-                            </script>
+                            &lt;script type=&quot;text/javascript&quot;&gt;
+                                 //set current to the &quot;en-GB&quot; culture script
+                                 kendo.culture(&quot;en-GB&quot;);
+                            &lt;/script&gt;
                             </pre>
 
                             <div class="note">
@@ -664,7 +664,6 @@ Most of Kendo UI is free (41+ widgets), and can be found on <a href="https://git
                     for (var i = 0; i < gLines.length; ++i) {
                         var h = $(cLines[i]).height();
                         if (h != stand) {
-                            console.log(i);
                             gLines[i].setAttribute('style', 'height: ' + h + 'px !important;');
                         }
                     }
