@@ -355,11 +355,10 @@
 
                             <h3><strong>1.2</strong> The bulk of Kendo UI is free and open source</h3>
 
-                            <p>
-Most of Kendo UI is free (41+ widgets), and can be found on <a href="https://github.com/telerik/kendo-ui-core">Github</a> under the permissive Apache 2.0 license. This is what Telerik refers to as <a href="http://www.telerik.com/download/kendo-ui-core">Kendo UI core</a>. Historically Kendo UI Core was a commercial solution but as of April 2014 it's freely available to anyone to be used for anything. That's right. Telerik is giving away part of a commercial, enterprise grade solution, for free to anyone to be used for anything! No catch!</p>
+                            <p>Most of Kendo UI is free (41+ widgets), and can be found on <a href="https://github.com/telerik/kendo-ui-core">Github</a> under the permissive Apache 2.0 license. This is what Telerik refers to as <a href="http://www.telerik.com/download/kendo-ui-core">Kendo UI core</a>. Historically Kendo UI Core was a commercial solution but as of April 2014 it's freely available to anyone to be used for anything. That's right. Telerik is giving away part of a commercial, enterprise grade solution, for free to anyone to be used for anything! No catch!</p>
 
 
-<p>Telerik existing to create products for developers also offers an extended set of <a href="http://www.telerik.com/kendo-ui/comparison">commercially licensed</a> (AKA Kendo UI Professional) DataViz widgets (i.e. <a href="http://www.telerik.com/kendo-ui/charts">charts</a>, <a href="http://www.telerik.com/kendo-ui/gauges">gauges</a>, <a href="http://demos.telerik.com/kendo-ui/barcode/index">barcode</a>, <a href="http://demos.telerik.com/kendo-ui/qrcode/index">QR code</a>, <a href="http://www.telerik.com/kendo-ui/stock-chart">stock chart</a>, and <a href="http://demos.telerik.com/kendo-ui/treemap/index">treemap</a> widgets) and the following Web widgets:</p>
+                            <p>Telerik existing to create products for developers also offers an extended set of <a href="http://www.telerik.com/kendo-ui/comparison">commercially licensed</a> (AKA Kendo UI Professional) DataViz widgets (i.e. <a href="http://www.telerik.com/kendo-ui/charts">charts</a>, <a href="http://www.telerik.com/kendo-ui/gauges">gauges</a>, <a href="http://demos.telerik.com/kendo-ui/barcode/index">barcode</a>, <a href="http://demos.telerik.com/kendo-ui/qrcode/index">QR code</a>, <a href="http://www.telerik.com/kendo-ui/stock-chart">stock chart</a>, and <a href="http://demos.telerik.com/kendo-ui/treemap/index">treemap</a> widgets) and the following Web widgets:</p>
 
                             <ul>
                             <li><a style="background-color: initial" href="http://www.telerik.com/kendo-ui/diagram">Diagram</a></li>
@@ -403,26 +402,25 @@ Most of Kendo UI is free (41+ widgets), and can be found on <a href="https://git
 
                             <p><strong>Full ARIA support</strong></p>
 
-                            <p>
-</b>Following the W3C’s “<a href="http://www.w3.org/WAI/PF/aria-practices/#aria_ex">Widget Design Patterns</a>” in the WAI-ARIA specification, Kendo UI will automatically add <a href="http://docs.telerik.com/kendo-ui/tutorials/accessibility/wai-aria-support-in-kendo">WAI-ARIA support</a> when the appropriate role value and additional attributes are needed. &nbsp;For example, examine below the changes made to a number input when it’s converted to a Kendo UI <a href="http://demos.telerik.com/kendo-ui/numerictextbox/index">NumericTextBox</a> widget.</p>
+                            <p>Following the W3C’s “<a href="http://www.w3.org/WAI/PF/aria-practices/#aria_ex">Widget Design Patterns</a>” in the WAI-ARIA specification, Kendo UI will automatically add <a href="http://docs.telerik.com/kendo-ui/tutorials/accessibility/wai-aria-support-in-kendo">WAI-ARIA support</a> when the appropriate role value and additional attributes are needed. &nbsp;For example, examine below the changes made to a number input when it’s converted to a Kendo UI <a href="http://demos.telerik.com/kendo-ui/numerictextbox/index">NumericTextBox</a> widget.</p>
 
                             <p>Initial number input before a Kendo <a href="http://demos.telerik.com/kendo-ui/numerictextbox/index">NumericTextBox</a> is initiated:</p>
 
                             <pre class="brush: html">
-                                <input id="amountOwed" type="number" value="17" min="0" max="100" step="1" />
+                                &lt;input id=&quot;amountOwed&quot; type=&quot;number&quot; value=&quot;17&quot; min=&quot;0&quot; max=&quot;100&quot; step=&quot;1&quot; /&gt;
                             </pre>
 
                             <p>After Kendo UI adds <a href="http://docs.telerik.com/kendo-ui/tutorials/accessibility/wai-aria-support-in-kendo">WAI-ARIA support</a>:</p>
 
                             <pre class="brush: html">
-                                <input id="numeric" type="text" value="17" min="0" max="100" step="1" data-role="numerictextbox" class="k-input" role="spinbutton" style="display: none;" tabindex="0" aria-valuemin="0" aria-valuemax="100" aria-valuenow="17" />
+                                &lt;input id=&quot;numeric&quot; type=&quot;text&quot; value=&quot;17&quot; min=&quot;0&quot; max=&quot;100&quot; step=&quot;1&quot; data-role=&quot;numerictextbox&quot; class=&quot;k-input&quot; role=&quot;spinbutton&quot; style=&quot;display: none;&quot; tabindex=&quot;0&quot; aria-valuemin=&quot;0&quot; aria-valuemax=&quot;100&quot; aria-valuenow=&quot;17&quot; /&gt;
                             </pre>
 
                             <p><strong>Accesskeys</strong></p>
 
                             <p>Kendo UI recognizes and preserves <a href="http://en.wikipedia.org/wiki/Access_key">accesskey attributes</a> used to activate or focus elements in the page using the keyboard. In the code below the <code>accesskey</code> attribute is honored by Kendo UI once it's initialized.</p>
                             
-                            <iframe width="100%" height="125" src="http://jsfiddle.net/codylindley/9878nw2b/embedded/html,js,result,resources" allowfullscreen="allowfullscreen" frameborder="0"></iframe> 
+                            <iframe width="100%" height="125" src="http://jsfiddle.net/codylindley/9878nw2b/embedded/html,js,result,resources" allowfullscreen="allowfullscreen" frameborder="0" scrolling="no"></iframe> 
 
 
                             <p><strong>Right-to-left languages</strong></p>
@@ -461,13 +459,13 @@ Most of Kendo UI is free (41+ widgets), and can be found on <a href="https://git
 
                             <p>Give it a try (i.e. click on calendar to focus then use the keyboard to navigate the calendar):</p>
 
-                            <iframe width="100%" height="370" src="http://jsfiddle.net/codylindley/ujk0uh4e/embedded/result,html,css,js,resources" allowfullscreen="allowfullscreen" frameborder="0"></iframe> 
+                            <iframe width="100%" height="360" src="http://jsfiddle.net/codylindley/ujk0uh4e/embedded/result,html,css,js,resources" allowfullscreen="allowfullscreen" frameborder="0" scrolling="no"></iframe> 
 
                             <p><strong>High-contrast CSS theme</strong></p>
 
                             <p>For users with low vision or other visual disabilities a high-contrast theme is available for Kendo UI Web, DataViz, and Mobile widgets.</p>
                             
-                            <iframe width="100%" height="410" src="http://jsfiddle.net/codylindley/mhg7cLkd/embedded/result,html,css,js,resources" allowfullscreen="allowfullscreen" frameborder="0"></iframe> 
+                            <iframe width="100%" height="360" src="http://jsfiddle.net/codylindley/mhg7cLkd/embedded/result,html,css,js,resources" allowfullscreen="allowfullscreen" frameborder="0" scrolling="no"></iframe> 
 
                             <h3><strong>1.6</strong> Officially integrates with AngularJS</h3>
 
@@ -686,7 +684,7 @@ Most of Kendo UI is free (41+ widgets), and can be found on <a href="https://git
         //setup splitter
         var splitter = $('#splitter').kendoSplitter({
             panes: [
-                { collapsible: true, size: '25%', collapsed: true },
+                { collapsible: true, collapsed: true },
                 { collapsible: false},
             ]
         }).data('kendoSplitter');
@@ -734,18 +732,22 @@ Most of Kendo UI is free (41+ widgets), and can be found on <a href="https://git
 
         $(window).on('enterBreakpoint320',function() {
             splitter.size('.k-pane:first', '70%');
+            splitter.size('.k-pane:last', '30%');
             splitter.toggle('.k-pane:first',false);
         });
         $(window).on('enterBreakpoint480',function() {
             splitter.size('.k-pane:first', '40%');
+            splitter.size('.k-pane:last', '60%');
             splitter.toggle('.k-pane:first',false);
         });
         $(window).on('enterBreakpoint768',function() {
             splitter.size('.k-pane:first', '20%');
+            splitter.size('.k-pane:last', '80%');
             splitter.toggle('.k-pane:first',false);
         });
         $(window).on('enterBreakpoint1024',function() {
             splitter.size('.k-pane:first', '25%');
+            splitter.size('.k-pane:last', '75%');
             splitter.toggle('.k-pane:first',true);
         });
 
