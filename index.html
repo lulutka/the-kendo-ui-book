@@ -404,7 +404,7 @@
 
                             <p>Following the W3C’s “<a href="http://www.w3.org/WAI/PF/aria-practices/#aria_ex">Widget Design Patterns</a>” in the WAI-ARIA specification, Kendo UI will automatically add <a href="http://docs.telerik.com/kendo-ui/tutorials/accessibility/wai-aria-support-in-kendo">WAI-ARIA support</a> when the appropriate role value and additional attributes are needed. &nbsp;For example, examine below the changes made to a number input when it’s converted to a Kendo UI <a href="http://demos.telerik.com/kendo-ui/numerictextbox/index">NumericTextBox</a> widget.</p>
 
-                            <p>Initial number input before a Kendo <a href="http://demos.telerik.com/kendo-ui/numerictextbox/index">NumericTextBox</a> is initiated:</p>
+                            <p>The code below shows the initial number input before a Kendo <a href="http://demos.telerik.com/kendo-ui/numerictextbox/index">NumericTextBox</a> is initiated:</p>
 
                             <pre class="brush: html">
                                 &lt;input id=&quot;amountOwed&quot; type=&quot;number&quot; value=&quot;17&quot; min=&quot;0&quot; max=&quot;100&quot; step=&quot;1&quot; /&gt;
@@ -425,7 +425,10 @@
 
                             <p><strong>Right-to-left languages</strong></p>
 
-                            <p>Kendo UI supports setting up right-to-left languages globally (i.e. an entire application) or on-demand for specific widgets.</p>
+                            <p>Kendo UI supports setting up right-to-left languages globally (i.e. an entire application) or on-demand for individual widgets.</p>
+
+                            <p>In order to enable RTL support include the <a href="http://cdn.kendostatic.com/2014.2.903/styles/kendo.rtl.min.css'">kendo.rtl.css</a> stylesheet in an html page. The RTL stylesheet should be registered after the common stylesheet and before the theme stylesheet. Then wrap Kendo widgets in an HTML element with a <code>.k-rtl</code> CSS class or assign the <code>.k-rtl</code> class to the <code>&lt;body&gt;</code> element to globally declare RTL for the entire application.</p>
+
 
                             <p><strong>Keyboard navigation</strong></p>
 
@@ -466,6 +469,15 @@
                             <p>For users with low vision or other visual disabilities a high-contrast theme is available for Kendo UI Web, DataViz, and Mobile widgets.</p>
                             
                             <iframe width="100%" height="360" src="http://jsfiddle.net/codylindley/mhg7cLkd/embedded/result,html,css,js,resources" allowfullscreen="allowfullscreen" frameborder="0" scrolling="no"></iframe> 
+
+                            <div class="note">
+                                <div class="notes-title">Notes</div>
+                                <div class="notes">
+                                    <ul>
+                                        <li>Long-term goal is to provide full WAI-ARI support as well as WCAG and Section 508 compliance in future releases for all of Kendo UI.</li>
+                                    </ul>
+                                </div>
+                            </div>
 
                             <h3><strong>1.6</strong> Officially integrates with AngularJS</h3>
 
@@ -535,7 +547,7 @@
 
                             <h3><strong>1.12</strong> Localized widgets</h3>
 
-                            <p>By default, all widget messages are in <a href="https://github.com/telerik/kendo-ui-core/blob/master/src/messages/kendo.messages.en-US.js">English</a>. This can be overwritten by including a language specific <code>kendo.messages.[language here].js</code> file along with your Kendo UI code. Kendo UI offers <a href="https://github.com/telerik/kendo-ui-core/tree/master/src/messages">20 official language packages</a> or you can create a custom language specific file with the necessary translations.</p>
+                            <p>By default, all widget messages are in <a href="https://github.com/telerik/kendo-ui-core/blob/master/src/messages/kendo.messages.en-US.js">English</a>. This can be overwritten by including a language specific <code>kendo.messages.[language here].js</code> file along with your Kendo UI code. Kendo UI offers <a href="https://github.com/telerik/kendo-ui-core/tree/master/src/messages">20 official language packages</a> or you can create a custom language file with the necessary translations.</p>
 
                             <div class="note">
                                 <div class="notes-title">Notes</div>
@@ -550,6 +562,8 @@
                             <h3><strong>1.13</strong> Globalized (i.e. multiple cultures) widgets</h3>
 
                             <p>Kendo UI provides <a href="https://github.com/telerik/kendo-ui-core/tree/master/src/cultures">culture specific overrides</a> (aka <a href="http://docs.telerik.com/kendo-ui/getting-started/framework/globalization/overview">Globalization</a>) for widgets (i.e. Calendar, DatePicker, TimePicker, DateTimePicker, NumericTextBox) that make use of number formats, week and month names, and date and time formats.</p>
+
+                            <iframe width="100%" height="500" src="http://jsfiddle.net/codylindley/ygy4e7ez/embedded/result,html,js,resources" allowfullscreen="allowfullscreen" frameborder="0" scrolling="no"></iframe> 
 
                             <p>Over ridding the default <code>kendo.culture.en-US.min.js</code> file is as simple as including a different culture file and telling Kendo UI to use it with the <code>kendo.culture()</code> method.</p>
 
