@@ -314,7 +314,7 @@
                     </div>
                     <div id="book">
                         <div id="center-book">
-                            <img src="images/kendo.png" style="margin-top:50px;" class="noBorder" />
+                            <img src="images/kendo.png" style="margin-top:50px;" class="noBorder" id="Kendoka" />
 
                             <!--_____________-->
                             <!--  chapter 1  -->
@@ -384,30 +384,37 @@
 
                             <h3><strong>1.3</strong> Widgets are jQuery based</h3>
 
-                            <p>The jQuery find-something-then-do-something pattern is likely the most prevalent pattern for working with the DOM today.  It is likely impossible to find a developer who is not familiar with jQuery and its plugin architecture.  Developers who have never used a jQuery-based UI toolkit, including Kendo UI, will already be familiar with it because of its similarities to jQuery and the jQuery plugin pattern.</p>
+                            <p>The jQuery find-something-then-do-something pattern is likely the most prevalent pattern for working with the DOM today.  It is likely impossible to find a developer who is not familiar with jQuery and its plugin architecture.  Developers who have never used a jQuery-based UI toolkit, like  Kendo UI, will already be familiar with it because of its similarities to jQuery and the jQuery plugin pattern.</p>
 
-                            <p>Because Kendo UI is jQuery based it can co-exsist with most any jQuery plugin. The jQuery community contains the largest selection of JavaScript plugins available for doing front-end development. Just consider, that on Github there are 19,257 repository results for the search “jquery+plugin”. As well, the jQuery project itself provides a repository of 2400+ community plugins.</p>
+                            <h3><strong>1.4</strong> Kendo UI and jQuery Plug-ins</h3>
 
-                            <p>If Kendo UI doesn't have or do exactly what you want, you legitimately have good options because it's jQuery based.  It’s even programmatically reasonable to pick and choose parts from multiple jQuery UI widget toolkits to be used with Kendo UI with no fuss, overhead, conflicts, or fear of duplicating code.</p>
+                            <p>The jQuery community contains the largest selection of JavaScript plug-ins available for doing front-end development. Just consider, that on Github there are 19,257 repository results for the search “jquery+plugin”. As well, the jQuery project itself provides a repository of 2400+ community plugins.</p>
 
-                            <h3><strong>1.4</strong> Integrated AngularJS Directives</h3>
+                            <p>If Kendo UI doesn't have or do exactly what you want, you legitimately have good options because it's jQuery based. Most any jQuery plugin can run alongside Kendo UI widgets, which are jQuery plug-ins themselves.  It’s even programmatically reasonable to pick and choose parts from multiple jQuery UI widget toolkits to be used with Kendo UI with no fuss, overhead, conflicts, or fear of duplicating code.</p>
 
-                            <p>Kendo UI provides <a href="http://cdn.kendostatic.com/2014.2.903/js/kendo.angular.min.js">official AngularJS directives</a> for initializing <a href="http://demos.telerik.com/kendo-ui/slider/angular">web widgets</a> and <a href="http://demos.telerik.com/kendo-ui/mobile-button/angular">mobile widgets</a> the Angular way.</p>
+                            <h3><strong>1.5</strong> Initialize widgets using imperative or declarative interfaces</h3>
+
+                            <p>Kendo UI widgets can be initialized imperatively using using the common jQuery plugin method pattern or declaratively from markup using several options including AngularJS Directives. </p>
+
+                            <h3><strong>1.6</strong> Integrated AngularJS Directives</h3>
+
+                            <p>Kendo UI provides <a href="http://cdn.kendostatic.com/2014.2.903/js/kendo.angular.min.js">official AngularJS directives</a> for initializing <a href="http://demos.telerik.com/kendo-ui/slider/angular">web widgets</a> and <a href="http://demos.telerik.com/kendo-ui/mobile-button/angular">mobile widgets</a> the Angular way (i.e. using a declarative interface via directives).</p>
 
                             <div class="note">
                                 <div class="notes-title">Notes</div>
                                 <div class="notes">
                                     <ul>
-                                        <li>Q2'14 AngularJS directives started being shipped and maintained as part of <code>kendo.all.min.js</code></li>
+                                        <li>AngularJS directives started being shipped and maintained as part of <code>kendo.all.min.js</code> in the July 16, 2014 Q2 release (i.e. 2014.2.716)</code></li>
                                         <li>Telerik provides official support for Kendo UI AngularJS integrations via paid support.</li>
                                         <li>Kendo officially supports AngularJS v1.2.21</li>
+                                        <li>Be aware <a href="https://blog.angularjs.org/2013/12/angularjs-13-new-release-approaches.html">AngularJS 1.3 is dropping support for IE8</a>. AngularJS 1.2 will continue to support IE8, but the core team does not plan to spend time addressing issues specific to IE8 or earlier.</li>
                                         <li>Choose AngularJS Data Binding/Routing or Kendo MVVM/Routing don't mix this solutions in a single application.</li>
                                         <li>When loading individual Kendo UI files you need to also load <code>kendo.angular.js</code> (or <code>kendo.angular.min.js</code>) after <code>kendo.core.js</code> (or <code>kendo.core.ming.js</code>) because this file contains the actual directives.</li>
                                     </ul>
                                 </div>
                             </div>
 
-                            <h3><strong>1.5</strong> Numerous options for including Kendo UI JavaScript</h3>
+                            <h3><strong>1.7</strong> Numerous options for including Kendo UI JavaScript</h3>
 
                             <p>Kendo UI provides the most comprehensive set of options for including Kendo in a web page.  You can include Kendo UI in one of the following five ways:</p>
 
@@ -434,13 +441,13 @@
                             </div>
 
 
-                            <h3><strong>1.6</strong> In-depth Getting Started docs and API docs</h3>
+                            <h3><strong>1.8</strong> In-depth Getting Started docs and API docs</h3>
 
                             <p>Kendo UI provides <a href="http://docs.telerik.com/kendo-ui/api/introduction">API documentation</a> which details options, methods, and events for each widget or tool. Additionally, above and beyond the API documentation a <a href="http://docs.telerik.com/kendo-ui/getting-started/introduction">Getting Started</a> overview is provided for each widget or tool. Very few commercial solutions provide such a resource, and if they do, its nowhere as in depth as what is found in Kendo UI Getting Started documents.</p>
 
                             <p>When time is of </p>
 
-                            <h3><strong>1.7</strong> Detailed demos immediately runnable and editable</h3>
+                            <h3><strong>1.9</strong> Detailed demos immediately runnable and editable</h3>
 
                             <p>Each widget contains a plethora of demos (e.g. the <a href="http://demos.telerik.com/kendo-ui/grid/index">grid offers 36+ unique demos</a>), all of which are immediately available to be edited in an <a href="http://dojo.telerik.com/">official live, online code editor</a> called the Telerik Kendo UI Dojo. This of course allows for easy editing and executing of the code as well as the means to copy and past demo code to other editors quickly.</p>
                             
@@ -448,7 +455,7 @@
 
                             <p>The fact that the demos are immediately editable and runnable after edits in an <b>official</b> online editor sets Kendo UI apart from similar solutions.</p>
 
-                            <h3><strong>1.8</strong> Chrome Devtool extension to aid development</h3>
+                            <h3><strong>1.10</strong> Chrome Devtool extension to aid development</h3>
                             
                             <p>Telerik offers a Chrome Devtool extension so that a developer can gain information about widget configuration values, widget events, and any global Kendo UI errors that might be occurring during development.</p>
 
@@ -459,11 +466,11 @@
                                 </video>
                             </div>
 
-                            <h3><strong>1.9</strong> Official Twitter Bootstrap theme</h3>
+                            <h3><strong>1.11</strong> Official Twitter Bootstrap theme</h3>
 
                             <p>Kendo UI can be combined seamlessly with the powerful <a href="http://getbootstrap.com/">Bootstrap front-end framework</a> by using an <a href="http://docs.telerik.com/kendo-ui/getting-started/using-kendo-with/using-kendo-with-twitter-bootstrap">officially supported Kendo UI Bootstrap theme</a>. By supporting Bootstrap Kendo UI widgets can live along side anything that Bootstrap provides. The combination of Kendo UI and Bootstrap leaves little need for much else when building an application interfaces is a short amount of time.</p>
 
-                            <h3><strong>1.10</strong> Out-of-the-box themes and theme builder tools</h3>
+                            <h3><strong>1.12</strong> Out-of-the-box themes and theme builder tools</h3>
 
                             <p>The Kendo UI Web &amp; DataViz widgets have 11 out-of-the-box themes that can be used. As well, each of the themes can be customized using the <a href="http://demos.telerik.com/kendo-ui/themebuilder/">Telerik ThemeBuilder</a> tool.</p>
 
@@ -478,7 +485,7 @@
                                 </div>
                             </div>
 
-                            <h3><strong>1.11</strong> Localized widgets</h3>
+                            <h3><strong>1.13</strong> Localized widgets</h3>
 
                             <p>By default, all widget messages are in <a href="https://github.com/telerik/kendo-ui-core/blob/master/src/messages/kendo.messages.en-US.js">English</a>. This can be overwritten by including a language specific <code>kendo.messages.[language here].js</code> file along with your Kendo UI code. Kendo UI offers <a href="https://github.com/telerik/kendo-ui-core/tree/master/src/messages">20 official language packages</a> or you can create a custom language file with the necessary translations.</p>
 
@@ -492,7 +499,7 @@
                                 </div>
                             </div>
 
-                            <h3><strong>1.12</strong> Accessible widgets</h3>
+                            <h3><strong>1.14</strong> Accessible widgets</h3>
 
                             <p>Kendo UI Web &amp; DataViz widgets boast the following accessibility features:</p>
 
@@ -605,7 +612,7 @@
                                 </div>
                             </div>
 
-                            <h3><strong>1.13</strong> Globalized (i.e. multiple cultures) widgets</h3>
+                            <h3><strong>1.15</strong> Globalized (i.e. multiple cultures) widgets</h3>
 
                             <p>Kendo UI provides <a href="https://github.com/telerik/kendo-ui-core/tree/master/src/cultures">culture specific overrides</a> (aka <a href="http://docs.telerik.com/kendo-ui/getting-started/framework/globalization/overview">Globalization</a>) for widgets (i.e. Calendar, DatePicker, TimePicker, DateTimePicker, NumericTextBox) that make use of number formats, week and month names, and date and time formats.</p>
 
@@ -641,19 +648,15 @@
                             <!--_____________-->
                             <div id="chapter2" class="chapter">
                             
-                            <h2><strong>Chapter 2. Kendo UI Basics</strong></h2>
+                            <h2><strong>Chapter 2. Setting up Kendo UI</strong></h2>
 
-                            <h3><strong>2.X</strong> jQuery Plugin Architecture &amp; Kendo</h3>
-                            <h3><strong>2.X</strong> Getting Kendo UI from local files</h3>
-                            <h3><strong>2.X</strong> Getting Kendo UI via CDN</h3>
-                            <h3><strong>2.X</strong> Getting Kendo UI via Require.js</h3>
-                            <h3><strong>2.X</strong> Creating Kendo UI Widgets from method call</h3>
-                            <h3><strong>2.X</strong> Creating Kendo UI Widgets from data attributes (aka declarative initialization)</h3>
-                            <h3><strong>2.X</strong> Getting reference to an unknown Kendo UI widget</h3>
-                            <h3><strong>2.X</strong> Using the API of a Kendo UI widget</h3>
-                            <h3><strong>2.X</strong> Subscribing to the events of a Kendo UI widget</h3>
-                            <h3><strong>2.X</strong> Accessing Kendo UI widget elements</h3>
-                            <h3><strong>2.X</strong> Destroying Kendo UI widgets</h3>
+                            <h3><strong>2.X</strong> Downloading Kendo UI</h3>
+                            <h3><strong>2.X</strong> Linking to Kendo UI on CDN</h3>
+                            <h3><strong>2.X</strong> Using all Kendo UI from a single file</h3>
+                            <h3><strong>2.X</strong> Using Kendo UI individual source files</h3>
+                            <h3><strong>2.X</strong> Using a dependency manager to load Kendo UI</h3>
+                            <h3><strong>2.X</strong> Creating a custom all in one Kendo UI build</h3>
+                            <h3><strong>2.X</strong> Creating a custom Core Kendo UI build</h3>
 
                             </div>
 
@@ -662,7 +665,16 @@
                             <!--_____________-->
                             <div id="chapter3" class="chapter">
                             
-                            <h2><strong>Chapter 3. <code>DataSource</code></strong></h2>
+                            <h2><strong>Chapter 3. Initializing &amp; Working With Kendo UI Widgets</strong></h2>
+                            <h3><strong>3.X</strong> Getting the version of Kendo UI </h3>
+                            <h3><strong>3.X</strong> Imperially create widgets </h3>
+                            <h3><strong>3.X</strong> Declaratively create widgets </h3>
+                            <h3><strong>3.X</strong> Getting reference/pointer to widget instance</h3>
+                            <h3><strong>3.X</strong> Getting reference to an unknown Kendo UI widget</h3>
+                            <h3><strong>3.X</strong> Calling widget methods</h3>
+                            <h3><strong>3.X</strong> Subscribing to the events of a Kendo UI widget</h3>
+                            <h3><strong>3.X</strong> Accessing Kendo UI widget elements</h3>
+                            <h3><strong>3.X</strong> Destroying Kendo UI widgets</h3>
 
                             </div>
 
@@ -671,7 +683,7 @@
                             <!--_____________-->
                             <div id="chapter4" class="chapter">
                             
-                            <h2><strong>Chapter 4. MVVM</strong></h2>
+                            <h2><strong>Chapter 4. DataSource</strong></h2>
 
                             </div>
 
@@ -681,6 +693,15 @@
                             <div id="chapter5" class="chapter">
                             
                             <h2><strong>Chapter 5. Templates</strong></h2>
+
+                            </div>
+
+                            <!--_____________-->
+                            <!--  chapter 4  -->
+                            <!--_____________-->
+                            <div id="chapter4" class="chapter">
+                            
+                            <h2><strong>Chapter 4. MVVM &amp; Observable</strong></h2>
 
                             </div>
 
@@ -709,6 +730,7 @@
     <script src="bower_components/SyntaxHighlighter/scripts/shCore.js"></script>
     <script src="bower_components/SyntaxHighlighter/scripts/shBrushJScript.js"></script>
     <script src="bower_components/SyntaxHighlighter/scripts/shBrushXml.js"></script>
+    <script src="bower_components/jquery.transit/jquery.transit.js"></script>
     <script>
 
         SyntaxHighlighter.defaults['toolbar'] = false;
@@ -751,11 +773,6 @@
                 { collapsible: false},
             ]
         }).data('kendoSplitter');
-
-        //toggle
-        $( '#toggle-toc' ).on('click',function() {
-            splitter.toggle('.k-pane:first');
-        });
 
         //create TOC
         /**jQuery('.toc').each(function(index){
@@ -812,6 +829,25 @@
             splitter.size('.k-pane:first', '25%');
             splitter.size('.k-pane:last', '75%');
             splitter.toggle('.k-pane:first',true);
+        });
+
+        /*$('#Kendoka').transition({
+            skewX: '30deg',
+            rotateY: '180deg',
+            x: '-500px'
+        },500).transition({
+            x: '60px'
+        }, 200, 'ease',function(){
+            splitter.collapse(".k-pane:first");
+        })
+        .transition({
+            x: '0px',
+            skewX: '0deg',
+        }, 200, 'ease');*/
+
+        //toggle
+        $( '#toggle-toc' ).on('click',function() {
+            splitter.toggle('.k-pane:first');
         });
 
     </script>
