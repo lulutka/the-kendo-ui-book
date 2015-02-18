@@ -1,4 +1,50 @@
 <!DOCTYPE html>
+<!--
+
+                         .7.            
+                          ~             
+                          ~             
+                          ~.            
+             .  .OD7.  . .~             
+            .D888I~Z8D8= .~.            
+          .+DD~~~~D~~~888.~             
+          IDD~~~,,M~~~~~8D~.            
+          88~~,,,,M:==~=$8~             
+         88?~,,,:,M,:~~~~D=,            
+         88~MMMMMMMMMMMM?$7$            
+         88~=,::++M++~~~~8:8            
+         88~~,,:,:M:,~~~~8~,            
+          88~~,,,,M,:~~~~8~.            
+         .D8Z~,,,,M:=~==88~.            
+        .?788D~~?$NZ?~~88?~7.           
+     ..$??+7Z888~~=~~8887+~?777..       
+  ...7????777788888888Z77I~+????7       
+  .7I??+7777777Z888887777I~I7I7?.       
+    .7777777777MM888MM777?~I7OOOZ       
+      .O77777OOMMMMMMMMMMZ~ZDOOOOO?     
+       ZOOOOOOOMMMMMMMMMM$~$M7$777$Z    
+      .8ZOOOOOOMMMMMMMMMMI~+M7777777$   
+     .8MOOOOOOZ8888888DMM?~?$7777777?,. 
+      MMOOOOOO7777777MMM?=~~+77777????. 
+      88OOOOO77777777777~????I77I???=.. 
+     .MMMOOOZ77777777777777777???+~.    
+    ,777DOOO$7777777777777$777?I...     
+  .$$7777$OOO????????????7????I7?       
+ ?77777777$ZI?????I7777777=+777777.     
+ .:7777777Z7??777777777777~?777$$..     
+  .=O8O77O7??777777777777?~?Z8OOO .     
+  .Z88OOOZ7??777777777777=~$88OOOZ      
+  OO8OOOOZOO7777777777777~~Z888OOO+     
+ .O88OOOOOOOOOO$77777$OOO~~8O888OOO.    
+.OO88OOOOOOOOOOOOOOOOOOOOOO8O888OOOZ    
+ OO8OOOOOOOOOOOOOOOOOOOOOOO888888OOZ    
+.Z88OOOOOOOOOOOOOOOOOOOOOOOZ8O888OZ.    
+ ..OZOOOOOOOOOOOOOOOOOOOOOOO8O88:       
+   ?777OOOOOOOOOOOOOOOOOOOOO8777
+          IOOOOOOOOOOOOOO7$77777
+                        7IIIIII?
+
+-->
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>The Kendo UI Book</title>
@@ -8,11 +54,13 @@
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
     <meta http-equiv="Pragma" content="no-cache" />
     <meta http-equiv="Expires" content="0" />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="http://cdn.kendostatic.com/2014.2.716/styles/kendo.common.min.css" rel="stylesheet" />
-    <link href="http://cdn.kendostatic.com/2014.2.716/styles/kendo.uniform.min.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+    <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:300,400' rel='stylesheet' type='text/css'>
+    <link href="bower_components/kendo-ui/styles/kendo.common.min.css" rel="stylesheet" />
+    <link href="bower_components/kendo-ui/styles/kendo.uniform.min.css" rel="stylesheet" />
+    <link href="bower_components/normalize-css/normalize.css" rel="stylesheet" />
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
-    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <link href="bower_components/SyntaxHighlighter/styles/shCore.css" rel="stylesheet" type="text/css" />
     <link href="bower_components/SyntaxHighlighter/styles/shThemeDefault.css" rel="stylesheet" type="text/css" />
     <!--[if lt IE 9]>
@@ -31,7 +79,7 @@
 
         a:link, a:visited, a:active{
             text-decoration: none;
-            color:#4183c4;
+            color:#0487c4;
         }
 
         a:hover{
@@ -63,7 +111,6 @@
             z-index: 1000000000000000000000;
             width: 100%;
             display: table-row;   
-            width: 100%;
         }
 
         #content > div {
@@ -71,25 +118,40 @@
         }
 
         h1{
-            margin: 0;
+            margin: 0 auto;
             padding: 0;
             font-size: 20px;
             text-align: center;
             line-height: 50px;
             text-overflow: ellipsis;
             white-space: nowrap;
-            color: #7e888b;
+            color: #000;
+            font-weight: normal;
+            overflow: hidden;
+            width:200px;
+            font-family: 'Roboto Slab', serif;
+            font-weight: 300;
+        }
+        h1 img{
+            padding-right: 30px;
+        }
+
+        h2 strong, h3 strong, h6 strong{
+            color:#f55300;
             font-weight: normal;
         }
 
         h2{
             margin:50px 0 40px 0;
             padding:0 0 0 0;
-            font-weight: bold;
+            font-weight: normal;
             color: #000;
             letter-spacing: .01rem;
             font-size: 40px;
             line-height: 1.2em;
+            font-family: 'Roboto Slab', serif;
+            font-weight: 300;
+            letter-spacing: -1px;
         }
 
         h3{
@@ -103,6 +165,8 @@
             margin-bottom: 10px;
             margin-top: 60px;
             border-bottom:1px solid #eee;
+            font-family: 'Roboto Slab', serif;
+            font-weight: 300;
         }
 
         h3 a:link, h3 a:active, h3 a:visited, h3 a:hover, h2 a:link, h2 a:active, h2 a:visited, h2 a:hover{
@@ -134,35 +198,57 @@
 
         h5,h6{
             letter-spacing: .01rem;
-            line-height: 1.5em;
             color: #364149;
-            font-size: 14px;
-            padding:0;
-            margin: 0 0 20px 0;
+            padding:0 0 0 0;
+            margin: 0 0 0 0;
             font-weight: normal;
         }
 
         h6{
             margin-left: 10px;
-            margin-bottom: 15px;
+            font-size: 15px;
+            margin-top:15px;
+            padding-top:0;
+            padding-bottom:0;
+            line-height: 1.4em;
         }
 
         h5{
             margin-top: 30px;
+            font-family: 'Roboto Slab', serif;
+            font-size: 18px;
+            font-weight: 400;
+            line-height: 1.6em;
         }
 
         h5 a:link, h5 a:active, h5 a:visited, h6 a:link, h6 a:active, h6 a:visited{
             color:#364149;
             text-decoration: none;
+            padding: 0px 0;
+            padding-right: 20px;
+            display: block;
         }
 
         h5 a:hover, h6 a:hover{
-            color:#4183c4;
+            color:#f55330;
+            text-decoration: underline;
         }
 
         #toc-padding{
             padding: 0px 20px 20px 20px;
         }
+
+        #toc-padding h5 a.active{
+            background-image: url(images/check.png);
+            background-position: right 11px;
+            background-repeat: no-repeat;
+        }
+
+        #toc-padding h6 a.active{
+            background-image: url(images/check.png);
+            background-position: right 2px;
+            background-repeat: no-repeat;
+        } 
 
         #toc{
             background-color: #fafafa;
@@ -226,7 +312,7 @@
 
         .notes-title{
             padding-left:10px;
-            background-color: #EFEFEF;
+            background-color: #FAFAFA;
         }
 
         code{
@@ -241,7 +327,7 @@
         }
 
         #draft{
-            background-color: #d9534f;
+            background-color: #7E888B;
             color: #fff;
             font-weight: normal;
             text-transform: uppercase;
@@ -292,7 +378,28 @@
         body .syntaxhighlighter .line {
             white-space: pre-wrap !important; /* make code wrap */
         }
-        
+
+        .videoContainer {
+            position: relative;
+            padding-bottom: 56.25%;
+            padding-top: 35px;
+            height: 0;
+            overflow: hidden;
+        }
+
+        .videoContainer iframe {
+            position: absolute;
+            top:0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .ninja {
+            margin:75px auto 50px auto; 
+            max-height: 170px;
+            display:block;
+        }
     </style>
 </head>
 <body>
@@ -301,27 +408,25 @@
         <div id="header"><div>
         <i class="fa fa-bars fa-align-center fa-lg float-left header-btn" id="toggle-toc"></i>
         <a href="https://github.com/codylindley/the-kendo-ui-book" target="_blank" class="fa fa-github fa-align-center fa-lg float-right header-btn" id="github"></a>
-        <h1>The Kendo UI Book</h1>
+        <h1><img src="images/telerik-logo.png" />The Kendo UI Book</h1>
 
         </div></div>
         <div id="content"><div>
                 <div id="splitter">
                     <div id="toc">
-                         <div id="author"><span id="draft">DRAFT</span> by <a href="http://www.codylindley.com" target="_blank">cody lindley</a> </div>
-                        <div id="toc-padding">
-                            
-                        </div>
+                         <div id="author">by <a href="http://www.codylindley.com" target="_blank">cody lindley</a> v 1.0</div>
+                        <div id="toc-padding"></div>
                     </div>
                     <div id="book">
                         <div id="center-book">
-                            <img src="images/kendo.png" style="margin-top:50px;" class="noBorder" id="Kendoka" />
+                            <img src="images/Ninja-1.png" class="ninja noBorder" style="margin-top:125px" />
 
                             <!--_____________-->
                             <!--  chapter 1  -->
                             <!--_____________-->
                             <div id="chapter1" class="chapter">
 
-                            <h2><strong>Chapter 1. Why Kendo UI</strong></h2>
+                            <h2><strong>1.</strong> Why Kendo UI</h2>
 
                             <h3><strong>1.1</strong> Comprehensive set of widgets &amp; tools for building web sites and applications</h3>
                             <p>Kendo UI is first and foremost a comprehensive set of <a href="http://en.wikipedia.org/wiki/Graphical_control_element">reusable user interface widgets</a>, based on jQuery, and written in JavaScript. They can be used in the creation of websites running anywhere, web applications, and mobile web or native hybrid mobile applications.</p>
@@ -422,7 +527,7 @@
                             <li><strong>One JavaScript file</strong> - Kendo UI can be included in a web page using a single JavaScript file which includes everything.</li>
                             <li><strong>Individual source files</strong> - <a href="http://docs.telerik.com/kendo-ui/getting-started/javascript-dependencies#individual-scripts">Kendo UI source is divided into a set of individual JavaScript modules, which have dependencies</a> on each other. These files can individually be added to a web page and the dependencies will have to be managed manually (with your human brain in real time!) as opposed to using a dependency manager/loader like RequireJS that deals with which files are needed and when.</li>
                             <li><strong>AMD module/dependency loader</strong> - Because each source file is an module and wrapped in an AMD definition, a modular loading system such as <a href="http://docs.telerik.com/kendo-ui/getting-started/using-kendo-with/using-kendo-with-requirejs">RequireJS can be used to load and manage Kendo UI dependencies</a>. Using a dependency loader alleviates having to manage dependencies manually which typically requires the correct ordering of inline <code>&lt;script&gt;</code> tags in an html web page.</li>
-                            <li><strong>One custom JavaScript file</strong> - Using the Custom Download Tool a custom version of Kendo UI can be downloaded as a single, all in one, file.</li>
+                            <li><strong>One custom JavaScript file</strong> - Using the Custom Download Tool a custom version of Kendo UI can be downloaded as a single, all in one, file (Note: you must create an account and be logged in to use the <a href="(Note: you must create an account and be logged in to use the Custom Download tool)">Custom Download tool</a>).</li>
                             <li><strong>One custom Core JavaScript file</strong> - If you use Kendo UI Core, you can build a custom distribution using the grunt build tool by following <a href="https://github.com/telerik/kendo-ui-core#building-only-what-you-need">the instructions in the README</a>.</li>
                             </ol>
 
@@ -648,7 +753,7 @@
                             <!--_____________-->
                             <div id="chapter2" class="chapter">
                             
-                            <h2><strong>Chapter 2. Setting up Kendo UI</strong></h2>
+                            <h2><strong>2.</strong> Setting up Kendo UI</h2>
 
                             <h3><strong>2.X</strong> Downloading Kendo UI</h3>
                             <h3><strong>2.X</strong> Linking to Kendo UI on CDN</h3>
@@ -665,7 +770,7 @@
                             <!--_____________-->
                             <div id="chapter3" class="chapter">
                             
-                            <h2><strong>Chapter 3. Initializing &amp; Working With Kendo UI Widgets</strong></h2>
+                            <h2><strong>3.</strong> Initializing &amp; Working With Kendo UI Widgets</h2>
                             <h3><strong>3.X</strong> Getting the version of Kendo UI </h3>
                             <h3><strong>3.X</strong> Imperially create widgets </h3>
                             <h3><strong>3.X</strong> Declaratively create widgets </h3>
@@ -683,7 +788,7 @@
                             <!--_____________-->
                             <div id="chapter4" class="chapter">
                             
-                            <h2><strong>Chapter 4. DataSource</strong></h2>
+                            <h2><strong>4.</strong> DataSource</h2>
 
                             </div>
 
@@ -692,7 +797,7 @@
                             <!--_____________-->
                             <div id="chapter5" class="chapter">
                             
-                            <h2><strong>Chapter 5. Templates</strong></h2>
+                            <h2><strong>5.</strong> Templates</h2>
 
                             </div>
 
@@ -701,7 +806,7 @@
                             <!--_____________-->
                             <div id="chapter4" class="chapter">
                             
-                            <h2><strong>Chapter 4. MVVM &amp; Observable</strong></h2>
+                            <h2><strong>5.</strong> MVVM &amp; Observable</h2>
 
                             </div>
 
@@ -710,7 +815,7 @@
                             <!--_____________-->
                             <div id="chapter6" class="chapter">
                             
-                            <h2><strong>Chapter 6. Custom Kendo UI Widgets</strong></h2>
+                            <h2><strong>6.</strong> Custom Kendo UI Widgets</h2>
 
                             </div>
 
@@ -722,17 +827,19 @@
     </div>
 
     <!-- SCRIPTS -->
-    <script src="http://static.jsbin.com/js/embed.js"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="http://cdn.kendostatic.com/2014.2.716/js/kendo.all.min.js"></script>
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/kendo-ui/js/kendo.ui.core.min.js"></script>
     <script src="bower_components/jquery.breakpoints/breakpoints.js"></script>
     <script src="bower_components/SyntaxHighlighter/scripts/XRegExp.js"></script>
     <script src="bower_components/SyntaxHighlighter/scripts/shCore.js"></script>
     <script src="bower_components/SyntaxHighlighter/scripts/shBrushJScript.js"></script>
     <script src="bower_components/SyntaxHighlighter/scripts/shBrushXml.js"></script>
-    <script src="bower_components/jquery.transit/jquery.transit.js"></script>
+    <script src="bower_components/SyntaxHighlighter/scripts/shBrushCss.js"></script>
+    <script src="bower_components/SyntaxHighlighter/scripts/shBrushBash.js"></script>
+    <script src="bower_components/jquery-waypoints/waypoints.min.js"></script>
     <script>
 
+        /* jshint ignore:start */
         SyntaxHighlighter.defaults['toolbar'] = false;
         SyntaxHighlighter.all();
 
@@ -762,6 +869,7 @@
             whenReady();
         };
         lineWrap();
+
         $(window).resize(function(){lineWrap()});
 
         $('#book a').attr('target', '_blank');
@@ -769,86 +877,141 @@
         //setup splitter
         var splitter = $('#splitter').kendoSplitter({
             panes: [
-                { collapsible: true, collapsed: true },
-                { collapsible: false},
+                { collapsible: true, collapsed: true},
+                { collapsible: false}
             ]
         }).data('kendoSplitter');
 
         //create TOC
-        /**jQuery('.toc').each(function(index){
+        jQuery('.toc').each(function(index){
     
             jQuery('h2','#toc'+(index+1)).each(function(i){
-                $(this).attr('id',$(this).text().replace(/ /g,''));
+                //$(this).attr('id',$(this).text().replace(/ /g,'-'));
+                $(this)
+                    .nextUntil('h3')
+                    .andSelf()
+                    .wrapAll('<div class="sec" id="'+$(this).text().replace(/ /g,'-')+'"></div>');
                 $('#toc-padding')
-                    .append('<h5><a href="#'+($(this).text().replace(/[ .]/g,''))+'">'+$(this).html()+'</a></h5>');
+                    .append('<h5><a href="#'+($(this).text().replace(/[ .]/g,'-'))+'">'+$(this).html()+'</a></h5>');
             });
 
             jQuery('h3','#toc'+(index+1)).each(function(i){
-                $(this).attr('id',$(this).text().replace(/ /g,''));
+                //$(this).attr('id',$(this).text().replace(/ /g,'-'));
+                $(this)
+                    .nextUntil('h3')
+                    .andSelf()
+                    .wrapAll('<div class="sec" id="'+$(this).text().replace(/ /g,'-')+'"></div>');
                 $('#toc-padding')
-                    .append('<h6><a href="#'+($(this).text().replace(/[ .]/g,''))+'">'+$(this).html()+'</a></h6>');
+                    .append('<h6><a href="#'+($(this).text().replace(/[ .]/g,'-'))+'">'+$(this).html()+'</a></h6>');
             });
             
-        });**/
+        });
 
         jQuery('.chapter').each(function(index){
-    
             jQuery('h2','#chapter'+(index+1)).each(function(i){
-                $(this).attr('id',(index+1));
-                $(this).wrapInner('<a href="#'+(index+1)+'"></a>');
-                $('#toc-padding').append('<h5><a href="#'+(index+1)+'">'+$(this).html()+'</a></h5>');
+                var foo = index+1+'';
+                //$(this).attr('id',((index+1)+($(this).text().replace(foo,'').replace(/ /g,'-'))));
+                $(this)
+                    .wrap('<div class="sec" id="'+((index+1)+($(this).text().replace(foo,'').replace(/ /g,'-')))+'"></div>');
+                $('#toc-padding')
+                    .append('<h5><a href="#'+(index+1)+($(this).text().replace(foo,'').replace(/ /g,'-'))+'">'+$(this).html()+'</a></h5>');
             });
 
             jQuery('h3','#chapter'+(index+1)).each(function(i){
-                $(this).attr('id',(index+1)+'.'+(i+1));
-                $(this).wrapInner('<a href="#'+(index+1)+'.'+(i+1)+'"></a>');
-                $('#toc-padding').append('<h6><a href="#'+(index+1)+'.'+(i+1)+'">'+$(this).html()+'</a></h6>');
-            });
-            
+                var foo = (index+1)+'.'+(i+1)+'';
+                //$(this).attr('id',(index+1)+'.'+(i+1)+($(this).text().replace(foo,'').replace(/ /g,'-')));
+                $(this)
+                    .nextUntil('h3')
+                    .andSelf()
+                    .wrapAll('<div class="sec" id="'+(index+1)+'.'+(i+1)+($(this).text().replace(foo,'').replace(/ /g,'-'))+'"></div>');
+                $('#toc-padding').append('<h6><a href="#'+(index+1)+'.'+(i+1)+($(this).text().replace(foo,'').replace(/ /g,'-'))+'">'+$(this).html()+'</a></h6>');
+            });  
         });
 
         //detect and reset panels for phones, tablets, and desktop
         $(window).setBreakpoints({distinct: true, breakpoints: [320,480,768,1024] });
 
         $(window).on('enterBreakpoint320',function() {
+            $('h1').css('width','200px');
             splitter.size('.k-pane:first', '70%');
             splitter.size('.k-pane:last', '30%');
             splitter.toggle('.k-pane:first',false);
         });
         $(window).on('enterBreakpoint480',function() {
+            $('h1').css('width','350px');
             splitter.size('.k-pane:first', '40%');
             splitter.size('.k-pane:last', '60%');
             splitter.toggle('.k-pane:first',false);
         });
         $(window).on('enterBreakpoint768',function() {
+            $('h1').css('width','600px');
             splitter.size('.k-pane:first', '20%');
             splitter.size('.k-pane:last', '80%');
             splitter.toggle('.k-pane:first',false);
         });
         $(window).on('enterBreakpoint1024',function() {
+            $('h1').css('width','700px');
             splitter.size('.k-pane:first', '25%');
             splitter.size('.k-pane:last', '75%');
             splitter.toggle('.k-pane:first',true);
         });
 
-        /*$('#Kendoka').transition({
-            skewX: '30deg',
-            rotateY: '180deg',
-            x: '-500px'
-        },500).transition({
-            x: '60px'
-        }, 200, 'ease',function(){
-            splitter.collapse(".k-pane:first");
-        })
-        .transition({
-            x: '0px',
-            skewX: '0deg',
-        }, 200, 'ease');*/
-
         //toggle
         $( '#toggle-toc' ).on('click',function() {
             splitter.toggle('.k-pane:first');
+            if($('#book')[0].scrollTop > 0){
+                $('#toc-padding a.active').first()[0].scrollIntoView(true);
+            }
+            return false;
         });
+
+        window.setTimeout(function(){
+
+            $('.sec')
+            .waypoint(function(direction) {
+                var $links = $('#toc-padding a[href="#' + this.id + '"]');
+                $links.toggleClass('active', direction === 'down');
+                }, {
+                context: '#book',
+                offset: '100%'
+            })
+            .waypoint(function(direction) {
+                var $links = $('#toc-padding a[href="#' + this.id + '"]');
+                $links.toggleClass('active', direction === 'up');
+                }, {
+                context: '#book',
+                offset: function() {
+                  return -$(this).height();
+                }
+            });
+
+            
+            if($('#book')[0].scrollTop > 0){
+                $('#toc-padding a.active').first()[0].scrollIntoView(true);
+            }
+     
+            $('#book').scroll(function(){
+                if($('#book')[0].scrollTop === 0){
+                    $('#toc')[0].scrollTop = 0;
+                }else{
+                    $('#toc-padding a.active').first()[0].scrollIntoView(true);
+                }
+            });
+
+            $(window).resize(function(event) {
+                $.waypoints('refresh');
+            });
+
+        },2000);
+
+        window.setTimeout(function(){ 
+            if(window.location.hash === ''){
+            $( '#toggle-toc' ).trigger('click');
+            }
+        }, 5000);
+
+
+        /* jshint ignore:end */
 
     </script>
 </body>
