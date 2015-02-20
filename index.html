@@ -236,7 +236,7 @@
         }
 
         #toc-padding{
-            padding: 0px 20px 20px 20px;
+            padding: 0px 20px 50px 20px;
         }
 
         #toc-padding h5 a.active{
@@ -681,6 +681,9 @@
 
                             <p>If you decide to use a trial copy of Kendo UI Professional it will start to download to your local system once you have <a href="http://www.telerik.com/download/kendo-ui">created a new account from the trial page</a>. If you've purchased a license you can go into your account and select from several Kendo UI installation options (i.e. manual, automatic, control panel, NuGet package), including creating a custom download/build of Kendo UI.</p>
 
+
+                            <p>The simplest and fast way to get Kendo UI Professional if you have a license is to download it from your account product version page and manual install it. For example, in the image below you'd click on the "Manual Installation" link in the table, Kendo UI will download, and you would then have access to all of the files to run Kendo UI.</p>
+
                             <img src="/images/installKendo.png">
 
                             <div class="note">
@@ -749,7 +752,7 @@
 
                             <p>Additionally, feedback can be sent to the Kendo UI team by creating a Telerik account and using the <a href="http://www.telerik.com/account/support-tickets/general-feedback.aspx">general feedback form</a> from your account.</p>
 
-                            <p>Bugs can be subitted for Kendo UI Core on <a href="https://github.com/telerik/kendo-ui-core/issues">Github</a>. A specific bug ticket can't be submitted to a bug tracking system for Kendo UI Professional parts. To discuss potential bugs with the Kendo UI team you can use the general feedback form from a Telerik account or the <a href="http://kendoui-feedback.telerik.com/forums/127393-telerik-kendo-ui-feedback">user voice</a> site if you are not a license holder. If you are a Kendo UI license holder you can also use paid support tickets or the <a href="http://www.telerik.com/forums/kendo-ui">public forums</a> to discuss any Kendo UI bugs.</p>
+                            <p>Bugs can be subitted for Kendo UI Core on <a href="https://github.com/telerik/kendo-ui-core/issues">Github</a>. A specific bug ticket can't be submitted to a bug tracking system for Kendo UI Professional parts. To discuss potential bugs with the Kendo UI team you can use the general feedback form from a Telerik account or the <a href="http://kendoui-feedback.telerik.com/forums/127393-telerik-kendo-ui-feedback">user voice</a> site if you are not a license holder. If you are a Kendo UI license holder you can also use paid support tickets or the <a href="http://www.telerik.com/forums/kendo-ui">public forums</a> to submit/discuss any Kendo UI bugs.</p>
 
                             </div><!--  /toc 1  -->
 
@@ -760,6 +763,261 @@
                             <div id="chapter2" class="chapter">
                             
                             <h2><strong>2.</strong> Including Kendo UI</h2>
+
+                            <h3><strong>2.X</strong> Kendo UI Source Structure</h3>
+
+                            <p>Regardless of if you are using Professional, Core (this source excludes Professional parts), or the CDN the Kendo UI directory structure will contain a <code>js</code> and <code>styles</code> directory that will contain the following files (read carefully the highlighted comments).
+
+
+<pre pre class="brush: xml; highlight: [7,18,31,69,116,121]">
+
+├── js
+│   ├── angular.min.js //version v1.3.0
+│   ├── cultures
+│   │   ├── ... //355 globaliztion files
+│   ├── jquery.min.js //version 1.9.1
+│   ├── jszip.min.js
+│   ├── kendo.all.min.js //only in Professional download, all Professional widgets in one file
+│   ├── kendo.angular.min.js
+│   ├── kendo.autocomplete.min.js
+│   ├── kendo.binder.min.js
+│   ├── kendo.button.min.js
+│   ├── kendo.calendar.min.js
+│   ├── kendo.color.min.js
+│   ├── kendo.colorpicker.min.js
+│   ├── kendo.columnmenu.min.js
+│   ├── kendo.columnsorter.min.js
+│   ├── kendo.combobox.min.js
+│   ├── kendo.core.min.js //base kendo file, only use when including widgets individually
+│   ├── kendo.data.min.js
+│   ├── kendo.data.odata.min.js
+│   ├── kendo.data.signalr.min.js
+│   ├── kendo.data.xml.min.js
+│   ├── kendo.dataviz.barcode.min.js
+│   ├── kendo.dataviz.chart.funnel.min.js
+│   ├── kendo.dataviz.chart.min.js
+│   ├── kendo.dataviz.chart.polar.min.js
+│   ├── kendo.dataviz.core.min.js
+│   ├── kendo.dataviz.diagram.min.js
+│   ├── kendo.dataviz.gauge.min.js
+│   ├── kendo.dataviz.map.min.js
+│   ├── kendo.dataviz.min.js //only in Professional download, all dataviz widgets in one file
+│   ├── kendo.dataviz.mobile.min.js
+│   ├── kendo.dataviz.qrcode.min.js
+│   ├── kendo.dataviz.sparkline.min.js
+│   ├── kendo.dataviz.stock.min.js
+│   ├── kendo.dataviz.themes.min.js
+│   ├── kendo.dataviz.treemap.min.js
+│   ├── kendo.datepicker.min.js
+│   ├── kendo.datetimepicker.min.js
+│   ├── kendo.dom.min.js
+│   ├── kendo.draganddrop.min.js
+│   ├── kendo.drawing.min.js
+│   ├── kendo.dropdownlist.min.js
+│   ├── kendo.editable.min.js
+│   ├── kendo.editor.min.js
+│   ├── kendo.excel.min.js
+│   ├── kendo.filebrowser.min.js
+│   ├── kendo.filtercell.min.js
+│   ├── kendo.filtermenu.min.js
+│   ├── kendo.fx.min.js
+│   ├── kendo.gantt.list.min.js
+│   ├── kendo.gantt.min.js
+│   ├── kendo.gantt.timeline.min.js
+│   ├── kendo.grid.min.js
+│   ├── kendo.groupable.min.js
+│   ├── kendo.imagebrowser.min.js
+│   ├── kendo.list.min.js
+│   ├── kendo.listview.min.js
+│   ├── kendo.maskedtextbox.min.js
+│   ├── kendo.menu.min.js
+│   ├── kendo.menu.min.js.map
+│   ├── kendo.mobile.actionsheet.min.js
+│   ├── kendo.mobile.application.min.js
+│   ├── kendo.mobile.button.min.js
+│   ├── kendo.mobile.buttongroup.min.js
+│   ├── kendo.mobile.drawer.min.js
+│   ├── kendo.mobile.listview.min.js
+│   ├── kendo.mobile.loader.min.js
+│   ├── kendo.mobile.min.js //only in Professional download, all mobile widgets in one file
+│   ├── kendo.mobile.min.js.map
+│   ├── kendo.mobile.modalview.min.js
+│   ├── kendo.mobile.navbar.min.js
+│   ├── kendo.mobile.pane.min.js
+│   ├── kendo.mobile.popover.min.js
+│   ├── kendo.mobile.scroller.min.js
+│   ├── kendo.mobile.scrollview.min.js
+│   ├── kendo.mobile.shim.min.js
+│   ├── kendo.mobile.splitview.min.js
+│   ├── kendo.mobile.switch.min.js
+│   ├── kendo.mobile.tabstrip.min.js
+│   ├── kendo.mobile.view.min.js
+│   ├── kendo.multiselect.min.js
+│   ├── kendo.notification.min.js
+│   ├── kendo.numerictextbox.min.js
+│   ├── kendo.ooxml.min.js
+│   ├── kendo.pager.min.js
+│   ├── kendo.panelbar.min.js
+│   ├── kendo.pdf.min.js
+│   ├── kendo.pivot.configurator.min.js
+│   ├── kendo.pivot.fieldmenu.min.js
+│   ├── kendo.pivotgrid.min.js
+│   ├── kendo.popup.min.js
+│   ├── kendo.progressbar.min.js
+│   ├── kendo.reorderable.min.js
+│   ├── kendo.resizable.min.js
+│   ├── kendo.router.min.js
+│   ├── kendo.scheduler.agendaview.min.js
+│   ├── kendo.scheduler.dayview.min.js
+│   ├── kendo.scheduler.min.js
+│   ├── kendo.scheduler.monthview.min.js
+│   ├── kendo.scheduler.recurrence.min.js
+│   ├── kendo.scheduler.timelineview.min.js
+│   ├── kendo.scheduler.view.min.js
+│   ├── kendo.selectable.min.js
+│   ├── kendo.slider.min.js
+│   ├── kendo.sortable.min.js
+│   ├── kendo.splitter.min.js
+│   ├── kendo.tabstrip.min.js
+│   ├── kendo.timepicker.min.js
+│   ├── kendo.timezones.min.js
+│   ├── kendo.toolbar.min.js
+│   ├── kendo.tooltip.min.js
+│   ├── kendo.touch.min.js
+│   ├── kendo.treelist.min.js
+│   ├── kendo.treeview.min.js
+│   ├── kendo.ui.core.min.js //only in Core download, all Core widgets in one file
+│   ├── kendo.upload.min.js
+│   ├── kendo.userevents.min.js
+│   ├── kendo.validator.min.js
+│   ├── kendo.view.min.js
+│   ├── kendo.web.min.js //only in Professional download, all web widgets in one file
+│   ├── kendo.window.min.js
+│   ├── messages
+│   │   ├── ... //20 official localized language packs
+│   └── pako_deflate.min.js
+└── styles
+    ├── ... //contains theme specific images and fonts referenced in CSS
+    ├── kendo.black.min.css
+    ├── kendo.black.mobile.min.css
+    ├── kendo.blueopal.min.css
+    ├── kendo.blueopal.mobile.min.css
+    ├── kendo.bootstrap.min.css
+    ├── kendo.bootstrap.mobile.min.css
+    ├── kendo.common-bootstrap.core.min.css
+    ├── kendo.common-bootstrap.min.css
+    ├── kendo.common-material.core.min.css
+    ├── kendo.common-material.min.css
+    ├── kendo.common.core.min.css
+    ├── kendo.common.min.css
+    ├── kendo.dataviz.black.min.css
+    ├── kendo.dataviz.blueopal.min.css
+    ├── kendo.dataviz.bootstrap.min.css
+    ├── kendo.dataviz.default.min.css
+    ├── kendo.dataviz.flat.min.css
+    ├── kendo.dataviz.highcontrast.min.css
+    ├── kendo.dataviz.material.min.css
+    ├── kendo.dataviz.materialblack.min.css
+    ├── kendo.dataviz.metro.min.css
+    ├── kendo.dataviz.metroblack.min.css
+    ├── kendo.dataviz.min.css
+    ├── kendo.dataviz.mobile.min.css
+    ├── kendo.dataviz.moonlight.min.css
+    ├── kendo.dataviz.silver.min.css
+    ├── kendo.dataviz.uniform.min.css
+    ├── kendo.default.min.css
+    ├── kendo.default.mobile.min.css
+    ├── kendo.flat.min.css
+    ├── kendo.flat.mobile.min.css
+    ├── kendo.highcontrast.min.css
+    ├── kendo.highcontrast.mobile.min.css
+    ├── kendo.material.min.css
+    ├── kendo.material.mobile.min.css
+    ├── kendo.materialblack.min.css
+    ├── kendo.materialblack.mobile.min.css
+    ├── kendo.metro.min.css
+    ├── kendo.metro.mobile.min.css
+    ├── kendo.metroblack.min.css
+    ├── kendo.metroblack.mobile.min.css
+    ├── kendo.mobile.all.min.css
+    ├── kendo.mobile.android.dark.min.css
+    ├── kendo.mobile.android.light.min.css
+    ├── kendo.mobile.blackberry.min.css
+    ├── kendo.mobile.common.min.css
+    ├── kendo.mobile.flat.min.css
+    ├── kendo.mobile.ios.min.css
+    ├── kendo.mobile.material.min.css
+    ├── kendo.mobile.meego.min.css
+    ├── kendo.mobile.wp8.min.css
+    ├── kendo.moonlight.min.css
+    ├── kendo.moonlight.mobile.min.css
+    ├── kendo.rtl.css
+    ├── kendo.rtl.min.css
+    ├── kendo.silver.min.css
+    ├── kendo.silver.mobile.min.css
+    ├── kendo.uniform.min.css
+    ├── kendo.uniform.mobile.min.css
+    └── textures
+        ├── ... //contains texture images referenced in CSS 
+
+</pre>
+
+                            <p>Several things to note about the folder structure are:</p>
+
+                            <ol>
+                                <li>Kendo ships with three third-party library's, AngularJS, jQuery, and JSzip. This is out of convince and while you are not required to use them, you should be aware of the versions which are <a href="http://docs.telerik.com/kendo-ui/install/prerequisites">officially supported</a>.</li>
+                                 <li>Obviously the professional source will differ from the CDN and core source files and directories. The directory structure I am showing is a combination of all these sources (i.e. not exactly what is downloaded) so you can understand what is offered from each.</li>
+                                 <li>Two strategies for including Kendo UI widgets are possible. The first is simply including bundled files which contains large groupings of widgets in one file. The second option would be to include the <code>kendo.core.min.js</code> file and all the <a href="http://docs.telerik.com/kendo-ui/install/custom#framework">dependencies</a> for each individual widget.</li>
+                                 <li>The CDN offers the directory structure above but you should be aware that it's based on version number. (e.g. <code>http://cdn.kendostatic.com/2014.3.1411/styles/...</code> and <code>http://cdn.kendostatic.com/2014.3.1411/js/...</code>)</li>
+                            </ol>
+
+                            <p>The remainder of this book will show code examples using professional source code hosted locally or from the CDN. The two html files below represent the minimally required files (i.e. two .js files and two .css files) to run Kendo UI.</p>
+
+                            <p>Running Kendo UI Professional from CDN source code</p>
+
+<pre class="brush: html">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot;&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;http://cdn.kendostatic.com/2014.3.1411/styles/kendo.common.min.css&quot; /&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;http://cdn.kendostatic.com/2014.3.1411/styles/kendo.[PICK A THEME].min.css&quot; /&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+  
+    &lt;script src=&quot;http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;http://cdn.kendostatic.com/2014.3.1411/js/kendo.all.min.js&quot;&gt;&lt;/script&gt;
+
+    &lt;script&gt; // run kendo code here &lt;/script&gt;
+  
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+                            <p>Running Kendo UI Professional from locally hosted source code</p>
+
+<pre class="brush: html">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot;&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;styles/kendo.common.min.css&quot; /&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;styles/kendo.[PICK A THEME].min.css&quot; /&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+  
+    &lt;script src=&quot;http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;js/kendo.all.min.js&quot;&gt;&lt;/script&gt;
+
+    &lt;script&gt; // run kendo code here &lt;/script&gt;
+  
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+
 
                             <h3><strong>2.X</strong> Including Kendo UI CSS files</h3>
 
