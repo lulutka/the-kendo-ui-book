@@ -766,10 +766,10 @@
 
                             <h3><strong>2.X</strong> Kendo UI Source Structure</h3>
 
-                            <p>Regardless of if you are using Professional, Core (this source excludes Professional parts), or the CDN the Kendo UI directory structure will contain a <code>js</code> and <code>styles</code> directory that will contain the following files (read carefully the highlighted comments).
+                            <p>Regardless of if you are using Professional, Core (this source excludes Professional parts), or the CDN the Kendo UI directory structure will contain a <code>js</code> and <code>styles</code> directory that could contain the following files (read carefully the highlighted comments).
 
 
-<pre pre class="brush: xml; highlight: [7,18,31,69,116,121]">
+<pre pre class="brush: xml; highlight: [7,18,31,69,116,121,145,146,176,180]">
 
 ├── js
 │   ├── angular.min.js //version v1.3.0
@@ -897,7 +897,14 @@
 │   │   ├── ... //20 official localized language packs
 │   └── pako_deflate.min.js
 └── styles
-    ├── ... //contains theme specific images and fonts referenced in CSS
+    ├── ... //Bootstrap, Default themes etc... theme specific images &amp; fonts
+    ├── images //global images used in CSS files
+    │   ├── back.png
+    │   ├── kendoui.svg
+    │   ├── kendoui.ttf
+    │   ├── kendoui.woff
+    │   ├── wp8_icons.png
+    │   └── wp8_inverseicons.png
     ├── kendo.black.min.css
     ├── kendo.black.mobile.min.css
     ├── kendo.blueopal.min.css
@@ -908,8 +915,8 @@
     ├── kendo.common-bootstrap.min.css
     ├── kendo.common-material.core.min.css
     ├── kendo.common-material.min.css
-    ├── kendo.common.core.min.css
-    ├── kendo.common.min.css
+    ├── kendo.common.core.min.css //only common CSS, excluding theme CSS, for core widgets
+    ├── kendo.common.min.css //common CSS, excluding theme CSS, for all widgets
     ├── kendo.dataviz.black.min.css
     ├── kendo.dataviz.blueopal.min.css
     ├── kendo.dataviz.bootstrap.min.css
@@ -939,11 +946,11 @@
     ├── kendo.metro.mobile.min.css
     ├── kendo.metroblack.min.css
     ├── kendo.metroblack.mobile.min.css
-    ├── kendo.mobile.all.min.css
+    ├── kendo.mobile.all.min.css //includes common CSS and all themes in one file
     ├── kendo.mobile.android.dark.min.css
     ├── kendo.mobile.android.light.min.css
     ├── kendo.mobile.blackberry.min.css
-    ├── kendo.mobile.common.min.css
+    ├── kendo.mobile.common.min.css //common CSS for all widgets, excludes themes
     ├── kendo.mobile.flat.min.css
     ├── kendo.mobile.ios.min.css
     ├── kendo.mobile.material.min.css
@@ -969,11 +976,14 @@
                                  <li>Obviously the professional source will differ from the CDN and core source files and directories. The directory structure I am showing is a combination of all these sources (i.e. not exactly what is downloaded) so you can understand what is offered from each.</li>
                                  <li>Two strategies for including Kendo UI widgets are possible. The first is simply including bundled files which contains large groupings of widgets in one file. The second option would be to include the <code>kendo.core.min.js</code> file and all the <a href="http://docs.telerik.com/kendo-ui/install/custom#framework">dependencies</a> for each individual widget.</li>
                                  <li>The CDN offers the directory structure above but you should be aware that it's based on version number. (e.g. <code>http://cdn.kendostatic.com/2014.3.1411/styles/...</code> and <code>http://cdn.kendostatic.com/2014.3.1411/js/...</code>)</li>
+                                 <li>In general the CDN and Core downloaded source files will not include non-minified files.</li>
                             </ol>
 
-                            <p>The remainder of this book will show code examples using professional source code hosted locally or from the CDN. The two html files below represent the minimally required files (i.e. two .js files and two .css files) to run Kendo UI.</p>
+                            <p>The remainder of this book will show code examples using professional source code hosted locally or from the CDN. It's assume from this point forward that the above directory structure is in place no matter if code in the book is shown referencing the CDN or locally hosted files. The purpose in stating this is so that you realize that the CSS files will not work correctly without the proper CSS theme, <code>images</code>, and <code>textures</code> directory.
 
-                            <p>Running Kendo UI Professional from CDN source code</p>
+                            The two html files below represent the minimally required files (i.e. two .js files and two .css files) to run Kendo UI.</p>
+
+                            <p>Running Kendo UI Professional from CDN source code:</p>
 
 <pre class="brush: html">
 &lt;!DOCTYPE html&gt;
@@ -985,17 +995,21 @@
 &lt;/head&gt;
 
 &lt;body&gt;
+    
+    <!-- place associating kendo HTML here -->
+    &lt;input id="datepicker" value="10/10/2011" style="width:150px;" /&gt;
   
     &lt;script src=&quot;http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js&quot;&gt;&lt;/script&gt;
     &lt;script src=&quot;http://cdn.kendostatic.com/2014.3.1411/js/kendo.all.min.js&quot;&gt;&lt;/script&gt;
 
-    &lt;script&gt; // run kendo code here &lt;/script&gt;
+    <!-- run kendo HTML here -->
+    &lt;script&gt; $('#datepicker').kendoDatePicker(); &lt;/script&gt;
   
 &lt;/body&gt;
 &lt;/html&gt;
 </pre>
 
-                            <p>Running Kendo UI Professional from locally hosted source code</p>
+                            <p>Running Kendo UI Professional from locally hosted source code:</p>
 
 <pre class="brush: html">
 &lt;!DOCTYPE html&gt;
@@ -1007,11 +1021,15 @@
 &lt;/head&gt;
 
 &lt;body&gt;
+
+    <!-- place associating kendo HTML here -->
+    &lt;input id="datepicker" value="10/10/2011" style="width:150px;" /&gt;
   
     &lt;script src=&quot;http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js&quot;&gt;&lt;/script&gt;
     &lt;script src=&quot;js/kendo.all.min.js&quot;&gt;&lt;/script&gt;
 
-    &lt;script&gt; // run kendo code here &lt;/script&gt;
+    <!-- run kendo HTML here -->
+    &lt;script&gt; $('#datepicker').kendoDatePicker(); &lt;/script&gt;
   
 &lt;/body&gt;
 &lt;/html&gt;
@@ -1019,9 +1037,9 @@
 
 
 
-                            <h3><strong>2.X</strong> Including Kendo UI CSS files</h3>
+                            <h3><strong>2.X</strong> Including CSS files</h3>
 
-                            <p>Kendo UI Professional potentially can use the following six css files:</p>
+                            <p>Kendo UI Professional potentially can use the following seven css files:</p>
 
 <pre class="brush: html">
 &lt;!DOCTYPE html&gt;
@@ -1030,25 +1048,28 @@
 
     &lt;!-- REQUIRED --&gt;
 
-    &lt;!-- Kendo UI common CSS --&gt;
-    &lt;link rel=&quot;stylesheet&quot; href=&quot;kendo.common.css&quot; /&gt;
+    &lt;!-- common CSS --&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;styles/kendo.common.min.css&quot; /&gt;
 
-    &lt;!-- Kendo UI CSS theme --&gt;
-    &lt;link rel=&quot;stylesheet&quot; href=&quot;kendo.[SELECT A THEME].css&quot; /&gt;
+    &lt;!-- CSS theme --&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;styles/kendo.[SELECT A THEME].min.css&quot; /&gt;
 
     &lt;!-- OPTIONAL --&gt;
 
-    &lt;!-- Kendo Right-to-left CSS --&gt;
-    &lt;link rel=&quot;stylesheet&quot; href=&quot;kendo.rtl.css&quot; /&gt;
+    &lt;!-- Right-to-left CSS --&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;styles/kendo.rtl.min.css&quot; /&gt;
 
-    &lt;!-- Kendo DataViz common CSS --&gt;
-    &lt;link rel=&quot;stylesheet&quot; href=&quot;kendo.dataviz.css&quot; /&gt;
+    &lt;!-- DataViz common CSS --&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;styles/kendo.dataviz.min.css&quot; /&gt;
 
-    &lt;!-- Kendo DataViz CSS theme --&gt;
-    &lt;link rel=&quot;stylesheet&quot; href=&quot;kendo.dataviz.default.css&quot; /&gt;
+    &lt;!-- DataViz CSS theme --&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;styles/kendo.dataviz.default.min.css&quot; /&gt;
 
-    &lt;!-- Kendo mobile CSS --&gt;
-    &lt;link rel=&quot;stylesheet&quot; href=&quot;kendo.default.mobile.css&quot; /&gt;
+    &lt;!-- mobile CSS --&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;styles/kendo.mobile.common.min.css&quot; /&gt;
+
+    &lt;!-- mobile CSS theme --&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;styles/kendo.mobile.[SELECT A THEME].min.css&quot; /&gt;
 
 &lt;/head&gt;
 &lt;body&gt;
@@ -1057,7 +1078,7 @@
 &lt;/html&gt; 
 </pre>
 
-                            <p>Kendo UI Core potentially can use the following three css files:</p>
+                            <p>Kendo UI Core potentially can use the following four css files:</p>
 
 <pre class="brush: html">
 &lt;!DOCTYPE html&gt;
@@ -1066,19 +1087,22 @@
 
     &lt;!-- REQUIRED --&gt;
 
-    &lt;!-- Kendo UI common CSS --&gt;
-    &lt;link rel=&quot;stylesheet&quot; href=&quot;kendo.common.css&quot; /&gt;
+    &lt;!-- common CSS --&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;styles/kendo.common.min.css&quot; /&gt;
 
-    &lt;!-- Kendo UI CSS theme --&gt;
-    &lt;link rel=&quot;stylesheet&quot; href=&quot;kendo.[SELECT A THEME].css&quot; /&gt;
+    &lt;!-- CSS theme --&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;styles/kendo.[SELECT A THEME].min.css&quot; /&gt;
 
-     &lt;!-- OPTIONAL --&gt;
+    &lt;!-- OPTIONAL --&gt;
 
-    &lt;!-- Kendo Right-to-left CSS --&gt;
-    &lt;link rel=&quot;stylesheet&quot; href=&quot;kendo.rtl.css&quot; /&gt;
+    &lt;!-- Right-to-left CSS --&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;styles/kendo.rtl.min.css&quot; /&gt;
 
-    &lt;!-- Kendo mobile CSS --&gt;
-    &lt;link rel=&quot;stylesheet&quot; href=&quot;kendo.default.mobile.css&quot; /&gt;
+    &lt;!-- mobile CSS --&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;styles/kendo.mobile.common.min.css&quot; /&gt;
+
+    &lt;!-- mobile CSS theme --&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;styles/kendo.mobile.[SELECT A THEME].min.css&quot; /&gt;
 
 &lt;/head&gt;
 &lt;body&gt;
@@ -1092,32 +1116,38 @@
                                 <div class="notes-title">Notes</div>
                                 <div class="notes">
                                     <ul>
-                                        <li>Thirteen themes are available for Web widgets &amp; DataViz widgets.</li>
-                                        <li>Seven themes are available for Mobile widgets.</li>
-                                        <li>You don't have to include all mobile themes you can use <code>kendo.mobile.common.css</code> and <code>kendo.mobile.[THEME NAME].css</code>, instead of <code>kendo.mobile.all.css</code>.</li>
+                                        <li>Thirteen <a href="http://demos.telerik.com/kendo-ui/themebuilder/">themes</a> are available for Web widgets &amp; DataViz widgets.</li>
+                                        <li>Seven <a href="http://demos.telerik.com/kendo-ui/mobilethemebuilder">themes</a> are available for Mobile widgets.</li>
+                                        <li>You don't have to include both the  <code>kendo.mobile.common.css</code> and <code>kendo.mobile.[THEME NAME].css</code> mobile themes and instead can just use<code>kendo.mobile.all.css</code> which includes all mobile themes.</li>
                                     </ul>
                                 </div>
                             </div>
 
-                            <h3><strong>2.X</strong> Kendo UI's one third-party JavaScript Dependency</h3>
+                            <h3><strong>2.X</strong> Kendo's one hard third-party dependency</h3>
 
-                                <p>Kendo has one third-party dependency on the <a href="http://jquery.com/">jQuery JavaScript Library</a>. In order to use Kendo UI in an HTML page you must first include jQuery so that it is loaded before Kendo UI code runs.</p>
+                                <p>Kendo has one hard third-party dependency on the <a href="http://jquery.com/">jQuery JavaScript Library</a>. In order to use Kendo UI in an HTML page you must first include jQuery so that it is loaded before Kendo UI code runs.</p>
 
-<pre class="brush: html; highlight: 11">
+<pre class="brush: html; highlight: 14">
 &lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
     &lt;meta charset=&quot;utf-8&quot;&gt;
-    &lt;link rel=&quot;stylesheet&quot; href=&quot;kendo.common.css&quot; /&gt;
-    &lt;link rel=&quot;stylesheet&quot; href=&quot;kendo.default.css&quot; /&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;styles/kendo.common.css&quot; /&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;styles/kendo.default.css&quot; /&gt;
 &lt;/head&gt;
 &lt;body&gt;
+
+    <!-- place associating kendo HTML here -->
+    &lt;input id="datepicker" value="10/10/2011" style="width:150px;" /&gt;
  
     &lt;!-- load jQuery before Kendo UI --&gt;
-    &lt;script src=&quot;jquery.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;js/jquery.min.js&quot;&gt;&lt;/script&gt;
   
-    &lt;!-- load Kendo UI after the browser has loading and parsed jQuery--&gt;
-    &lt;script src=&quot;kendo.all.js&quot;&gt;&lt;/script&gt;
+    &lt;!-- load Kendo UI after the browser has loading and parsed jQuery --&gt;
+    &lt;script src=&quot;js/[kendo.all.min.js or kendo.ui.core.min.js]&quot;&gt;&lt;/script&gt;
+
+    <!-- run kendo HTML here -->
+    &lt;script&gt; $('#datepicker').kendoDatePicker(); &lt;/script&gt;
  
 &lt;/body&gt;
 &lt;/html&gt;
@@ -1146,12 +1176,87 @@
                                     <ul>
                                         <li>Currently Kendo UI has no plans to stop using jQuery</li>
                                         <li>If you use jQuery from a third-party CDN in production you should make sure you have <a href="http://docs.telerik.com/kendo-ui/install/cdn#cdn-fallback-and-troubleshooting">a fallback if the CDN goes down</a>.</li>
+                                        <li>Kendo UI has soft dependencies on <code>angular.min.js</code> and <code>jszip.min.js</code> but soft dependencies are not required to minimally make Kendo UI function.</li>
                                     </ul>
                                 </div>
                             </div>
 
-                            <h3><strong>2.X</strong> Concatenate source files</h3>
-                            <h3><strong>2.X</strong> Individual source files</h3>
+                            <h3><strong>2.X</strong> Including bundled widget JavaScript files</h3>
+
+                            <p>Minimally Kendo UI will function by simply including two JavaScript files, jQuery and either <code>kendo.all.min.js</code> or <code>kendo.ui.core.min.js</code>. One can optionally include a globalized file to override the default English cultural formats (i.e. <code>kendo.culture.en-US.min.js</code>) used in the wdigets. </p>
+
+                            <p>Professional:</p>
+
+<pre class="brush: html; highlight: [14,15]">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;styles/kendo.common.min.css&quot; /&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;styles/kendo.[SELECT A THEME].min.css&quot; /&gt;
+
+&lt;/head&gt;
+&lt;body&gt;
+
+    <!-- place associating kendo HTML here -->
+    &lt;input id="datepicker" value="10/10/2011" style="width:150px;" /&gt;
+
+    &lt;script src=&quot;js/jquery.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;js/kendo.all.min.js&quot;&gt;&lt;/script&gt;
+
+    &lt;!-- OPTIONAL, only need if you want to overide EN US --&gt;
+    &lt;script src=&quot;js/cultures/kendo.culture.[pick your culture].min.js&quot;&gt;&lt;/script&gt;
+
+    <!-- run kendo HTML here -->
+    &lt;script&gt; $('#datepicker').kendoDatePicker(); &lt;/script&gt;
+ 
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>                 
+
+                            <p>Core:</p>
+
+<pre class="brush: html; highlight: [14,15]">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;styles/kendo.common.min.css&quot; /&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;styles/kendo.[SELECT A THEME].min.css&quot; /&gt;
+
+&lt;/head&gt;
+&lt;body&gt;
+
+    <!-- place associating kendo HTML here -->
+    &lt;input id="datepicker" value="10/10/2011" style="width:150px;" /&gt;
+
+    &lt;script src=&quot;js/jquery.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;js/kendo.ui.core.min.js&quot;&gt;&lt;/script&gt;
+
+    &lt;!-- OPTIONAL, only need if you want to overide EN US --&gt;
+    &lt;script src=&quot;js/cultures/kendo.culture.[pick your culture].min.js&quot;&gt;&lt;/script&gt;
+
+    <!-- run kendo HTML here -->
+    &lt;script&gt; $('#datepicker').kendoDatePicker(); &lt;/script&gt;
+ 
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>    
+                            <div class="note">
+                            <div class="notes-title">Notes</div>
+                            <div class="notes">
+                                    <ul>
+                                        <li>Professional licenses holders have additional bundled options by using <code>kendo.dataviz.min.js</code>, <code>kendo.web.min.js</code> (includes framework tools), or <code>kendo.mobile.min.js</code> to include only the parts used. In other words, if you only make use of web widgets then Professional users can use <code>kendo.web.min.js</code> instead of <code>kendo.all.min.js</code>.</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+
+                            <h3><strong>2.X</strong> Including individual widget JavaScript files</h3>
+
+                            <p></p>
+
+
                             <h3><strong>2.X</strong> Loading individual AMD source files</h3>
 
                             </div><!--  /chapter 2  -->
@@ -1764,7 +1869,7 @@
                 $.waypoints('refresh');
             });
 
-        },2000);
+        },5000);
 
         window.setTimeout(function(){ 
             if(window.location.hash === ''){
