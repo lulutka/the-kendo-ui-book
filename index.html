@@ -734,6 +734,7 @@
                                 <li><a href="http://www.telerik.com/support/whats-new/kendo-ui/roadmap">Roadmap</a></li>
                                 <li><a href="http://www.telerik.com/support/whats-new/kendo-ui/release-history">Release History</a></li>
                                 <li><a href="http://blogs.telerik.com/kendoui/posts/">Blog</a></li>
+                                <li><a href="http://docs.telerik.com/kendo-ui/install/changes-and-backward-compatibility">Changes and Backwards Compatibility</a></li>
                             </ul>
 
                             <h3><strong>1.8</strong> Requesting new features, giving feedback, &amp; reporting bugs</h3>
@@ -975,13 +976,13 @@
                                 <li>Kendo ships with three third-party library's, AngularJS, jQuery, and JSzip. This is out of convince and while you are not required to use them, you should be aware of the versions which are <a href="http://docs.telerik.com/kendo-ui/install/prerequisites">officially supported</a>.</li>
                                  <li>Obviously the professional source will differ from the CDN and core source files and directories. The directory structure I am showing is a combination of all these sources (i.e. not exactly what is downloaded) so you can understand what is offered from each.</li>
                                  <li>Two strategies for including Kendo UI widgets are possible. The first is simply including bundled files which contains large groupings of widgets in one file. The second option would be to include the <code>kendo.core.min.js</code> file and all the <a href="http://docs.telerik.com/kendo-ui/install/custom#framework">dependencies</a> for each individual widget.</li>
-                                 <li>The CDN offers the directory structure above but you should be aware that it's based on version number. (e.g. <code>http://cdn.kendostatic.com/2014.3.1411/styles/...</code> and <code>http://cdn.kendostatic.com/2014.3.1411/js/...</code>)</li>
-                                 <li>In general the CDN and Core downloaded source files will not include non-minified files.</li>
+                                 <li>The CDN offers the directory structure above but you should be aware that it's based on version number which is part of the url to the files on the CDN (e.g. <code>http://cdn.kendostatic.com/2014.3.1411/styles/...</code> and <code>http://cdn.kendostatic.com/2014.3.1411/js/...</code>)</li>
+                                 <li>In the CDN does not include non-minified files.</li>
                             </ol>
 
-                            <p>The remainder of this book will show code examples using professional source code hosted locally or from the CDN. It's assume from this point forward that the above directory structure is in place no matter if code in the book is shown referencing the CDN or locally hosted files. The purpose in stating this is so that you realize that the CSS files will not work correctly without the proper CSS theme, <code>images</code>, and <code>textures</code> directory.
+                            <p>The remainder of this book will show code examples using professional source code hosted locally or from the CDN. It's assume from this point forward that the above directory structure is in place no matter if code in the book is shown referencing the CDN or locally hosted files. The purpose in stating this is so that you realize that the CSS files will not work correctly without the proper CSS theme, <code>images</code>, and <code>textures</code> directory.</p>
 
-                            The two html files below represent the minimally required files (i.e. two .js files and two .css files) to run Kendo UI.</p>
+                            <p>The two html files below represent the minimally required files (i.e. two .js files and two .css files) to run Kendo UI.</p>
 
                             <p>Running Kendo UI Professional from CDN source code:</p>
 
@@ -1189,7 +1190,7 @@
 
                             </p>A third JavaScript file could be used to configure Professional or Core widgets when configuring the widgets for a different culture other than the U.S. English culture.</p>
 
-                            <p>The two code examples below display what an HTML file would look for both Professional and Core projects using Kendo UI.</p>
+                            <p>The two code examples below display what an HTML file could potentially resemble in terms of CSS and JS includes for both Professional and Core projects using Kendo UI.</p>
 
                             <p>Professional:</p>
 
@@ -1311,19 +1312,16 @@
                             <div class="notes">
                                     <ul>
                                         <li>Professional licenses holders have additional bundled using <code>kendo.dataviz.min.js</code>, <code>kendo.web.min.js</code> (includes framework tools), or <code>kendo.mobile.min.js</code> to include only the widgets being used. In other words, if you only make use of web widgets then Professional users can use <code>kendo.web.min.js</code> instead of <code>kendo.all.min.js</code>.</li>
-                                        <li>Custom bundles are possible for both Professional widgets and Core widgets. Building a custom bundle can be done for <a href="http://docs.telerik.com/kendo-ui/install/custom#build-a-custom-combined-script-with-the-kendo-ui-download-builder">Professional users using tools in their account</a> and Core users can great <a href="https://github.com/telerik/kendo-ui-core#how-to-build-kendo-ui-core">custom builds from using grunt</a>.</li>
+                                        <li>Custom bundles are possible for both Professional widgets and Core widgets. Building a custom bundle can be done for <a href="http://docs.telerik.com/kendo-ui/install/custom#build-a-custom-combined-script-with-the-kendo-ui-download-builder">Professional users by way of a online build tool</a> and Core users can create <a href="https://github.com/telerik/kendo-ui-core#how-to-build-kendo-ui-core">custom Core bundles from using grunt</a>.</li>
                                     </ul>
                                 </div>
                             </div>
-
-
-
 
                             <h3><strong>2.X</strong> Including individual widget/tool JavaScript files</h3>
 
                             <p>It's possible to include only the JavaScript required to run specific widgets as opposed to using bundled JavaScript files. In order to include individual widgets and tools replace <code>kendo.all.min.js</code> or <code>kendo.ui.core.min.js</code> with <code>kendo.core.min.js</code>. Then, determine and locate all of the <a href="http://docs.telerik.com/kendo-ui/install/custom#framework">dependencies</a> for a <a href="http://docs.telerik.com/kendo-ui/install/custom#include-individual-widget-scripts">particular widget or tool</a> and include all the required <a href="http://docs.telerik.com/kendo-ui/install/custom#framework">dependences</a> in the correct order.</p>
 
-                            <p>The code below deomonstrate how to include the minimal amount of JavaScript to use the DatePicker widget and MVVM tools.</p>
+                            <p>The code below demonstrates how to include the minimal amount of JavaScript to use the DatePicker widget and MVVM tools.</p>
 
 <pre class="brush: html; highlight: [15,17,18,19,21,22,23,24]">
 &lt;!DOCTYPE html&gt;
@@ -1369,7 +1367,7 @@
                             </div>
 
 
-                            <h3><strong>2.X</strong> Loading individual AMD source files</h3>
+                            <h3><strong>2.X</strong> Including individual widget/tool files using AMD loader</h3>
 
                             </div><!--  /chapter 2  -->
 
@@ -1392,13 +1390,13 @@
                             <div id="chapter4" class="chapter">
                             
                             <h2><strong>4.</strong> Creating Kendo UI Widgets</h2>
-                            <h3><strong>4.X</strong> Imperially create widgets using jQuery methods</h3>
-                            <h3><strong>4.X</strong> Declaratively create widgets from attributes</h3>
-                            <h3><strong>4.X</strong> Declaratively create widgets from views</h3>
+                            <h3><strong>4.X</strong> Imperially instantiate widgets using jQuery methods</h3>
+                            <h3><strong>4.X</strong> Declaratively instantiate widgets from attributes</h3>
+                            <h3><strong>4.X</strong> Declaratively instantiate widgets from <code>View</code>'s</h3>
                             <h3><strong>4.X</strong> Creating widgets from HTML Markup</h3>
-                            <h3><strong>4.X</strong> Creating widgets with a DataSource</h3>
-                            <h3><strong>4.X</strong> Creating widgets using Templates</h3>
-                            <h3><strong>4.X</strong> Declaratively create widgets using AngularJS Directives</h3>
+                            <h3><strong>4.X</strong> Creating widgets with a <code>DataSource</code></h3>
+                            <h3><strong>4.X</strong> Creating widgets using template's</h3>
+                            <h3><strong>4.X</strong> Declaratively instantiate widgets using AngularJS directives</h3>
 
                             </div><!--  /chapter 4  -->
 
