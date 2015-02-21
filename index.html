@@ -1143,7 +1143,7 @@
     &lt;!-- load jQuery before Kendo UI --&gt;
     &lt;script src=&quot;js/jquery.min.js&quot;&gt;&lt;/script&gt;
   
-    &lt;!-- load Kendo UI after the browser has loading and parsed jQuery --&gt;
+    &lt;!-- load Kendo UI after the browser has loaded and parsed jQuery --&gt;
     &lt;script src=&quot;js/[kendo.all.min.js or kendo.ui.core.min.js]&quot;&gt;&lt;/script&gt;
 
     <!-- run kendo HTML here, after scripts above -->
@@ -1363,6 +1363,7 @@
                                     <ul>
                                         <li>Don't confused the JavaScxript file <code>kendo.ui.core.min.js</code> with <code>kendo.core.min.js</code>. The <code>kendo.ui.core.min.js</code> contains all of the Core widgets while the <code>kendo.core.min.js</code> is the core JavaScript file required by all widgets.</li>
                                         <li>The documentation provides a <a href="http://docs.telerik.com/kendo-ui/install/custom#include-individual-widget-scripts">list</a> of all widgets and tools that can be included individually and provides a link to a <a href="http://docs.telerik.com/kendo-ui/install/custom#framework">list of dependencies for each</a>.</li>
+                                        <li>Including individual widgets/tools and managing their dependencies can quickly become, well, unmanageable depending upon how many individual parts you include and the overlapping similarities between the dependencies. For this reason, if you want to include a large number of widgets and tools individually you'd most likely be better off using an AMD loader to manager dependencies.</li>
                                     </ul>
                                 </div>
                             </div>
