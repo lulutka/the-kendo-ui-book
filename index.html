@@ -764,7 +764,7 @@
                             
                             <h2><strong>2.</strong> Including Kendo UI</h2>
 
-                            <h3><strong>2.X</strong> Kendo UI Source Structure</h3>
+                            <h3><strong>2.X</strong> Kendo UI source structure</h3>
 
                             <p>Regardless of if you are using Professional, Core (this source excludes Professional parts), or the CDN the Kendo UI directory structure will contain a <code>js</code> and <code>styles</code> directory that could contain the following files (read carefully the highlighted comments).
 
@@ -996,13 +996,13 @@
 
 &lt;body&gt;
     
-    <!-- place associating kendo HTML here -->
+    <!-- place associating kendo HTML here, before scripts below-->
     &lt;input id="datepicker" value="10/10/2011" style="width:150px;" /&gt;
   
     &lt;script src=&quot;http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js&quot;&gt;&lt;/script&gt;
     &lt;script src=&quot;http://cdn.kendostatic.com/2014.3.1411/js/kendo.all.min.js&quot;&gt;&lt;/script&gt;
 
-    <!-- run kendo HTML here -->
+    <!-- run kendo HTML here, after scripts above -->
     &lt;script&gt; $('#datepicker').kendoDatePicker(); &lt;/script&gt;
   
 &lt;/body&gt;
@@ -1022,13 +1022,13 @@
 
 &lt;body&gt;
 
-    <!-- place associating kendo HTML here -->
+    <!-- place associating kendo HTML here, before scripts below-->
     &lt;input id="datepicker" value="10/10/2011" style="width:150px;" /&gt;
   
     &lt;script src=&quot;http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js&quot;&gt;&lt;/script&gt;
     &lt;script src=&quot;js/kendo.all.min.js&quot;&gt;&lt;/script&gt;
 
-    <!-- run kendo HTML here -->
+    <!-- run kendo HTML here, after scripts above -->
     &lt;script&gt; $('#datepicker').kendoDatePicker(); &lt;/script&gt;
   
 &lt;/body&gt;
@@ -1118,7 +1118,7 @@
                                     <ul>
                                         <li>Thirteen <a href="http://demos.telerik.com/kendo-ui/themebuilder/">themes</a> are available for Web widgets &amp; DataViz widgets.</li>
                                         <li>Seven <a href="http://demos.telerik.com/kendo-ui/mobilethemebuilder">themes</a> are available for Mobile widgets.</li>
-                                        <li>You don't have to include both the  <code>kendo.mobile.common.css</code> and <code>kendo.mobile.[THEME NAME].css</code> mobile themes and instead can just use<code>kendo.mobile.all.css</code> which includes all mobile themes.</li>
+                                        <li>You don't have to include both the  <code>kendo.mobile.common.css</code> and <code>kendo.mobile.[THEME NAME].css</code> mobile themes and instead can just use <code>kendo.mobile.all.css</code> which includes all mobile themes.</li>
                                     </ul>
                                 </div>
                             </div>
@@ -1137,7 +1137,7 @@
 &lt;/head&gt;
 &lt;body&gt;
 
-    <!-- place associating kendo HTML here -->
+    <!-- place associating kendo HTML here, before scripts below-->
     &lt;input id="datepicker" value="10/10/2011" style="width:150px;" /&gt;
  
     &lt;!-- load jQuery before Kendo UI --&gt;
@@ -1146,7 +1146,7 @@
     &lt;!-- load Kendo UI after the browser has loading and parsed jQuery --&gt;
     &lt;script src=&quot;js/[kendo.all.min.js or kendo.ui.core.min.js]&quot;&gt;&lt;/script&gt;
 
-    <!-- run kendo HTML here -->
+    <!-- run kendo HTML here, after scripts above -->
     &lt;script&gt; $('#datepicker').kendoDatePicker(); &lt;/script&gt;
  
 &lt;/body&gt;
@@ -1181,13 +1181,19 @@
                                 </div>
                             </div>
 
-                            <h3><strong>2.X</strong> Including bundled widget JavaScript files</h3>
+                            <h3><strong>2.X</strong> Including bundled JavaScript files</h3>
 
-                            <p>Minimally Kendo UI will function by simply including two JavaScript files, jQuery and either <code>kendo.all.min.js</code> or <code>kendo.ui.core.min.js</code>. One can optionally include a globalized file to override the default English cultural formats (i.e. <code>kendo.culture.en-US.min.js</code>) used in the wdigets. </p>
+                            <p>Minimally Kendo UI will function (assuming you've included minimal CSS files too) by simply including two JavaScript files. One being jQuery and the other being either <code>kendo.all.min.js</code> or <code>kendo.ui.core.min.js</code>. These files bundle up all of the available widgets and tools for the respecting Kendo UI versions. 
+
+                            <p>The <code>kendo.all.min.js</code> file bundling up all of Kendo UI Professional widgets and tools and the <code>kendo.ui.core.min.js</code> bundling up all of the Core widgets and tools.</p>
+
+                            </p>A third JavaScript file could be used to configure Professional or Core widgets when configuring the widgets for a different culture other than the U.S. English culture.</p>
+
+                            <p>The two code examples below display what an HTML file would look for both Professional and Core projects using Kendo UI.</p>
 
                             <p>Professional:</p>
 
-<pre class="brush: html; highlight: [14,15]">
+<pre class="brush: html; highlight: [18,19]">
 &lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
@@ -1195,19 +1201,23 @@
     &lt;link rel=&quot;stylesheet&quot; href=&quot;styles/kendo.common.min.css&quot; /&gt;
     &lt;link rel=&quot;stylesheet&quot; href=&quot;styles/kendo.[SELECT A THEME].min.css&quot; /&gt;
 
+    &lt;!-- OPTIONAL, only needed if dataviz widgets are used --&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;styles/kendo.dataviz.min.css&quot; /&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;styles/kendo.dataviz.[SELECT A THEME].min.css&quot; /&gt;
+
 &lt;/head&gt;
 &lt;body&gt;
 
-    <!-- place associating kendo HTML here -->
+    <!-- place associating kendo HTML here, before scripts below-->
     &lt;input id="datepicker" value="10/10/2011" style="width:150px;" /&gt;
 
     &lt;script src=&quot;js/jquery.min.js&quot;&gt;&lt;/script&gt;
     &lt;script src=&quot;js/kendo.all.min.js&quot;&gt;&lt;/script&gt;
 
-    &lt;!-- OPTIONAL, only need if you want to overide EN US --&gt;
+    &lt;!-- OPTIONAL, only need if you want to override EN US --&gt;
     &lt;script src=&quot;js/cultures/kendo.culture.[pick your culture].min.js&quot;&gt;&lt;/script&gt;
 
-    <!-- run kendo HTML here -->
+    <!-- run kendo HTML here, after scripts above -->
     &lt;script&gt; $('#datepicker').kendoDatePicker(); &lt;/script&gt;
  
 &lt;/body&gt;
@@ -1227,7 +1237,7 @@
 &lt;/head&gt;
 &lt;body&gt;
 
-    <!-- place associating kendo HTML here -->
+    <!-- place associating kendo HTML here, before scripts below-->
     &lt;input id="datepicker" value="10/10/2011" style="width:150px;" /&gt;
 
     &lt;script src=&quot;js/jquery.min.js&quot;&gt;&lt;/script&gt;
@@ -1236,25 +1246,126 @@
     &lt;!-- OPTIONAL, only need if you want to overide EN US --&gt;
     &lt;script src=&quot;js/cultures/kendo.culture.[pick your culture].min.js&quot;&gt;&lt;/script&gt;
 
-    <!-- run kendo HTML here -->
+    <!-- run kendo HTML here, after scripts above -->
     &lt;script&gt; $('#datepicker').kendoDatePicker(); &lt;/script&gt;
  
 &lt;/body&gt;
 &lt;/html&gt;
 </pre>    
+
+                            <p>If you only seek to use the mobile widgets and you have a professional licenses then you can use the <code>kendo.mobile.min.js</code> bundled file containing only the mobile widgets:</p>
+
+ <pre class="brush: html; highlight: [17]">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;styles/kendo.mobile.common.min.css&quot; /&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;styles/kendo.mobile.[SELECT A THEME].min.css&quot; /&gt;
+
+    &lt;!-- OPTIONAL, only needed if dataviz widgets are used --&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;styles/kendo.dataviz.mobile.min.css&quot; /&gt;
+
+&lt;/head&gt;
+&lt;body&gt;
+
+    <!-- place associating kendo HTML here, before scripts below-->
+
+    &lt;script src=&quot;js/jquery.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;js/kendo.mobile.min.js&quot;&gt;&lt;/script&gt;
+
+    &lt;!-- OPTIONAL, only needed if dataviz widgets are used --&gt;
+    &lt;script src=&quot;js/kendo.dataviz.mobile.min.js&quot;&gt;&lt;/script&gt;
+
+    <!-- run kendo HTML here, after scripts above -->
+ 
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>                            
+                            <p>Other wise, if you want to use the Kendo UI Core source code for a mobile project you'll just have to use the <code>kendo.ui.core.min.js</code> which includes all the Core web widgets as well mobile widgets:</p>
+
+ <pre class="brush: html; highlight: [14]">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;styles/kendo.mobile.common.min.css&quot; /&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;styles/kendo.mobile.[SELECT A THEME].min.css&quot; /&gt;
+
+&lt;/head&gt;
+&lt;body&gt;
+
+    <!-- place associating kendo HTML here, before scripts below -->
+
+    &lt;script src=&quot;js/jquery.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;js/kendo.ui.core.min.js&quot;&gt;&lt;/script&gt;
+
+    <!-- run kendo HTML here, after scripts above, after scripts above -->
+ 
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
                             <div class="note">
                             <div class="notes-title">Notes</div>
                             <div class="notes">
                                     <ul>
-                                        <li>Professional licenses holders have additional bundled options by using <code>kendo.dataviz.min.js</code>, <code>kendo.web.min.js</code> (includes framework tools), or <code>kendo.mobile.min.js</code> to include only the parts used. In other words, if you only make use of web widgets then Professional users can use <code>kendo.web.min.js</code> instead of <code>kendo.all.min.js</code>.</li>
+                                        <li>Professional licenses holders have additional bundled using <code>kendo.dataviz.min.js</code>, <code>kendo.web.min.js</code> (includes framework tools), or <code>kendo.mobile.min.js</code> to include only the widgets being used. In other words, if you only make use of web widgets then Professional users can use <code>kendo.web.min.js</code> instead of <code>kendo.all.min.js</code>.</li>
+                                        <li>Custom bundles are possible for both Professional widgets and Core widgets. Building a custom bundle can be done for <a href="http://docs.telerik.com/kendo-ui/install/custom#build-a-custom-combined-script-with-the-kendo-ui-download-builder">Professional users using tools in their account</a> and Core users can great <a href="https://github.com/telerik/kendo-ui-core#how-to-build-kendo-ui-core">custom builds from using grunt</a>.</li>
                                     </ul>
                                 </div>
                             </div>
 
 
-                            <h3><strong>2.X</strong> Including individual widget JavaScript files</h3>
 
-                            <p></p>
+
+                            <h3><strong>2.X</strong> Including individual widget/tool JavaScript files</h3>
+
+                            <p>It's possible to include only the JavaScript required to run specific widgets as opposed to using bundled JavaScript files. In order to include individual widgets and tools replace <code>kendo.all.min.js</code> or <code>kendo.ui.core.min.js</code> with <code>kendo.core.min.js</code>. Then, determine and locate all of the <a href="http://docs.telerik.com/kendo-ui/install/custom#framework">dependencies</a> for a <a href="http://docs.telerik.com/kendo-ui/install/custom#include-individual-widget-scripts">particular widget or tool</a> and include all the required <a href="http://docs.telerik.com/kendo-ui/install/custom#framework">dependences</a> in the correct order.</p>
+
+                            <p>The code below deomonstrate how to include the minimal amount of JavaScript to use the DatePicker widget and MVVM tools.</p>
+
+<pre class="brush: html; highlight: [15,17,18,19,21,22,23,24]">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;styles/kendo.common.min.css&quot; /&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;styles/kendo.[SELECT A THEME].min.css&quot; /&gt;
+
+&lt;/head&gt;
+&lt;body&gt;
+
+    <!-- place associating kendo HTML here, before scripts below-->
+    &lt;input id="datepicker" value="10/10/2011" style="width:150px;" /&gt;
+
+    &lt;script src=&quot;js/jquery.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;js/kendo.core.min.js&quot;&gt;&lt;/script&gt;
+    
+    <!-- MVVM -->
+    &lt;script src=&quot;js/kendo.data.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;js/kendo.binder.min.js&quot;&gt;&lt;/script&gt;
+
+    <!-- DatePicker -->
+    &lt;script src=&quot;js/kendo.calendar.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;js/kendo.popup.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;js/kendo.datepicker.min.js&quot;&gt;&lt;/script&gt;
+
+    <!-- run kendo HTML here, after scripts above -->
+    &lt;script&gt; $('#datepicker').kendoDatePicker(); &lt;/script&gt;
+ 
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>   
+                            <div class="note">
+                            <div class="notes-title">Notes</div>
+                            <div class="notes">
+                                    <ul>
+                                        <li>Don't confused the JavaScxript file <code>kendo.ui.core.min.js</code> with <code>kendo.core.min.js</code>. The <code>kendo.ui.core.min.js</code> contains all of the Core widgets while the <code>kendo.core.min.js</code> is the core JavaScript file required by all widgets.</li>
+                                        <li>The documentation provides a <a href="http://docs.telerik.com/kendo-ui/install/custom#include-individual-widget-scripts">list</a> of all widgets and tools that can be included individually and provides a link to a <a href="http://docs.telerik.com/kendo-ui/install/custom#framework">list of dependencies for each</a>.</li>
+                                    </ul>
+                                </div>
+                            </div>
 
 
                             <h3><strong>2.X</strong> Loading individual AMD source files</h3>
