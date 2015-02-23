@@ -182,7 +182,7 @@
         }
 
         ol li, ul li{
-            line-height: 2em;
+            line-height: 1.7em;
         }
 
         .k-widget.k-splitter{
@@ -309,6 +309,14 @@
             margin: 0px;
             color: inherit;
             padding-left: 20px;
+        }
+
+        .notes ul li{
+            line-height: 1.5em;
+        }
+
+        .notes ul li{
+            margin-bottom: 10px;
         }
 
         .notes-title{
@@ -441,7 +449,7 @@
 
                             <p>In addition to UI widgets Kendo also provides tools for developing modern JavaScript applications (e.g. <a href="http://demos.telerik.com/kendo-ui/mvvm/index">MVVM</a>, <a href="http://demos.telerik.com/kendo-ui/datasource/index">DataSource</a>, <a href="http://demos.telerik.com/kendo-ui/templates/index">Templates</a>, <a href="http://demos.telerik.com/kendo-ui/fx/expand">Effects/FX</a> etc...). Many of which are used in can conjunction with the Kendo UI widgets themeselves (i.e. Templates and Datasource).</p>
 
-                            <p>Kendo UI not only runs in browsers on computers but also on touch devices and WebiViews used in hybrid mobile application development.</p>
+                            <p>Kendo UI is constructed to run in web browsers on computers but also on touch device browsers and WebiViews used in hybrid mobile application development.</p>
 
                             <p><a href="http://www.telerik.com/kendo-ui">Kendo UI Professional</a>, the commercial version of Kendo used to develop line-of-business and professional applications, is divided into 4 parts.</p>
 
@@ -452,7 +460,7 @@
                                 <li><strong>Mobile widgets &amp; mobile application/framework tools</strong> - Mobile specific widgets and set of application tools for building browser based applications on a phone or tablet for a browser or WebView (e.g. <a href="http://demos.telerik.com/kendo-ui/navbar/adaptive-toolbar">Tool Bar</a>).</li>
                             </ul>
 
-                            <p><a href="http://www.telerik.com/kendo-ui/comparison">Kendo UI Core</a>, the <a href="https://github.com/telerik/kendo-ui-core">free and open sourced version</a> of Kendo UI, excludes the following professional parts/widgets:</p>
+                            <p><a href="http://www.telerik.com/kendo-ui/comparison">Kendo UI Core</a>, the <a href="https://github.com/telerik/kendo-ui-core">free and open sourced version</a> of Kendo UI, excludes the following professional widgets:</p>
                             
                             <ul>
                                 <li><a href="http://demos.telerik.com/kendo-ui/barcode/index">Barcode</a></li>
@@ -495,7 +503,6 @@
                                 <div class="notes-title">Notes</div>
                                 <div class="notes">
                                     <ul>
-                                        <li>Many of the official Kendo UI documents (i.e. <a href="http://docs.telerik.com/kendo-ui/getting-started/introduction">Getting Started</a>, <a href="http://docs.telerik.com/kendo-ui/api/introduction">API documents</a>) are divided into the above mentioned parts.</li>
                                         <li>Mobile widgets, by design, function on laptop and desktop browsers. &nbsp;This makes responsive, mobile-first UIs trivial to implement on phone and tablet devices, as well as desktop and laptop computers (desktop support for mobile specific widgets: Chrome Latest, Firefox latest, Opera 15+, Safari 5+, and IE 10+).</li>
                                         <li>The Web and DataViz widgets are <a href="http://docs.telerik.com/kendo-ui/getting-started/browsers-support">supported on all the obvious modern browsers</a>, but also include full support for IE7+ on Windows XP and Server 2003.</li>
                                         <li>The DataViz widgets function on iPhones and tablet devices.</li>
@@ -677,21 +684,38 @@
 
                             <h3><strong>1.4</strong> Getting Kendo UI Professional code</h3>
 
-                            <p>The Kendo UI professional source code can be obtained by <a href="https://www.telerik.com/login/v2/telerik">creating a Telerik account</a> and either <a href="http://www.telerik.com/purchase/kendo-ui">purchasing a license</a> or <a href="http://www.telerik.com/download/kendo-ui">doing a 30 day trial</a>. </p>
+                            <p>The Kendo UI professional source code can be obtained by <a href="https://www.telerik.com/login/v2/telerik">creating a Telerik account</a> and either <a href="http://www.telerik.com/purchase/kendo-ui">purchasing a license</a> or <a href="http://www.telerik.com/download/kendo-ui">using a 30 day trial offer</a>.</p>
 
-                            <p>If you decide to use a trial copy of Kendo UI Professional it will start to download to your local system once you have <a href="http://www.telerik.com/download/kendo-ui">created a new account from the trial page</a>. If you've purchased a license you can go into your account and select from several Kendo UI installation options (i.e. manual, automatic, control panel, NuGet package), including creating a custom download/build of Kendo UI.</p>
+                            <p>If you decide to use a trial of Kendo UI Professional it will start to download to your local system once you have <a href="http://www.telerik.com/download/kendo-ui">created a new account from the trial web page</a>. If you've purchased a license you can go into your account and select from several Kendo UI installation options (i.e. manual, automatic, control panel, NuGet package), including creating a custom download/build of Kendo UI.</p>
 
 
                             <p>The simplest and fast way to get Kendo UI Professional if you have a license is to download it from your account product version page and manual install it. For example, in the image below you'd click on the "Manual Installation" link in the table, Kendo UI will download, and you would then have access to all of the files to run Kendo UI.</p>
 
                             <img src="/images/installKendo.png">
 
+                            <p>Once downloaded, and unzipped, you'll find a directory with the following sub directories (showing Professional download, not trial).</p>
+
+<pre pre class="brush: xml; gutter: false;">
+
+├── README
+├── changelog.html
+├── examples //demos
+├── js // minified JavaScript files
+├── license-agreements
+├── src //complete source code. Not available in the trial
+├── styles //minified CSS, fonts, and images
+├── typescript //TypeScript definitions
+└── vsdoc //Visual Studio Intellisense docs
+
+</pre>
+
                             <div class="note">
                                 <div class="notes-title">Notes</div>
                                 <div class="notes">
                                     <ul>
                                         <li>The <a href="http://www.telerik.com/download/kendo-ui">30-day trial</a> requires signing up for a Telerik account.</li>
-                                        <li><a href="http://www.telerik.com/purchase/kendo-ui">Kendo UI pricing is pretty simple.</a>. The starting price for Kendo UI is $699 per developer, royalty-free, source code included, updates for a year, and 10 incidents tickets with a 48 hour response time.</li>
+                                        <li>The <a href="http://www.telerik.com/download/kendo-ui">30-day trial</a> does not include the <code>src</code> directory containing source files.</li>
+                                        <li><a href="http://www.telerik.com/purchase/kendo-ui">Kendo UI pricing is pretty simple</a>. The starting price for Kendo UI is $699 per developer, royalty-free, source code included, updates for a year, and 10 incidents tickets with a 48 hour response time.</li>
                                         <li>A limited Professional version of Kendo is offered as minified code from a <a href="http://docs.telerik.com/kendo-ui/install/cdn">public CDN</a> for developers to prototype with before purchasing.</li>
                                     </ul>
                                 </div>
@@ -709,6 +733,18 @@
                                 <li>Use <a href="http://bower.io/">bower</a> to install the <a href="https://github.com/kendo-labs/bower-kendo-ui">Kendo UI Core bower package</a> (i.e. <code>$ bower install kendo-ui-core</code>)</li>
                                 <li>Use the <a href="https://github.com/telerik/kendo-ui-core#using-kendo-ui-core-via-the-kendo-static-cdn">Kendo CDN to include Kendo UI Core</a>.</li>
                             </ul>
+
+                            <p>Once downloaded (or built using grunt) you'll find a directory with the following sub directories.</p>
+<pre pre class="brush: xml; gutter: false;">
+
+├── README
+├── changelog.html
+├── js //minified JavaScript files
+├── src //complete Core source code
+└── styles //minified CSS, fonts, and images
+
+</pre>
+
 
                             <div class="note">
                                 <div class="notes-title">Notes</div>
@@ -755,6 +791,118 @@
 
                             <p>Bugs can be subitted for Kendo UI Core on <a href="https://github.com/telerik/kendo-ui-core/issues">Github</a>. A specific bug ticket can't be submitted to a bug tracking system for Kendo UI Professional parts. To discuss potential bugs with the Kendo UI team you can use the general feedback form from a Telerik account or the <a href="http://kendoui-feedback.telerik.com/forums/127393-telerik-kendo-ui-feedback">user voice</a> site if you are not a license holder. If you are a Kendo UI license holder you can also use paid support tickets or the <a href="http://www.telerik.com/forums/kendo-ui">public forums</a> to submit/discuss any Kendo UI bugs.</p>
 
+                            <h3><strong>1.9</strong> API reference</h3>
+
+                            <p>All widgets and tools have a detailed API reference documenting the configuration options, methods, and events for each widget/tool. For example, the API reference for a <a href="http://demos.telerik.com/kendo-ui/menu/index"><code>Menu</code></a> widget provides the following configuration, method, and event details.</p>
+
+                            <ul>
+                                <li><a href="http://docs.telerik.com/kendo-ui/api/javascript/ui/menu#configuration">Configuration</a> (i.e. the options you pass the jQuery widget):
+                                    <ul>
+                                        <li><a href="http://docs.telerik.com/kendo-ui/api/javascript/ui/menu#configuration-animation">animation</a></li>
+                                        <li><a href="http://docs.telerik.com/kendo-ui/api/javascript/ui/menu#configuration-animation.close">animation.close</a></li>
+                                        <li><a href="http://docs.telerik.com/kendo-ui/api/javascript/ui/menu#configuration-animation.close.effects">animation.close.effects </a></li>
+                                        <li><a href="http://docs.telerik.com/kendo-ui/api/javascript/ui/menu#configuration-animation.close.duration">animation.close.duration </a></li>
+                                        <li><a href="http://docs.telerik.com/kendo-ui/api/javascript/ui/menu#configuration-animation.open">animation.open </a></li>
+                                        <li><a href="http://docs.telerik.com/kendo-ui/api/javascript/ui/menu#configuration-animation.open.effects">animation.open.effects </a></li>
+                                        <li><a href="http://docs.telerik.com/kendo-ui/api/javascript/ui/menu#configuration-animation.open.duration">animation.open.duration</a></li>
+                                        <li><a href="http://docs.telerik.com/kendo-ui/api/javascript/ui/menu#configuration-closeOnClick">closeOnClick</a></li>
+                                        <li><a href="http://docs.telerik.com/kendo-ui/api/javascript/ui/menu#configuration-dataSource">dataSource</a></li>
+                                        <li><a href="http://docs.telerik.com/kendo-ui/api/javascript/ui/menu#configuration-direction">direction</a></li>
+                                        <li><a href="http://docs.telerik.com/kendo-ui/api/javascript/ui/menu#configuration-hoverDelay">hoverDelay</a></li>
+                                        <li><a href="http://docs.telerik.com/kendo-ui/api/javascript/ui/menu#configuration-openOnClick">openOnClick</a></li>
+                                        <li><a href="http://docs.telerik.com/kendo-ui/api/javascript/ui/menu#configuration-orientation">orientation</a></li>
+                                        <li><a href="http://docs.telerik.com/kendo-ui/api/javascript/ui/menu#configuration-popupCollision">popupCollision</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="http://docs.telerik.com/kendo-ui/api/javascript/ui/menu#methods">Methods</a>:
+                                    <ul>
+                                        <li><a href="http://docs.telerik.com/kendo-ui/api/javascript/ui/menu#methods-append">append</a></li>
+                                        <li><a href="http://docs.telerik.com/kendo-ui/api/javascript/ui/menu#methods-close">close</a></li>
+                                        <li><a href="http://docs.telerik.com/kendo-ui/api/javascript/ui/menu#methods-destroy">destroy</a></li>
+                                        <li><a href="http://docs.telerik.com/kendo-ui/api/javascript/ui/menu#methods-enable">enable</a></li>
+                                        <li><a href="http://docs.telerik.com/kendo-ui/api/javascript/ui/menu#methods-insertAfter">insertAfter</a></li>
+                                        <li><a href="http://docs.telerik.com/kendo-ui/api/javascript/ui/menu#methods-insertBefore">insertBefore</a></li>
+                                        <li><a href="http://docs.telerik.com/kendo-ui/api/javascript/ui/menu#methods-open">open</a></li>
+                                        <li><a href="http://docs.telerik.com/kendo-ui/api/javascript/ui/menu#methods-remove">remove</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="http://docs.telerik.com/kendo-ui/api/javascript/ui/menu#events">Events</a>:
+                                    <ul>
+                                    <li><a href="http://docs.telerik.com/kendo-ui/api/javascript/ui/menu#events-close">close</a></li>
+                                    <li><a href="http://docs.telerik.com/kendo-ui/api/javascript/ui/menu#events-open">open</a></li>
+                                    <li><a href="http://docs.telerik.com/kendo-ui/api/javascript/ui/menu#events-activate">activate</a></li>
+                                    <li><a href="http://docs.telerik.com/kendo-ui/api/javascript/ui/menu#events-deactivate">deactivate</a></li>
+                                    <li><a href="http://docs.telerik.com/kendo-ui/api/javascript/ui/menu#events-select">select</a></li>
+                                </ul>
+                            </li>
+                            </ul>
+
+                            <p>Examine the JavaScript code below demonstrating some of the available configuration options, methods, and events from the API reference in use for a <a href="http://demos.telerik.com/kendo-ui/menu/index"><code>Menu</code></a> widget (i.e. read the comments in the code).</p>
+
+                            <a class="jsbin-embed" href="http://jsbin.com/buxelu/3/embed?javascript&height=450px">JS Bin</a>
+
+                            <div class="note">
+                                <div class="notes-title">Notes</div>
+                                <div class="notes">
+                                    <ul>
+                                        <li>Most of the code found in the API reference can be immediately edited in a custom JSFiddle-like editor called "Kendo UI Dojo". Look for the "Edit this example" button on reference pages.</li>
+                                        <li>The Kendo API reference can be contributed to through <a href="https://github.com/telerik/kendo-docs/#contributing">github</a>.</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <h3><strong>1.10</strong> Demos and docs</h3>
+
+                            <p>Kendo UI comes with associating <a href="http://demos.telerik.com/kendo-ui/">demos</a> and <a href="http://docs.telerik.com/kendo-ui/introduction">documentation</a> (i.e. not API docs alone) for each individual widget and tool. For example, the <a href="http://demos.telerik.com/kendo-ui/menu/index"><code>Menu</code></a> widget has 13 demos, two pages of documentation, and three how to articles.</p>
+
+                            <p>Menu Demos:</p>
+
+                            <ul>
+                                <li><a href="http://demos.telerik.com/kendo-ui/menu/index">Basic usage</a></li>
+                                <li><a href="http://demos.telerik.com/kendo-ui/menu/images">Images</a></li> 
+                                <li><a href="http://demos.telerik.com/kendo-ui/menu/direction">Direction</a></li> 
+                                <li><a href="http://demos.telerik.com/kendo-ui/menu/orientation">Orientation</li>
+                                <li><a href="http://demos.telerik.com/kendo-ui/menu/animation">Animation effects</a></li> 
+                                <li><a href="http://demos.telerik.com/kendo-ui/menu/events">Events</a></li> 
+                                <li><a href="http://demos.telerik.com/kendo-ui/menu/api">API</a></li> 
+                                <li><a href="http://demos.telerik.com/kendo-ui/menu/context-menu">Context Menu</li>
+                                <li><a href="http://demos.telerik.com/kendo-ui/menu/right-to-left-support">RTL support</a></li> 
+                                <li><a href="http://demos.telerik.com/kendo-ui/menu/keyboard-navigation">Keyboard navigation</a></li> 
+                                <li><a href="http://demos.telerik.com/kendo-ui/menu/mvvm">MVVM</a></li> 
+                                <li><a href="http://demos.telerik.com/kendo-ui/menu/angular">AngularJS</a></li> 
+                                <li><a href="http://demos.telerik.com/kendo-ui/menu/context-menu-angular">AngularJS - Context Menu</a></li> 
+                            </ul>
+
+                            <p>Menu Documents:</p>
+
+                            <ul>
+                                <li><a href="http://docs.telerik.com/kendo-ui/web/menu/overview">Overview</a></li>
+                                <li><a href="http://docs.telerik.com/kendo-ui/web/menu/contextmenu">Context Menu</a></li>
+                                <li>How To
+                                    <ul>
+                                        <li><a href="http://docs.telerik.com/kendo-ui/web/menu/how-to/creating-split-button">Creating Split Button</a></li>
+                                        <li><a href="http://docs.telerik.com/kendo-ui/web/menu/how-to/execute-custom-action-on-click-based-on-class-name">Execute custom action on click based on class name.</a></li>
+                                        <li><a href="http://docs.telerik.com/kendo-ui/web/menu/how-to/using-fontawesome-icons">Using FontAwesome icons for Kendo UI Menu.</a></li>
+                                    </ul>
+                                </li>   
+                            </ul>
+
+                            <p>Each Kendo UI part comes with this level of demonstration and documentation. To begin learning about a specific widget or tool examine the demos and read the documentation before looking at the API documentation.</p>
+
+                            <div class="note">
+                                <div class="notes-title">Notes</div>
+                                <div class="notes">
+                                    <ul>
+                                        <li>Most of the widgets offer a demo highlighting the widgets API, events, Keyboard navigation, RTL support, and associating AngularJS directive.</li>
+                                        <li>The demos can be immediately edited in a custom JSFiddle-like editor called "Kendo UI Dojo". Look for the "Edit this example" button on a demo page to immediately edit demo code in your browser.</li>
+                                        <li>Each demo has a link to the API reference for the widget/tool. Look for the button on the demo pages that says, "API Reference" to go immediately to the API reference for the widget.</li>
+                                        <li>The Kendo API documentation can be contributed to through <a href="https://github.com/telerik/kendo-docs/#contributing">github</a>.</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+
+
                             </div><!--  /toc 1  -->
 
 
@@ -765,9 +913,9 @@
                             
                             <h2><strong>2.</strong> Including Kendo UI</h2>
 
-                            <h3><strong>2.X</strong> Kendo UI source structure</h3>
+                            <h3><strong>2.1</strong> Kendo UI source structure</h3>
 
-                            <p>Regardless of if you are using Professional, Core (this source excludes Professional parts), or the CDN the Kendo UI directory structure will contain a <code>js</code> and <code>styles</code> directory that could contain the following files (read carefully the highlighted comments).
+                            <p>Regardless of if you are using Kendo UI source code from a Professional download, Core download, or CDN the directory structure will contain a <code>js</code> and <code>styles</code> directory that could, depending which source you are using, contain the following files (read carefully the highlighted comments).
 
 
 <pre pre class="brush: xml; highlight: [7,18,31,69,116,121,145,146,176,180]">
@@ -1000,7 +1148,7 @@
     <!-- place associating kendo HTML here, before scripts below-->
     &lt;input id="datepicker" value="10/10/2011" style="width:150px;" /&gt;
   
-    &lt;script src=&quot;http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;http://cdn.kendostatic.com/2014.3.1411/js/jquery.min.js&quot;&gt;&lt;/script&gt;
     &lt;script src=&quot;http://cdn.kendostatic.com/2014.3.1411/js/kendo.all.min.js&quot;&gt;&lt;/script&gt;
 
     <!-- run kendo HTML here, after scripts above -->
@@ -1026,7 +1174,7 @@
     <!-- place associating kendo HTML here, before scripts below-->
     &lt;input id="datepicker" value="10/10/2011" style="width:150px;" /&gt;
   
-    &lt;script src=&quot;http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;http://cdn.kendostatic.com/2014.3.1411/js/jquery.min.js&quot;&gt;&lt;/script&gt;
     &lt;script src=&quot;js/kendo.all.min.js&quot;&gt;&lt;/script&gt;
 
     <!-- run kendo HTML here, after scripts above -->
@@ -1038,7 +1186,7 @@
 
 
 
-                            <h3><strong>2.X</strong> Including CSS files</h3>
+                            <h3><strong>2.2</strong> Including CSS files</h3>
 
                             <p>Kendo UI Professional potentially can use the following seven css files:</p>
 
@@ -1124,7 +1272,7 @@
                                 </div>
                             </div>
 
-                            <h3><strong>2.X</strong> Kendo's one hard third-party dependency</h3>
+                            <h3><strong>2.3</strong> Kendo's one hard third-party dependency</h3>
 
                                 <p>Kendo has one hard third-party dependency on the <a href="http://jquery.com/">jQuery JavaScript Library</a>. In order to use Kendo UI in an HTML page you must first include jQuery so that it is loaded before Kendo UI code runs.</p>
 
@@ -1182,7 +1330,7 @@
                                 </div>
                             </div>
 
-                            <h3><strong>2.X</strong> Including bundled JavaScript files</h3>
+                            <h3><strong>2.4</strong> Including bundled JavaScript files</h3>
 
                             <p>Minimally Kendo UI will function (assuming you've included minimal CSS files too) by simply including two JavaScript files. One being jQuery and the other being either <code>kendo.all.min.js</code> or <code>kendo.ui.core.min.js</code>. These files bundle up all of the available widgets and tools for the respecting Kendo UI versions. 
 
@@ -1311,13 +1459,14 @@
                             <div class="notes-title">Notes</div>
                             <div class="notes">
                                     <ul>
+                                        <li>The CDN hosts both the <a href="http://cdn.kendostatic.com/2014.3.1411/js/kendo.all.min.js">Professional</a> and <a href="http://cdn.kendostatic.com/2014.3.1411/js/kendo.ui.core.min.js">Core</a> bundle of Kendo UI widgets.</li>
                                         <li>Professional licenses holders have additional bundled using <code>kendo.dataviz.min.js</code>, <code>kendo.web.min.js</code> (includes framework tools), or <code>kendo.mobile.min.js</code> to include only the widgets being used. In other words, if you only make use of web widgets then Professional users can use <code>kendo.web.min.js</code> instead of <code>kendo.all.min.js</code>.</li>
                                         <li>Custom bundles are possible for both Professional widgets and Core widgets. Building a custom bundle can be done for <a href="http://docs.telerik.com/kendo-ui/install/custom#build-a-custom-combined-script-with-the-kendo-ui-download-builder">Professional users by way of a online build tool</a> and Core users can create <a href="https://github.com/telerik/kendo-ui-core#how-to-build-kendo-ui-core">custom Core bundles from using grunt</a>.</li>
                                     </ul>
                                 </div>
                             </div>
 
-                            <h3><strong>2.X</strong> Including individual widget/tool JavaScript files</h3>
+                            <h3><strong>2.5</strong> Including individual widget/tool JavaScript files</h3>
 
                             <p>It's possible to include only the JavaScript required to run specific widgets as opposed to using bundled JavaScript files. In order to include individual widgets and tools replace <code>kendo.all.min.js</code> or <code>kendo.ui.core.min.js</code> with <code>kendo.core.min.js</code>. Then, determine and locate all of the <a href="http://docs.telerik.com/kendo-ui/install/custom#framework">dependencies</a> for a <a href="http://docs.telerik.com/kendo-ui/install/custom#include-individual-widget-scripts">particular widget or tool</a> and include all the required <a href="http://docs.telerik.com/kendo-ui/install/custom#framework">dependences</a> in the correct order.</p>
 
@@ -1366,37 +1515,38 @@
                                 </div>
                             </div>
 
-
-                            <h3><strong>2.X</strong> Including individual widget/tool files using AMD loader</h3>
-
                             </div><!--  /chapter 2  -->
-
+                            
+                            
                             <!--_____________-->
                             <!--  chapter 3  -->
                             <!--_____________-->
                             <div id="chapter3" class="chapter">
                             
-                            <h2><strong>3.</strong> Creating Custom Kendo UI Bundles</h2>
-
-                            <h3><strong>3.X</strong> Custom Professional bundles</h3>
-                            <h3><strong>3.X</strong> Custom Core bundles</h3>
+                            <h2><strong>3.</strong> Creating Kendo UI Widgets</h2>
+                            <h3><strong>3.X</strong> Imperially instantiate widgets using jQuery methods</h3>
+                            <h3><strong>3.X</strong> Declaratively instantiate widgets from attributes</h3>
+                            <h3><strong>3.X</strong> Declaratively instantiate widgets from <code>View</code>'s</h3>
+                            <h3><strong>3.X</strong> Creating widgets from HTML Markup</h3>
+                            <h3><strong>3.X</strong> Creating widgets with a <code>DataSource</code></h3>
+                            <h3><strong>3.X</strong> Creating widgets using template's</h3>
+                            <h3><strong>3.X</strong> Declaratively instantiate widgets using AngularJS directives</h3>
 
                             </div><!--  /chapter 3  -->
-                            
-                            
+
                             <!--_____________-->
                             <!--  chapter 4  -->
                             <!--_____________-->
                             <div id="chapter4" class="chapter">
                             
-                            <h2><strong>4.</strong> Creating Kendo UI Widgets</h2>
-                            <h3><strong>4.X</strong> Imperially instantiate widgets using jQuery methods</h3>
-                            <h3><strong>4.X</strong> Declaratively instantiate widgets from attributes</h3>
-                            <h3><strong>4.X</strong> Declaratively instantiate widgets from <code>View</code>'s</h3>
-                            <h3><strong>4.X</strong> Creating widgets from HTML Markup</h3>
-                            <h3><strong>4.X</strong> Creating widgets with a <code>DataSource</code></h3>
-                            <h3><strong>4.X</strong> Creating widgets using template's</h3>
-                            <h3><strong>4.X</strong> Declaratively instantiate widgets using AngularJS directives</h3>
+                            <h2><strong>4.</strong> Working With Kendo UI Widgets</h2>
+                            <h3><strong>4.X</strong> Getting Kendo UI version</h3>
+                            <h3><strong>4.X</strong> Getting reference/pointer to widget instance</h3>
+                            <h3><strong>4.X</strong> Getting reference to an unknown Kendo UI widget</h3>
+                            <h3><strong>4.X</strong> Calling widget methods</h3>
+                            <h3><strong>4.X</strong> Subscribing to the events of a Kendo UI widget</h3>
+                            <h3><strong>4.X</strong> Accessing Kendo UI widget elements</h3>
+                            <h3><strong>4.X</strong> Destroying Kendo UI widgets</h3>
 
                             </div><!--  /chapter 4  -->
 
@@ -1405,14 +1555,7 @@
                             <!--_____________-->
                             <div id="chapter5" class="chapter">
                             
-                            <h2><strong>5.</strong> Working With Kendo UI Widgets</h2>
-                            <h3><strong>5.X</strong> Getting Kendo UI version</h3>
-                            <h3><strong>5.X</strong> Getting reference/pointer to widget instance</h3>
-                            <h3><strong>5.X</strong> Getting reference to an unknown Kendo UI widget</h3>
-                            <h3><strong>5.X</strong> Calling widget methods</h3>
-                            <h3><strong>5.X</strong> Subscribing to the events of a Kendo UI widget</h3>
-                            <h3><strong>5.X</strong> Accessing Kendo UI widget elements</h3>
-                            <h3><strong>5.X</strong> Destroying Kendo UI widgets</h3>
+                            <h2><strong>5.</strong> DataSource</h2>
 
                             </div><!--  /chapter 5  -->
 
@@ -1421,16 +1564,16 @@
                             <!--_____________-->
                             <div id="chapter6" class="chapter">
                             
-                            <h2><strong>6.</strong> DataSource</h2>
+                            <h2><strong>6.</strong> Templates</h2>
 
                             </div><!--  /chapter 6  -->
 
                             <!--_____________-->
-                            <!--  chapter 7  -->
+                            <!--  chapter 8  -->
                             <!--_____________-->
                             <div id="chapter7" class="chapter">
                             
-                            <h2><strong>7.</strong> Templates</h2>
+                            <h2><strong>7.</strong> MVVM &amp; Observables</h2>
 
                             </div><!--  /chapter 7  -->
 
@@ -1439,7 +1582,7 @@
                             <!--_____________-->
                             <div id="chapter8" class="chapter">
                             
-                            <h2><strong>8.</strong> MVVM &amp; Observables</h2>
+                            <h2><strong>8.</strong> Building Applications With Kendo UI</h2>
 
                             </div><!--  /chapter 8  -->
 
@@ -1448,7 +1591,7 @@
                             <!--_____________-->
                             <div id="chapter9" class="chapter">
                             
-                            <h2><strong>9.</strong> Building Applications With Kendo UI</h2>
+                            <h2><strong>9.</strong> Building Applications With Kendo UI And Third-party Tools</h2>
 
                             </div><!--  /chapter 9  -->
 
@@ -1457,11 +1600,13 @@
                             <!--_____________-->
                             <div id="chapter10" class="chapter">
                             
-                            <h2><strong>10.</strong> Building Applications With Kendo UI And Third-party Tools</h2>
+                            <h2><strong>10.</strong> Creating Custom Kendo UI Bundles</h2>
+
+                            <h3><strong>10.X</strong> Using custom download to create professional static bundles</h3>
+                            <h3><strong>10.X</strong> Using Grunt to create core static bundles </h3>
+                            <h3><strong>10.X</strong> Using an AMD module bundler to create custom static bundles</h3>
 
                             </div><!--  /chapter 10  -->
-
-                            
 
 
                             <!--_____________-->
@@ -1759,7 +1904,7 @@
 
                             <h3><strong>A 16</strong> ASP, JSP &amp; PHP server-side wrappers</h3>
 
-                            <p>The following server side wrappers (developer on the server with Kendo UI) are provided for most of the Kendo UI widgets:</p>
+                            <p>The following server side widget wrappers, allowing Kendo UI development on the server, are available for purchase:</a>:</p>
 
                             <ul>
                                 <li><strong>ASP.NET MVC</strong> - <a href="http://www.telerik.com/aspnet-mvc">70+ ASP.NET MVC Components Powered by Kendo UI</a>.</li>
