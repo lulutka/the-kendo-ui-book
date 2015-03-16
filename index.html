@@ -701,7 +701,7 @@
 
                             <img src="/images/installKendo.png">
 
-                            <p>Once downloaded, and unzipped, you'll find a directory with the following sub directories (showing Professional download, not trial).</p>
+                            <p>Once downloaded, and unzipped, you'll find a directory with the following sub directories (image below showing professional download, not trial download).</p>
 
 <pre pre class="brush: xml; gutter: false;">
 
@@ -710,9 +710,9 @@
 ├── examples //demos
 ├── js // minified JavaScript files
 ├── license-agreements
-├── src //complete source code. Not available in the trial
+├── src //complete source code (not available in the trial)
 ├── styles //minified CSS, fonts, and images
-├── typescript //TypeScript definitions
+├── typescript //typeScript definitions
 └── vsdoc //Visual Studio Intellisense docs
 
 </pre>
@@ -848,7 +848,7 @@
                             </li>
                             </ul>
 
-                            <p>Examine the JavaScript code below demonstrating a few configuration options, methods, and events for a <a href="http://demos.telerik.com/kendo-ui/menu/index"><code>Menu</code></a> widget.</p>
+                            <p>Examine the JavaScript code below demonstrating a few configuration options, methods, and events from the  <a href="http://demos.telerik.com/kendo-ui/menu/index"><code>Menu</code></a> widget API docs.</p>
 
                             <a class="jsbin-embed" href="http://jsbin.com/buxelu/3/embed?javascript&height=450px">JS Bin</a>
 
@@ -914,6 +914,14 @@
 
                             <h3><strong>1.12</strong> Kendo UI Chrome DevTools extension</h3>
 
+                            <p>Telerik offers a Chrome Devtool extension to debug widgets and gain information about configuration values, widget events, and any global Kendo UI errors that might be occurring during development.</p>
+
+                            <div class="image">
+                                <video width="100%" poster="http://thumbs.gfycat.com/RelievedDopeyBobwhite-poster.jpg" controls loop>
+                                <source src="http://fat.gfycat.com/RelievedDopeyBobwhite.webm" type="video/webm">
+                                <source src="http://fat.gfycat.com/RelievedDopeyBobwhite.mp4" type="video/mp4">
+                                </video>
+                            </div>
 
 
                             </div><!--  /toc 1  -->
@@ -926,7 +934,7 @@
                             
                             <h2><strong>Chapter 2.</strong> Including Kendo UI</h2>
 
-                            <h3><strong>2.1</strong> Kendo UI source structure</h3>
+                            <h3><strong>2.1</strong> Kendo UI source structure overview</h3>
 
                             <p>Regardless of if you are using Kendo UI source code from a Professional download, Core download, or CDN the directory structure will contain a <code>js</code> and <code>styles</code> directory that could, depending which source you are using, contain the following files (read carefully the highlighted comments).
 
@@ -1137,11 +1145,12 @@
                                 <li>Kendo ships with three third-party library's, AngularJS, jQuery, and JSzip. This is out of convince and while you are not required to use them, you should be aware of the versions which are <a href="http://docs.telerik.com/kendo-ui/install/prerequisites">officially supported</a>.</li>
                                  <li>Obviously the professional source will differ from the CDN and Core source files and directories. The directory structure I am showing is a combination of all these sources (i.e. not exactly what is downloaded) so you can understand what is offered from each.</li>
                                  <li>Two strategies for including Kendo UI widgets are possible. The first is simply including bundled files which contains large groupings of widgets in one file. The second option would be to include the <code>kendo.core.min.js</code> file then each individual widgets/tool file and all its <a href="http://docs.telerik.com/kendo-ui/install/custom#framework">dependencies</a>.</li>
-                                 <li>The CDN offers the directory structure above but you should be aware that it's based on version number which is part of the url to the files on the CDN (e.g. <code>http://cdn.kendostatic.com/2014.3.1411/styles/...</code> and <code>http://cdn.kendostatic.com/2014.3.1411/js/...</code>)</li>
-                                 <li>In the CDN does not include non-minified files.</li>
+                                 <li>The CDN offers the directory structure above excluding non-minified files. You should be aware that it's based on version number which is part of the url to the files on the CDN (e.g. <code>http://cdn.kendostatic.com/2014.3.1411/styles/...</code> and <code>http://cdn.kendostatic.com/2014.3.1411/js/...</code>)</li>
                             </ol>
 
-                            <p>The remainder of this book will show code examples using professional source code hosted locally or from the CDN. It's assume from this point forward that the above directory structure is in place no matter if code in the book is shown referencing the CDN or locally hosted files. The purpose in stating this is so that you realize that the CSS files will not work correctly without the proper CSS theme, <code>images</code>, and <code>textures</code> directory.</p>
+                            <p>The remainder of this book will show code examples using professional source code hosted locally or from the CDN. It's assume from this point forward that the above directory structure is in place no matter if code in the book is shown referencing the CDN or locally hosted files. 
+
+                            The purpose in stating this is so that you realize that the CSS files included in your HTML document will not work correctly without the proper file system placement of the theme, <code>images</code>, and <code>textures</code> directories to the included CSS files.</p>
 
                             <p>The two html files below represent the minimally required files (i.e. two .js files and two .css files) to run Kendo UI.</p>
 
@@ -1197,13 +1206,15 @@
 &lt;/html&gt;
 </pre>
 
+<p>The rest of this chapter will offer more details and options when including Kendo UI CSS files, dependencies, and JavaScript files in HTML documents.</p>
 
 
-                            <h3><strong>2.2</strong> Including CSS files</h3>
+
+                            <h3><strong>2.2</strong> First, including CSS files</h3>
 
                             <p>Kendo UI Professional potentially can use the following seven css files:</p>
 
-<pre class="brush: html">
+<pre class="brush: html; highlight: [5,13]">
 &lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
@@ -1242,7 +1253,7 @@
 
                             <p>Kendo UI Core potentially can use the following four css files:</p>
 
-<pre class="brush: html">
+<pre class="brush: html; highlight: [5,13]">
 &lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
@@ -1285,7 +1296,7 @@
                                 </div>
                             </div>
 
-                            <h3><strong>2.3</strong> Kendo's one hard third-party dependency</h3>
+                            <h3><strong>2.3</strong> Second, include jQuery dependency</h3>
 
                                 <p>Kendo has one hard third-party dependency on the <a href="http://jquery.com/">jQuery JavaScript Library</a>. In order to use Kendo UI in an HTML page you must first include jQuery so that it is loaded before Kendo UI code runs.</p>
 
@@ -1343,7 +1354,7 @@
                                 </div>
                             </div>
 
-                            <h3><strong>2.4</strong> Including bundled widget/tool JavaScript files</h3>
+                            <h3><strong>2.4</strong> Third, included bundled JavaScript files</h3>
 
                             <p>Minimally Kendo UI will function (assuming you've included minimal CSS files too) by simply including two JavaScript files. One being jQuery and the other being either <code>kendo.all.min.js</code> or <code>kendo.ui.core.min.js</code>. These files bundle up all of the available widgets and tools for the respecting Kendo UI versions. 
 
@@ -1479,7 +1490,7 @@
                                 </div>
                             </div>
 
-                            <h3><strong>2.5</strong> Including individual widget/tool JavaScript files</h3>
+                            <h3><strong>2.5</strong> Using individual JavaScript files instead of bundled files</h3>
 
                             <p>It's possible to include only the JavaScript required to run specific widgets as opposed to using bundled JavaScript files. In order to include individual widgets and tools replace <code>kendo.all.min.js</code> or <code>kendo.ui.core.min.js</code> with <code>kendo.core.min.js</code>. Then, determine and locate all of the <a href="http://docs.telerik.com/kendo-ui/install/custom#framework">dependencies</a> for a <a href="http://docs.telerik.com/kendo-ui/install/custom#include-individual-widget-scripts">particular widget or tool</a> and include all the required <a href="http://docs.telerik.com/kendo-ui/install/custom#framework">dependences</a> in the correct order.</p>
 
