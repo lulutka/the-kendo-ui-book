@@ -426,7 +426,7 @@
         <div id="header"><div>
         <i class="fa fa-bars fa-align-center fa-lg float-left header-btn" id="toggle-toc"></i>
         <a href="https://github.com/codylindley/the-kendo-ui-book" target="_blank" class="fa fa-github fa-align-center fa-lg float-right header-btn" id="github"></a>
-        <h1><img src="images/telerik-logo.png" />The Kendo UI Book</h1>
+        <h1><img src="images/telerik-logo.png" />Kendo UI Fundamentals</h1>
 
         </div></div>
         <div id="content"><div>
@@ -908,6 +908,7 @@
                                         <li>The demos can be immediately edited in a custom JSFiddle-like editor called "Kendo UI Dojo". Look for the "Edit this example" button on demo pages to immediately edit demo code in your browser.</li>
                                         <li>Each demo has a link to the API reference for the widget/tool being demoed. Look for the button on the demo pages that says, "API Reference" to go immediately to the API reference for the widget.</li>
                                         <li>The Kendo API documentation can be contributed to through <a href="https://github.com/telerik/kendo-docs/#contributing">github</a>.</li>
+                                        <li>The demos are also available in the Trial and Professional download. Just open the examples/index.html in a web browser from your local file system.</li>
                                     </ul>
                                 </div>
                             </div>
@@ -932,9 +933,9 @@
                             <!--_____________-->
                             <div id="chapter2" class="chapter">
                             
-                            <h2><strong>Chapter 2.</strong> Including Kendo UI</h2>
+                            <h2><strong>Chapter 2.</strong> Including Kendo UI Code</h2>
 
-                            <h3><strong>2.1</strong> Kendo UI source structure overview</h3>
+                            <h3><strong>2.1</strong> Overview of Kendo UI source code</h3>
 
                             <p>Regardless of if you are using Kendo UI source code from a Professional download, Core download, or CDN the directory structure will contain a <code>js</code> and <code>styles</code> directory that could, depending which source you are using, contain the following files (read carefully the highlighted comments).
 
@@ -1210,7 +1211,7 @@
 
 
 
-                            <h3><strong>2.2</strong> First, including CSS files</h3>
+                            <h3><strong>2.2</strong> First, include CSS files</h3>
 
                             <p>Kendo UI Professional potentially can use the following seven css files:</p>
 
@@ -1549,7 +1550,20 @@
                             
                             <h2><strong>Chapter 3.</strong> Creating Kendo UI Widgets</h2>
 
-                            <h3><strong>3.1</strong> Imperatively instantiate widgets using jQuery methods</h3>
+                            <h3><strong>3.1</strong> Overview of instantiating widgets</h3>
+
+                            <p>A Kendo UI widget can be created (i.e. instantiated) in four ways.</p>
+
+                            <ol>
+                                <li>Imperatively using jQuery methods</li>
+                                <li>Declaratively from markup when binding a model to a view (i.e. MVVM)</li>
+                                <li>Declaratively from markup when a <code>View</code> is rendered to the DOM</li>
+                                <li>Declaratively from markup in AngularJS applications using directives</li>
+                            </ol>
+
+                            <p>This chapter will examine the four ways that a widget can be created and briefly discuss the use of <code>template</code>'s and <code>DataSource</code>'s objects as configuration values.</p>
+
+                            <h3><strong>3.2</strong> Imperatively instantiate widgets using jQuery methods</h3>
 
                             <p>As previous stated Kendo UI widgets are offered as <a href="http://learn.jquery.com/plugins/">jQuery plugins</a>. Meaning that they are available as jQuery methods (i.e. <code>jQuery.fn.kendo[name of widget]</code>). The format of widget method name is; &quot;kendo&quot; + NameOfTheWidget. For example, the auto complete widget can be created by calling the <code>$('input').kendoAutoComplete()</code> Kendo UI jQuery method.</p>
 
@@ -1576,15 +1590,15 @@
                             </div>
 
 
-                            <h3><strong>3.2</strong> Instantiate widgets declaratively (from markup) using MVVM</h3>
+                            <h3><strong>3.3</strong> Instantiate widgets declaratively (from markup) using MVVM</h3>
 
                             <p>Kendo UI offers an MVVM (aka Model View ViewModel) solution similar to <a href="http://knockoutjs.com/">Knockout</a> that <a href="http://www.html5rocks.com/en/tutorials/es7/observe/">two way binds</a> a model (i.e. the data) to a view (i.e. the HTML). Anytime a binding (i.e. <code>kendo.bind()</code>) occurs the HTML involved can also be used to declaratively instantiate a widget.</p>
 
-                            <p>To instantiate a widget during data binding place a <code>data-role</code> <a href="http://docs.telerik.com/kendo-ui/framework/data-attribute-initialization">attribute</a> on the appropriate HTML element with a value that is the name of a widget in all lowercase. For example, in the code below I am creating a <code><a href="https://github.com/telerik/kendo-ui-core/blob/master/src/kendo.autocomplete.js">kendo.ui.AutoComplete</a></code> widget by given an &lt;input&gt; an attribute and value of, <code>data-role="autocomplete"</code>.</p>
+                            <p>To instantiate a widget during data binding place a <code>data-role</code> <a href="http://docs.telerik.com/kendo-ui/framework/data-attribute-initialization">attribute</a> on the appropriate HTML element with a value that is the name of a widget in all lowercase. For example, in the code below I am creating a <code><a href="https://github.com/telerik/kendo-ui-core/blob/master/src/kendo.autocomplete.js">kendo.ui.AutoComplete</a></code> widget by given an &lt;input&gt; an attribute and value of, <code>data-role="autocomplete"</code>. When <code>kendo.bind()</code> is called on the HTML it will examine the HTML and all child HTML for <code>data-role</code> attributes and instantiate widgets.</p>
 
                             <a class="jsbin-embed" href="http://jsbin.com/pikafo/1/embed?html&height=500px">JS Bin</a>
 
-                            <p>Note that any widget configuration arguments required during instantiation are also being passed as HTML attributes in the form of <code>data-[configuration option]="value"</code>. </p>
+                            <p>Note that any widget configuration arguments required during instantiation are also being passed as HTML attributes in the form of <code>data-[configuration-option-name]="value"</code>. </p>
 
                             <p>A lot more can be said about using MVVM and widgets together and there is an entire chapter dedicated to this style of development with Kendo UI widgets. At this point, you just need to realize that instantiating widgets from markup (i.e. declaratively) can be accomplished during data binding and this is an alternative to creating widgets the jQuery way.</p>
 
@@ -1592,17 +1606,62 @@
                             <div class="notes-title">Notes</div>
                             <div class="notes">
                                     <ul>
+                                        <li>Configuration options from the API can be converted to attributes by changing the camel case configuration name to dash-separated and appending with "data-". For example, the auto complete widget configuration <code>{ignoreCase='false'};</code> when used in HTML would become <code>data-ignore-case="false"</code></li>
                                         <li>Configuration options which start with "data" do not require an additional "data" in the attribute name e.g. the <code>dataTextField</code> option is set via the <code>data-text-field</code> attribute and <code>dataSource</code> is set via the <code>data-source attribute</code>.</li>
-                                        <li>Initializing a widget during data binding works, by default, for any widget in the kendo.ui.NAMEOFWIDGET namespace.</li>
+                                        <li>Initializing a widget during data binding works, by default, for any widget in the <code>kendo.ui.[NAME OF WIDGET]</code> namespace.</li>
                                     </ul>
                                 </div>
                             </div>
 
-                            <h3><strong>3.3</strong> Instantiate widgets declaratively (from markup) in <code>Kendo.View</code>'s</h3>
+                            <h3><strong>3.4</strong> Instantiate widgets declaratively (from markup) in <code>kendo.View</code>'s</h3>
 
-                            <h3><strong>3.4</strong> Creating widgets using <code>Template</code>'s' and <code>DataSource</code>'s</h3>
+                            <p>Kendo UI offers a <code><a href="http://docs.telerik.com/kendo-ui/framework/spa/view">View</a></code> abstraction similar to a <a href="http://backbonejs.org/#View">Backbone view</a> but a little more light weight. When a <code>View</code> is <code>render()</code>'ed any HTML elements with a <code>data-role</code> attribute and widget name value will get instantiated upon rendering. This is identical to how widgets are instantiated from HTML during MVVM binding in terms of declaring which HTML elements should be turned into Kendo UI widgets.</p>
 
-                            <h3><strong>3.5</strong> Declaratively instantiate widgets using AngularJS directives</h3>
+                            <p>In the code below an auto complete widget is being instantiated from HTML contained in a Kendo UI template when the <code>myView</code> <code>View</code> renders the template to the DOM.</p>
+
+                            <a class="jsbin-embed" href="http://jsbin.com/novini/1/embed?html&height=550px">JS Bin</a>
+
+                            <p>Don't concern yourself with the details of a <code>View</code> if you are unfamiliar with such an abstraction. Just realize that widgets can be instantiated from view markup (i.e. <code>data-role="[name of widget]"</code>) when the view is being rendered to the DOM.</p>
+
+                            <div class="note">
+                            <div class="notes-title">Notes</div>
+                            <div class="notes">
+                                    <ul>
+                                        <li>A Kendo UI mobile application can instantiate, upon creation (i.e. <code>new kendo.mobile.Application()</code>), widgets in the same way a widget can be created using a Kendo UI <code><a href="http://docs.telerik.com/kendo-ui/framework/spa/view">render()</a></code></li>
+                                        <li>Internally, MVVM is used to create widgets from markup in <code>View</code>s and mobile applications.</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <h3><strong>3.5</strong> Instantiate widgets declaratively (from markup) using AngularJS directives</h3>
+
+                            <p>Kendo UI provides official AngularJS directives for initializing widgets the Angular way using custom element attributes or custom tag names. In the code example <code><a href="https://github.com/telerik/kendo-ui-core/blob/master/src/kendo.angular.js">kendo.directives</a></code> are injected into the "ctrl" controller making the <code>kendo-auto-complete</code> directive available to instantiate a widget from markup the Angular way.</p>
+
+                            <a class="jsbin-embed" href="http://jsbin.com/nibeta/1/embed?html&height=500px">JS Bin</a>
+
+                            <p>For more details about using Kendo UI AngularJS directives read the "<a href="http://docs.telerik.com/kendo-ui/AngularJS/introduction">Using Kendo with AngualrJS</a>" and associating documents.</p>
+
+                            <div class="note">
+                                <div class="notes-title">Notes</div>
+                                <div class="notes">
+                                    <ul>
+                                        <li>Kendo officially supports AngularJS v1.3.x</li>
+                                        <li>Be aware <a href="https://blog.angularjs.org/2013/12/angularjs-13-new-release-approaches.html">AngularJS 1.3 drops support for IE8</a>. AngularJS 1.2 will continue to support IE8, but the core AngularJS team does not plan to spend time addressing issues specific to IE8 or earlier.</li>
+                                        <li>Choose either AngularJS Data Binding/Routing or Kendo MVVM/Routing don't mix the solutions in a single application.</li>
+                                        <li>When loading individual Kendo UI files you need to also load <code>kendo.angular.js</code> (or <code>kendo.angular.min.js</code>) after <code>kendo.core.js</code> (or <code>kendo.core.min.js</code>) because this file contains the actual directives.</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <h3><strong>3.6</strong> Using <code>Template</code>'s' and <code>DataSource</code>'s configuration values with widgets</h3>
+
+                            <p>Kendo UI provides standalone abstractions for templating and local or remote data management. Both of these solutions are loosely integrated with widgets and many of the widgets have configuration options that assume a template or <code>DataSource</code> instance as a configuration value.</p>
+
+                            <p>In the example below...</p>
+
+
+                            <p>After getting Kendo UI installed and deciding how you'll instantiate the widgets the next order of business should be grokking Kendo template and DataSource. Two chapters in the book are dedicated to this task.</p>
+                        
 
                             </div><!--  /chapter 3  -->
 
@@ -1650,27 +1709,9 @@
                             </div><!--  /chapter 7  -->
 
                             <!--_____________-->
-                            <!--  chapter 8  -->
-                            <!--_____________-->
-                            <div id="chapter8" class="chapter">
-                            
-                            <h2><strong>Chapter 8.</strong> Building Applications With Kendo UI</h2>
-
-                            </div><!--  /chapter 8  -->
-
-                            <!--_____________-->
                             <!--  chapter 9  -->
                             <!--_____________-->
                             <div id="chapter9" class="chapter">
-                            
-                            <h2><strong>Chapter 9.</strong> Building Applications With Kendo UI And Third-party Tools</h2>
-
-                            </div><!--  /chapter 9  -->
-
-                            <!--_____________-->
-                            <!--  chapter 10  -->
-                            <!--_____________-->
-                            <div id="chapter10" class="chapter">
                             
                             <h2><strong>Chapter 10.</strong> Creating Custom Kendo UI Bundles</h2>
 
@@ -1741,10 +1782,10 @@
                                     <ul>
                                         <li>AngularJS directives started being shipped and maintained as part of <code>kendo.all.min.js</code> in the July 16, 2014 Q2 release (i.e. 2014.2.716)</code></li>
                                         <li>Telerik provides official support for Kendo UI AngularJS integrations via paid support.</li>
-                                        <li>Kendo officially supports AngularJS v1.2.21</li>
-                                        <li>Be aware <a href="https://blog.angularjs.org/2013/12/angularjs-13-new-release-approaches.html">AngularJS 1.3 is dropping support for IE8</a>. AngularJS 1.2 will continue to support IE8, but the core team does not plan to spend time addressing issues specific to IE8 or earlier.</li>
+                                        <li>Kendo officially supports AngularJS v1.3.x</li>
+                                        <li>Be aware <a href="https://blog.angularjs.org/2013/12/angularjs-13-new-release-approaches.html">AngularJS 1.3 drops support for IE8</a>. AngularJS 1.2 will continue to support IE8, but the core AngularJS team does not plan to spend time addressing issues specific to IE8 or earlier.</li>
                                         <li>Choose AngularJS Data Binding/Routing or Kendo MVVM/Routing don't mix this solutions in a single application.</li>
-                                        <li>When loading individual Kendo UI files you need to also load <code>kendo.angular.js</code> (or <code>kendo.angular.min.js</code>) after <code>kendo.core.js</code> (or <code>kendo.core.ming.js</code>) because this file contains the actual directives.</li>
+                                        <li>When loading individual Kendo UI files you need to also load <code>kendo.angular.js</code> (or <code>kendo.angular.min.js</code>) after <code>kendo.core.js</code> (or <code>kendo.core.min.js</code>) because this file contains the actual directives.</li>
                                     </ul>
                                 </div>
                             </div>
@@ -1779,8 +1820,6 @@
                             <h3><strong>A 8</strong> In-depth Getting Started docs and API docs</h3>
 
                             <p>Kendo UI provides <a href="http://docs.telerik.com/kendo-ui/api/introduction">API documentation</a> which details options, methods, and events for each widget or tool. Additionally, above and beyond the API documentation a <a href="http://docs.telerik.com/kendo-ui/getting-started/introduction">Getting Started</a> overview is provided for each widget or tool. Very few commercial solutions provide such a resource, and if they do, its nowhere as in depth as what is found in Kendo UI Getting Started documents.</p>
-
-                            <p>When time is of </p>
 
                             <h3><strong>A 9</strong> Detailed demos immediately runnable and editable</h3>
 
