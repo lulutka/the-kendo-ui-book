@@ -682,11 +682,11 @@
                             </tbody>
                             </table>
 
-                            <h3><strong>1.4</strong> Kendo UI prerequisites</h3>
+                            <h3><strong>1.4</strong> Prerequisite knowledge to learn Kendo UI</h3>
 
                             <p>As previously mentioned Kendo UI is a set of <a href="https://docs.webplatform.org/wiki/html">HTML</a> widgets driven by <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript">JavaScript</a>. It's influenced and takes it cues from JQuery <a href="http://learn.jquery.com/using-jquery-core/dollar-object-vs-function/">DOM</a>/<a href="http://learn.jquery.com/plugins/">plugin</a> patterns as well as the declarative data binding MVVM pattern made popular by <a href="http://knockoutjs.com/documentation/introduction.html">Knockout</a>.</p>
 
-                            <p> Minimally, to get started with Kendo UI one should have some basic knowledge about <a href="https://docs.webplatform.org/wiki/html">HTML</a>, <a href="https://docs.webplatform.org/wiki/css">CSS</a>, <a href="https://docs.webplatform.org/wiki/javascript">JavaScript</a>, and the <a href="https://docs.webplatform.org/wiki/dom">DOM</a>.</p>
+                            <p> Minimally, to get started with Kendo UI one should have some basic knowledge about <a href="https://docs.webplatform.org/wiki/html">HTML</a>, <a href="https://docs.webplatform.org/wiki/css">CSS</a>, <a href="https://docs.webplatform.org/wiki/javascript">JavaScript</a>, and the <a href="https://docs.webplatform.org/wiki/dom">DOM</a>. Knowledge of jQuery, Backbone, and Knockout while not required to get started will certainly make learning Kendo UI easier.</p>
 
                             <p>In addition to UI widgets, Kendo UI also offers tools for building <a href="http://developer.telerik.com/featured/planning-front-end-javascript-application/">JavaScript applications</a>. These tools will require more advanced JavaScript knowledge about <a href="http://addyosmani.com/resources/essentialjsdesignpatterns/book/#detailmvcmvp">MV* patterns</a>, <a href="http://en.wikipedia.org/wiki/Single-page_application">SPA's</a>, and <a href="http://docs.telerik.com/kendo-ui/framework/datasource/overview">data abstractions</a>.</p>
 
@@ -1565,11 +1565,11 @@
                             <h3><strong>3.2</strong> Imperatively instantiate widgets using jQuery methods</h3>
 
 
-                            <p>As previous stated Kendo UI widgets are offered as <a href="http://learn.jquery.com/plugins/">jQuery plugins</a>. Meaning that they are available as jQuery methods (i.e. <code>jQuery.fn.kendo[name of widget]</code>). </p>
+                            <p>As previous stated Kendo UI widgets are offered as <a href="http://learn.jquery.com/plugins/">jQuery plugins</a>. Meaning that they are available as methods of a jQuery instance (i.e. <code>jQuery.prototype.kendo['name of widget']</code>). </p>
 
                             <img src="images/jqueryKendo.png" height="558" width="359" />
 
-                            <p>The format of widget method name is; &quot;kendo&quot; + NameOfTheWidget. For example, the auto complete widget can be created by calling the <code>$('input').kendoAutoComplete()</code> Kendo UI jQuery method.</p>
+                            <p>The format of a jQuery widget method name is; &quot;kendo&quot; + NameOfTheWidget in <a href="http://c2.com/cgi/wiki?PascalCase">Pascal Case</a>. For example, the auto complete widget method name would be <code>.kendoAutoComplete()</code>.</p>
 
                             <p>In the code example below the <code>&lt;div&gt;</code> element is selected in the HTML document using jQuery and then the <code>kendoCalendar()</code> method is called to instantiate a calendar widget from the <code>&lt;div&gt;</code>.</p>
 
@@ -1581,7 +1581,7 @@
 
                              <p>When creating widgets you'll need to make sure the correct HTML element is being used (refer to the demos, docs, and api). For example, to create an auto complete widget, the method assumes that it's being invoked on a <code>&lt;input&gt;</code> element otherwise the widget does not function properly. If the creation of a widget is failing always verify that the widget is being instantiated  on the correct HTML element.</p>
 
-                             <a class="jsbin-embed" href="http://jsbin.com/japofu/2/embed?html&height=450px">JS Bin</a>
+                             <a class="jsbin-embed" href="http://jsbin.com/japofu/4/embed?html&height=450px">JS Bin</a>
 
                             <div class="note">
                             <div class="notes-title">Notes</div>
@@ -1589,10 +1589,10 @@
                                     <ul>
                                         <li>Kendo methods follow the jQuery plugin pattern and return the jQuery object so that additional methods can be chained after invoking a Kendo method.</li>
                                         <li>Calling a Kendo UI method on more than one HTML element will instantiate a widget instance for each HTML element selected.</li>
+                                        <li>Widget options can be updated/set after initial widget instantiation using the <code><a href="http://docs.telerik.com/kendo-ui/api/javascript/ui/widget#methods-setOptions">.setOptions()</a></code> widget method.</li>
                                     </ul>
                                 </div>
                             </div>
-
 
                             <h3><strong>3.3</strong> Instantiate widgets declaratively (from markup) using MVVM</h3>
 
@@ -1600,9 +1600,9 @@
 
                             <p>To instantiate a widget during data binding place a <code>data-role</code> <a href="http://docs.telerik.com/kendo-ui/framework/data-attribute-initialization">attribute</a> on the appropriate HTML element with a value that is the name of a widget in all lowercase. For example, in the code below I am creating a <code><a href="https://github.com/telerik/kendo-ui-core/blob/master/src/kendo.autocomplete.js">kendo.ui.AutoComplete</a></code> widget by given an &lt;input&gt; an attribute and value of, <code>data-role="autocomplete"</code>. When <code>kendo.bind()</code> is called on the HTML it will examine the HTML and all child HTML for <code>data-role</code> attributes and instantiate widgets.</p>
 
-                            <a class="jsbin-embed" href="http://jsbin.com/pikafo/1/embed?html&height=500px">JS Bin</a>
+                            <a class="jsbin-embed" href="http://jsbin.com/pikafo/3/embed?html&height=500px">JS Bin</a>
 
-                            <p>Note that any widget configuration arguments required during instantiation are also being passed as HTML attributes in the form of <code>data-[configuration-option-name]="value"</code>. For example, in the previous code example I am setting the <code><a href="http://docs.telerik.com/kendo-ui/api/javascript/ui/autocomplete#configuration-dataSource">dataSource</a></code> configuration option (i.e. <code>data-source="['Ant', 'Antilope', 'Badger', 'Beaver', 'Bird']"</code>) using an HTML attribute and value. Configuration options from the API can be converted to attributes by changing the camel case configuration name to dash-separated, and then appending with "data-". For example, the auto complete widget configuration <code>{ignoreCase='false'};</code> when used in HTML would become <code>data-ignore-case="false"</code>.</p>
+                            <p>Note that any widget configuration arguments required during instantiation are also being passed as HTML attributes in the form of <code>data-[configuration-option-name]="value"</code>. For example, in the previous code example I am setting the <code><a href="http://docs.telerik.com/kendo-ui/api/javascript/ui/autocomplete#configuration-dataSource">dataSource</a></code> configuration option (i.e. <code>data-source="['Ant', 'Antilope', 'Badger', 'Beaver', 'Bird']"</code>) using an HTML attribute and value. Configuration options from the API can be converted to attributes by changing the camel case configuration name to dash-separated, and then pre-pending with "data-". For example, the auto complete widget configuration <code>{ignoreCase='false'};</code> when used in HTML would become <code>data-ignore-case="false"</code>.</p>
 
                             <p>A lot more can be said about using MVVM and widgets together and there is an entire chapter dedicated to this style of development with Kendo UI widgets. At this point, you just need to realize that instantiating widgets from markup (i.e. declaratively) can be accomplished during data binding and this is an alternative to creating widgets the jQuery way.</p>
 
@@ -1622,7 +1622,7 @@
 
                             <p>In the code below an auto complete widget is being instantiated from HTML contained in a Kendo UI template when the <code>myView</code> <code>View</code> renders the template to the DOM.</p>
 
-                            <a class="jsbin-embed" href="http://jsbin.com/novini/1/embed?html&height=550px">JS Bin</a>
+                            <a class="jsbin-embed" href="http://jsbin.com/novini/3/embed?html&height=550px">JS Bin</a>
 
                             <p>Don't concern yourself with the details of a <code>View</code> if you are unfamiliar with such an abstraction. Just keep in mind that widgets can be instantiated from view markup (i.e. <code>data-role="[name of widget]"</code>) when the view is being rendered to the DOM.</p>
 
@@ -1632,6 +1632,7 @@
                                     <ul>
                                         <li>A Kendo UI mobile application can instantiate, upon creation (i.e. <code>new kendo.mobile.Application()</code>), widgets in the same way a widget can be created using a Kendo UI <code><a href="http://docs.telerik.com/kendo-ui/framework/spa/view">render()</a></code></li>
                                         <li>Internally, MVVM is used to create widgets from markup in <code>View</code>'s and mobile applications.</li>
+                                        <li>It's possible to sidestep Kendo UI <code>View</code>'s and simply use <code>kendo.init()</code> to <a href="http://docs.telerik.com/kendo-ui/api/javascript/kendo#methods-init">instantiate Kendo UI widgets in a given DOM element based on role data attributes</a>.</li>
                                     </ul>
                                 </div>
                             </div>
@@ -1658,13 +1659,13 @@
 
                             <h3><strong>3.6</strong> Using <code>Template</code> and <code>DataSource</code> as configuration values with widgets</h3>
 
-                            <p>Kendo UI provides standalone abstractions for templating (i.e. <code>template</code>) and data management (i.e. <code>DataSource</code>). Both of these abstractions are decoupled from widgets but are intended to be used in conjunction with widgets as configuration values for widgets. A good deal of the widgets have configuration options that optionally accept <code>template</code> or <code>DataSource</code> instances.</p>
+                            <p>Kendo UI provides standalone abstractions for templating (i.e. <code>template</code>) and data management (i.e. <code>DataSource</code>). Both of these abstractions are decoupled from widgets but are intended to be used in conjunction with widgets as configuration values for widgets. A good deal of the widgets have configuration options that optionally accept <code><a href="http://docs.telerik.com/kendo-ui/framework/templates/overview">template</a></code> or <code><a href="http://docs.telerik.com/kendo-ui/framework/datasource/overview">DataSource</a></code> instances.</p>
 
                             <p>The code example below demonstrates the instantiation of an auto complete widget using both a <code>kendo.template()</code> and a <code>kendo.data.DataSource()</code> instance as configuration values.</p>
 
-                            <a class="jsbin-embed" href="http://jsbin.com/bajusu/3/embed?html&height=670px">JS Bin</a>
+                            <a class="jsbin-embed" href="http://jsbin.com/bajusu/5/embed?html&height=670px">JS Bin</a>
 
-                            <p>After getting Kendo UI installed and deciding how you'll instantiate the widgets the next order of business should be to learn, in detail, the ins and outs the Kendo UI <code>template</code> and <code>DataSource</code> abstractions. I've only briefly introduced them here to communicate to bring their importances to your attention.</p>
+                            <p>After getting Kendo UI installed and deciding how you'll instantiate the widgets the next order of business should be to learn, in detail, the ins and outs the Kendo UI <code>template</code> and <code>DataSource</code> abstractions. I've only briefly introduced them here to communicate their importances as it pertains to creating Kendo UI widgets.</p>
                         
 
                             </div><!--  /chapter 3  -->
@@ -1674,14 +1675,23 @@
                             <!--_____________-->
                             <div id="chapter4" class="chapter">
                             
-                            <h2><strong>Chapter 4.</strong> Working With Kendo UI Widgets</h2>
-                            <h3><strong>4.X</strong> Getting Kendo UI version</h3>
-                            <h3><strong>4.X</strong> Getting reference/pointer to widget instance</h3>
-                            <h3><strong>4.X</strong> Getting reference to an unknown Kendo UI widget</h3>
-                            <h3><strong>4.X</strong> Calling widget methods</h3>
-                            <h3><strong>4.X</strong> Subscribing to the events of a Kendo UI widget</h3>
-                            <h3><strong>4.X</strong> Accessing Kendo UI widget elements</h3>
-                            <h3><strong>4.X</strong> Destroying Kendo UI widgets</h3>
+                            <h2><strong>Chapter 4.</strong> The Basics of Working With Kendo UI Widgets</h2>
+                            <h3><strong>4.1</strong> Getting reference/pointer to widget instance</h3>
+
+                            <p>Once you have created a widget it's possible that you'll want to do something with it even after initially instantiating it with options. For example, you might want to call widget methods or bind/unbind widget events during the life span of the widget. In order to call a widget methods or bind/unbind events after creation you'll need a reference to the widget instance. Regardless of if you created the widget using a jQuery method or markup (i.e. via MVVM or <code>Views</code>) you will have to use JavaScript to get a reference to the DOM element the widget was initialized on. Once you have a reference to the original element in the DOM the widget was instantiated on you can use the <code>.data('kendoNameOfWidget')</code> / <code>.getKendoNameOfWidget</code> jQuery methods or the <code>kendo.widgetInstance()</code> method to gain/return a reference to the actual widget instance.</p>
+
+                            <p>In the code example below I demonstrate using these methods to gain a reference to the two widgets created in the HTML document.</p>
+
+                            <a class="jsbin-embed" href="http://jsbin.com/xalixu/3/embed?html&height=675px">JS Bin</a>
+
+
+                            <h3><strong>4.2</strong> Calling widget methods</h3>
+                            <h3><strong>4.3</strong> Binding/unbinding to widget events</h3>
+                            <h3><strong>4.4</strong> Binding a widget event once</h3>
+                            <h3><strong>4.5</strong> Triggering a widget event</h3>
+                            <h3><strong>4.6</strong> Getting widget instance options</h3>
+                            <h3><strong>4.7</strong> Setting widget options after initialization</h3>
+                            <h3><strong>4.8</strong> Destroying widgets</h3>
 
                             </div><!--  /chapter 4  -->
 
