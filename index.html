@@ -694,7 +694,7 @@
 
                             <p>The Kendo UI professional source code can be obtained by <a href="https://www.telerik.com/login/v2/telerik">creating a Telerik account</a> and either <a href="http://www.telerik.com/purchase/kendo-ui">purchasing a license</a> or <a href="http://www.telerik.com/download/kendo-ui">using a 30 day trial offer</a>.</p>
 
-                            <p>If you decide to use a trial of Kendo UI Professional it will start to download to your local system once you have <a href="http://www.telerik.com/download/kendo-ui">created a new account from the trial web page</a>. If you've purchased a license you can go into your account and select from several Kendo UI installation options (i.e. manual, automatic, control panel, NuGet package), including <a href="http://www.telerik.com/download/custom-download">creating a custom download/build of Kendo UI</a>.</p>
+                            <p>If you decide to use a trial of Kendo UI Professional it will start to download to your local system once you have <a href="http://www.telerik.com/download/kendo-ui">created a new account from the trial web page</a>. If you've purchased a license you can go into your account and select from several Kendo UI installation options (i.e. manual, automatic, control panel, Bower package), including <a href="http://www.telerik.com/download/custom-download">creating a custom download/build of Kendo UI</a>.</p>
 
                             <p>The simplest and fast way to get Kendo UI Professional if you have a license is to download it from your Telerik account product version page and manual install it. For example, in the image below you'd click on the "Manual Installation" link in the table, Kendo UI will download, and you would then have access to all of the source files to run Kendo UI.</p>
 
@@ -715,6 +715,28 @@
 └── vsdoc //Visual Studio Intellisense docs
 
 </pre>
+
+<p>As a license holder, and depending upon your knowledge and use of Bower, it might be simpler to <a href="http://docs.telerik.com/kendo-ui/install/bower#install-kendo-ui-professional-bower-package">download and install Kendo UI professional using the Bower package manager</a>.</p>
+
+<pre pre class="brush: bash; gutter: false;">
+
+bower install https://bower.telerik.com/bower-kendo-ui.git
+
+</pre>
+
+<p>You'll be asked to give your Telerik account credentials to install Kendo UI professional from the Telerik hosted Bower endpoint. Keep in mind that the directory installed from Bower differs from the directory that can be downloaded from your Telerik account (directory installed from Bower shown below).</p>
+
+<pre pre class="brush: xml; gutter: false;">
+
+├── README.md
+├── bower.json
+├── js
+├── src
+└── styles
+
+</pre>
+
+
 
                             <div class="note">
                                 <div class="notes-title">Notes</div>
@@ -1575,11 +1597,11 @@
 
                             <a class="jsbin-embed" href="http://jsbin.com/bazami/2/embed?html&height=425px">JS Bin</a>
 
-                            <p>Just like most jQuery methods and plugins, Kendo UI methods can be passed arguments (<a href="http://speakingjs.com/es5/ch15.html#_simulating_named_parameters_in_javascript">via a single object</a>) to  configure the widget being instantiated. In the code example below notice that the calendar widget is being sent the <code>max</code>, <code>min</code>, <code>start</code>, and <code>value</code> <a href="http://docs.telerik.com/kendo-ui/api/javascript/ui/calendar#configuration">configuration arguments</a> during instantiation.</p>
+                            <p>Just like most jQuery methods and plugins, Kendo UI methods can be passed arguments (<a href="http://speakingjs.com/es5/ch15.html#_simulating_named_parameters_in_javascript">via a single object</a>) to  configure the widget being instantiated. In the code example below notice that the calendar widget is being sent the <code>max</code>, <code>min</code>, <code>start</code>, and <code>value</code> <a href="http://docs.telerik.com/kendo-ui/api/javascript/ui/calendar#configuration">configuration options</a>, as well as a callback for the calendar <code>change</code> event.</p>
 
-                            <a class="jsbin-embed" href="http://jsbin.com/rovepe/1/embed?html&height=500px">JS Bin</a>
+                            <a class="jsbin-embed" href="http://jsbin.com/rovepe/3/embed?html&height=500px">JS Bin</a>
 
-                             <p>When creating widgets you'll need to make sure the correct HTML element is being used (refer to the demos, docs, and api). For example, to create an auto complete widget, the method assumes that it's being invoked on a <code>&lt;input&gt;</code> element otherwise the widget does not function properly. If the creation of a widget is failing always verify that the widget is being instantiated  on the correct HTML element.</p>
+                             <p>When creating widgets you'll need to make sure the correct HTML element is being used (refer to the demos, docs, and api). For example, to create an auto complete widget, the method assumes that it's being invoked on a <code>&lt;input&gt;</code> element otherwise the widget does not function properly. If the creation of a widget is failing always verify that the widget is being instantiated on the correct HTML element.</p>
 
                              <a class="jsbin-embed" href="http://jsbin.com/japofu/4/embed?html&height=450px">JS Bin</a>
 
@@ -1678,19 +1700,98 @@
                             <h2><strong>Chapter 4.</strong> The Basics of Working With Kendo UI Widgets</h2>
                             <h3><strong>4.1</strong> Getting reference/pointer to widget instance</h3>
 
-                            <p>Once you have created a widget it's possible that you'll want to do something with it even after initially instantiating it with options. For example, you might want to call widget methods or bind/unbind widget events during the life span of the widget. In order to call a widget methods or bind/unbind events after creation you'll need a reference to the widget instance. Regardless of if you created the widget using a jQuery method or markup (i.e. via MVVM or <code>Views</code>) you will have to use JavaScript to get a reference to the DOM element the widget was initialized on. Once you have a reference to the original element in the DOM the widget was instantiated on you can use the <code>.data('kendoNameOfWidget')</code> / <code>.getKendoNameOfWidget</code> jQuery methods or the <code>kendo.widgetInstance()</code> method to gain/return a reference to the actual widget instance.</p>
+                            <p>Once you have created a widget it's possible that you'll want to do something with it even after initially instantiating it with options. For example, you might want to call widget methods, bind/unbind widget events, or destroy the widget instance. In order to accomplish all this you'll need a reference to the widget instance. Regardless of if you created the widget using a jQuery method or markup (i.e. via MVVM or <code>Views</code>) you will have to use JavaScript to get a reference to the DOM element the widget was initialized on. Once you have a reference to the original element in the DOM the widget was instantiated on you can use the <code>.data('kendoNameOfWidget')</code> / <code>.getKendoNameOfWidget</code> jQuery methods or the <code>kendo.widgetInstance()</code> method to gain/return a reference to the actual widget instance.</p>
 
                             <p>In the code example below I demonstrate using these methods to gain a reference to the two widgets created in the HTML document.</p>
 
                             <a class="jsbin-embed" href="http://jsbin.com/xalixu/3/embed?html&height=675px">JS Bin</a>
 
+                            <h3><strong>4.2</strong> Getting &amp; Setting widget instance options</h3>
 
-                            <h3><strong>4.2</strong> Calling widget methods</h3>
-                            <h3><strong>4.3</strong> Binding/unbinding to widget events</h3>
-                            <h3><strong>4.4</strong> Binding a widget event once</h3>
-                            <h3><strong>4.5</strong> Triggering a widget event</h3>
-                            <h3><strong>4.6</strong> Getting widget instance options</h3>
-                            <h3><strong>4.7</strong> Setting widget options after initialization</h3>
+                            <h3><strong>4.3</strong> Calling widget methods</h3>
+
+                            <p>Each widget has a set of methods that are unique to that widget as well <a href="http://docs.telerik.com/kendo-ui/api/javascript/ui/widget">some methods that are inherited and available to all widgets</a>. To invoke methods on a widget after instantiation get a reference to the widget then invoke any of the methods the widgets instance inherits. Below I show an three examples of grabbing an element from the DOM that an auto complete widget was initialized on, getting a reference to the widget instance, then calling the <code>value()</code> AutoComplete method.</p>
+
+                            <a class="jsbin-embed" href="http://jsbin.com/quseso/3/embed?html&height=600px">JS Bin</a>
+
+                            <p>You can reference the <a href="http://docs.telerik.com/kendo-ui/introduction">API</a> documents for the methods available to each widget.</p>
+
+                            <h3><strong>4.4</strong> Binding/unbinding widget events</h3>
+
+                            <p>During instantiation widget events can be configured just like configuration options. In the code below a callback function is configured during instantiation to run any time the <code>change</code> event is broadcast-ed by the widget.</p>
+
+<pre class="brush: js;]">
+$('#autocomplete').kendoAutoComplete({
+    change: function(e){ //define callback for change event
+        console.log(e);
+    }
+});
+</pre>
+
+                            <p>After a widget is instantiated in order to set, update, or remove an event you'll have to use the <code>bind()</code> and <code>unbind()</code> methods that are inherited by all widget instances.</p>
+
+                            <p>In the code example below I add two events (i.e. callback functions) to the menu widget using <code>bind()</code> and then use the <code>unbind()</code> method to remove these events when the "remove events" button is clicked.</p>
+
+                            <a class="jsbin-embed" href="http://jsbin.com/guzici/3/embed?html&height=750px">JS Bin</a>
+
+                            <div class="note">
+                                <div class="notes-title">Notes</div>
+                                <div class="notes">
+                                    <ul>
+                                        <li>A widget can have multiple callbacks assigned to a single event and each callback will be invoked. For example, adding two <code>close</code> events to a menu does not only invoke the last <code>close</code> callback defined.</li>
+                                        <li>You can <code>unbind()</code> a specific callback function as long as you have a way to reference the callback function (i.e. you haven't used an anonymous function). The unbind() method accepts a second argument which is a reference to the specific callback function to be unbound. If you don't specify a callback handler function when using <code>unbind()</code> all callbacks for the event will be removed.</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+
+                            <h3><strong>4.5</strong> Invoke a widget event once</h3>
+
+                            <p>To have a callback function be called only once when a widget event occurs use the <code>one()</code> widget method to add the event instead of <code>bind()</code>.</p>
+
+                            <p>In the code example below I add two events to a menu widget that run only once and then the callbacks are removed.</p>
+
+                            <a class="jsbin-embed" href="http://jsbin.com/boruju/1/embed?html&height=550px">JS Bin</a>
+
+                            <h3><strong>4.6</strong> Manually triggering a widget event</h3>
+
+                            <p>Using the widget <code>trigger()</code> method it's possible to manually set off an event on a widget.</p>
+
+                            <p>In the code example below I manually trigger the click event on a Kendo button widget.</p>
+
+                            <a class="jsbin-embed" href="http://jsbin.com/bitoge/1/embed?html&height=500px">JS Bin</a>
+
+                            <h3><strong>4.6</strong> Accessing event details and functions</h3>
+
+                            <p>Widget events pass one argument to event callback functions. The argument is called the event object and contains the following event related information and functions:</p>
+
+                            <ul>
+                                <li><code>.sender</code> - a reference to the widget instance that triggered the event</li>
+                                <li><code>.preventDefault()</code> - cancel default event effects on widget when called
+                                <li><code>.isDefaultPrevented()</code> - returns boolean value of current state of <code>preventDefault()</code>
+                            </ul>
+
+                            <p>In the code example below I use the <code>event</code> parameter as a reference to the event object passed to all widget event callback functions to get a reference to the button widget instance and specifically the click event option passed to the button widget.</p>
+
+                            <a class="jsbin-embed" href="http://jsbin.com/fesiqa/1/embed?html&height=550px">JS Bin</a>
+
+                            <h3><strong>4.7</strong> Using custom events on widgets</h3>
+
+                            <p>The <code>bind()</code> and <code>unbind()</code> methods are actually inherited from <code><a href="http://docs.telerik.com/kendo-ui/api/javascript/observable">kendo.Observable</a></code> for each widget. And each widget inherits from <code><a href="http://docs.telerik.com/kendo-ui/api/javascript/ui/widget">kendo.ui.Widget</a></code>, which actually inherits from <code>kendo.Observable</code>. Because <code>kendo.Observable</code> is just a reusable pattern for listening and firing events on objects we can use the <code>bind()</code> and <code>trigger()</code> methods to setup custom events on widgets and trigger them.</p>
+
+                            <p>In the code example below I am adding a custom event called 'foo' to the button widget and then immediately trigger it.</p>
+
+                            <a class="jsbin-embed" href="http://jsbin.com/wuruze/1/embed?html&height=550px">JS Bin</a>
+
+                            <div class="note">
+                                <div class="notes-title">Notes</div>
+                                <div class="notes">
+                                    <ul>
+                                        <li>Custom events can't be passed as configuration options at the time of instantiation</li>
+                                    </ul>
+                                </div>
+                            </div>
+
                             <h3><strong>4.8</strong> Destroying widgets</h3>
 
                             </div><!--  /chapter 4  -->
@@ -1736,6 +1837,15 @@
                             <h3><strong>8.X</strong> Using an AMD module bundler to create custom static bundles</h3>
 
                             </div><!--  /chapter 8  -->
+
+                            <!--_____________-->
+                            <!--  chapter 9  -->
+                            <!--_____________-->
+                            <div id="chapter9" class="chapter">
+                            
+                            <h2><strong>Chapter 9.</strong> Creating Custom Widgets</h2>
+
+                            </div><!--  /chapter 9  -->
 
                             **/</script>
 
@@ -2098,7 +2208,7 @@
             };
             whenReady();
         };
-        lineWrap();
+        //lineWrap();
 
         $(window).resize(function(){lineWrap()});
 
@@ -2253,7 +2363,11 @@
                 $.waypoints('refresh');
             });
 
-        },5000);
+            if(window.location.hash !== ''){
+                window.location.hash = window.location.hash;
+            }
+
+        },10000);
 
         window.setTimeout(function(){ 
             if(window.location.hash === ''){
