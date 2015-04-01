@@ -1706,15 +1706,27 @@ bower install https://bower.telerik.com/bower-kendo-ui.git
 
                             <a class="jsbin-embed" href="http://jsbin.com/xalixu/3/embed?html&height=675px">JS Bin</a>
 
-                            <h3><strong>4.2</strong> Getting &amp; Setting widget instance options</h3>
-
-                            <h3><strong>4.3</strong> Calling widget methods</h3>
+                            <h3><strong>4.2</strong> Calling widget methods</h3>
 
                             <p>Each widget has a set of methods that are unique to that widget as well <a href="http://docs.telerik.com/kendo-ui/api/javascript/ui/widget">some methods that are inherited and available to all widgets</a>. To invoke methods on a widget after instantiation get a reference to the widget then invoke any of the methods the widgets instance inherits. Below I show an three examples of grabbing an element from the DOM that an auto complete widget was initialized on, getting a reference to the widget instance, then calling the <code>value()</code> AutoComplete method.</p>
 
                             <a class="jsbin-embed" href="http://jsbin.com/quseso/3/embed?html&height=600px">JS Bin</a>
 
                             <p>You can reference the <a href="http://docs.telerik.com/kendo-ui/introduction">API</a> documents for the methods available to each widget.</p>
+
+                            <h3><strong>4.3</strong> Setting &amp; Getting widget instance options</h3>
+
+                            <p>A widget can have it's configurations options set or updated after instantiation by using the <code>setOptions()</code> method inherited by all widget instances.</p>
+
+                            <p>In the code example below I am updating configuration options and passing new options to the calendar widget after instantiation using <code>setOptions()</code>.</p>
+
+                            <a class="jsbin-embed" href="http://jsbin.com/qegemo/1/embed?html&height=600px">JS Bin</a>
+
+                            <p>It can be useful to know the current configuration values for a widget before updating it using <code>setOptions()</code>. Most widgets offer an <code>options</code> property on the widget instance object which is an object containing the configuration options and there values.</p>
+
+                            <p>In the code example below I log to the console all of the options and current values for a calendar widget using the <code>options</code> property.</p>
+
+                            <a class="jsbin-embed" href="http://jsbin.com/nonivi/1/embed?html&height=600px">JS Bin</a>
 
                             <h3><strong>4.4</strong> Binding/unbinding widget events</h3>
 
@@ -1761,7 +1773,7 @@ $('#autocomplete').kendoAutoComplete({
 
                             <a class="jsbin-embed" href="http://jsbin.com/bitoge/1/embed?html&height=520px">JS Bin</a>
 
-                            <h3><strong>4.7</strong> Accessing event details and functions</h3>
+                            <h3><strong>4.7</strong> Accessing widget event details and functions</h3>
 
                             <p>Widget events pass one argument to event callback functions. The argument is called the event object and contains the following event related information and functions:</p>
 
@@ -1781,7 +1793,7 @@ $('#autocomplete').kendoAutoComplete({
 
                             <p>In the code example below I am adding a custom event called 'foo' to the button widget and then immediately trigger it.</p>
 
-                            <a class="jsbin-embed" href="http://jsbin.com/wuruze/1/embed?html&height=550px">JS Bin</a>
+                            <a class="jsbin-embed" href="http://jsbin.com/wuruze/3/embed?html&height=550px">JS Bin</a>
 
                             <div class="note">
                                 <div class="notes-title">Notes</div>
@@ -1792,7 +1804,49 @@ $('#autocomplete').kendoAutoComplete({
                                 </div>
                             </div>
 
-                            <h3><strong>4.9</strong> Destroying widgets</h3>
+                            <h3><strong>4.9</strong> Referencing the top most element that wraps a widget in the DOM</h3>
+
+                            <p>Widget instances have a property called <code>.wrapper</code> that contains a jQuery object with the outer most element selected which wraps the widget in the DOM.</p>
+
+                            <p>In the code example below I use the <code>.wrapper</code> property to invoke the jQuery <code>prop()</code> method returning the name of the outer most element that is wrapping the grid.</p>
+
+                            <a class="jsbin-embed" href="http://jsbin.com/facafe/1/embed?html&height=550px">JS Bin</a>
+
+                            <h3><strong>4.10</strong> Referencing the element the widget was initialized on in the DOM</h3>
+
+                            <p>Widget instances have a property called <code>.element</code> that contains a jQuery object with the element the widget was instantiated on, pre-selected (i.e. already wrapped with a jQuery object).</p>
+
+                            <p>In the code example below I use the <code>.element</code> property to log to the console the name of the element that the grid widget was instantiated on by way of the jQuery <code>prop()</code> method.</p>
+
+                            <a class="jsbin-embed" href="http://jsbin.com/bomulu/2/embed?html&height=550px">JS Bin</a>
+
+                            <h3><strong>4.11</strong> Destroying widgets</h3>
+
+                            <p>Every widget has a <code>destory()</code> method which does the following:</p>
+
+                            <ul>
+                            <li>Deletes the widget instance (client object). It is no longer accessible and all its event handlers will stop working.</li>
+                            <li>Removes auto-generated HTML content, which is <strong>outside</strong> the widget, e.g. detached popups, dropdowns, etc. The main widget HTML remains intact and if needed, it should be removed from the DOM manually.
+                            The Window widget is an exception, as it represents a detached popup on its own.</li>
+                            <li>Destroys all child widgets with the help of <a href="/kendo-ui/api/framework/kendo#methods-destroy"><code>kendo.destroy()</code></a> method.</li>
+                            </ul>
+
+                            <p>In the code example below I am creating a button widget which upon clicking will destroy itself and then empty and remove the element the button widget was originally instantiated on (i.e. <code>&lt;button&gt;</code>). </p>
+
+                            <a class="jsbin-embed" href="http://jsbin.com/namazo/3/embed?html&height=550px">JS Bin</a>
+
+                            <p>The <code>kendo.destroy()</code> function is offered to destroy multiple widgets with one call. Pass <code>kendo.destroy()</code> a DOM element and all widgets contained on in in the DOM element will have it's widget <code>.destroy()</code> method called.</p>
+
+                            <div class="note">
+                                <div class="notes-title">Notes</div>
+                                <div class="notes">
+                                    <ul>
+                                        <li>Destroying a widget does not empty or remove the DOM elements that were in place when the widget was instantiated. One will have to manually remove these DOM elements to totally remove all traces of the widget.</li>
+                                        <li>Kendo UI widgets are destroyed automatically when the web page is unloaded.</li> 
+                                        <li>Creating a new widget instance from the leftovers of a destroyed widget may work, but is not recommended.</li> 
+                                    </ul>
+                                </div>
+                            </div>
 
                             </div><!--  /chapter 4  -->
 
