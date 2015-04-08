@@ -708,7 +708,7 @@
 
                             <a class="jsbin-embed" href="http://jsbin.com/yubota/6/embed?output">JS Bin</a>
 
-                            <p>Over ridding [?] the default <code>kendo.culture.en-US.min.js</code> file is as simple as including a different culture file and telling Kendo UI to use it with the <code>kendo.culture()</code> method.</p>
+                            <p>overriding the default <code>kendo.culture.en-US.min.js</code> file is as simple as including a different culture file and telling Kendo UI to use it with the <code>kendo.culture()</code> method.</p>
 
                             <pre class="brush: js">
                             &lt;script src=&quot;http://cdn.kendostatic.com/2014.2.716/js/cultures/kendo.culture.en-GB.min.js&quot;&gt;&lt;/script&gt;
@@ -1889,12 +1889,13 @@ $ bower install https://bower.telerik.com/bower-kendo-ui.git
 
                             <ol>
                                 <li>Imperatively using jQuery methods</li>
-                                <li>Declaratively from markup when binding a model to a view (i.e. MVVM)</li>
-                                <li>Declaratively from markup when a <code>View</code> is rendered to the DOM</li>
+                                <li>Declaratively from markup using <code>kendo.init()</code></li>
+                                <li>Declaratively from template markup when a <code>View</code> is <code>render()</code>'ed to the DOM</li>
+                                <li>Declaratively from markup when binding a viewModel to a view (i.e. MVVM)</li>
                                 <li>Declaratively from markup in AngularJS applications using directives</li>
                             </ol>
 
-                            <p>This chapter will examine the four ways that a widget can be created and briefly discuss the use of <code>template</code> and <code>DataSource</code> objects as configuration values for widgets.</p>
+                            <p>This chapter will examine the five ways that a widget can be created and briefly discuss the use of <code>template</code> and <code>DataSource</code> objects as configuration values for widgets.</p>
 
                             <h3><strong>4.2</strong> Imperatively instantiate widgets using jQuery methods</h3>
 
@@ -1928,50 +1929,79 @@ $ bower install https://bower.telerik.com/bower-kendo-ui.git
                                 </div>
                             </div>
 
-                            <h3><strong>4.3</strong> Instantiate widgets declaratively (from markup) using MVVM</h3>
 
-                            <p>Kendo UI offers an MVVM (aka Model View ViewModel) solution similar to <a href="http://knockoutjs.com/">Knockout</a> that <a href="http://www.html5rocks.com/en/tutorials/es7/observe/">two way binds</a> a model (i.e. the data) to a view (i.e. the HTML). Anytime a binding (i.e. <code>kendo.bind()</code>) occurs the HTML involved can also be used to declaratively instantiate a widget.</p>
+                            <h3><strong>4.3</strong> Instantiate widgets declaratively (from markup) using <code>kendo.init()</code></h3>
 
-                            <p>To instantiate a widget during data binding, place a <code>data-role</code> <a href="http://docs.telerik.com/kendo-ui/framework/data-attribute-initialization">attribute</a> on the appropriate HTML element with a value that is the name of a widget in all lowercase. For example, in the code below I am creating a <code><a href="https://github.com/telerik/kendo-ui-core/blob/master/src/kendo.autocomplete.js">kendo.ui.AutoComplete</a></code> widget by given an &lt;input&gt; an attribute and value of, <code>data-role="autocomplete"</code>. When <code>kendo.bind()</code> is called on the HTML it will examine the HTML and all child [?] HTML for <code>data-role</code> attributes and then instantiate widgets as directed by the <code>data-role</code> attribute value.</p>
+                            <p>Kendo UI offers the <code><a href="http://docs.telerik.com/kendo-ui/api/javascript/kendo#methods-init">kendo.init()</a></code> function to instantiate widgets from markup. The function when called will instantiates widgets on the passed element argument and all child elements with data role attributes defining what type of widget should be created (e.g. <code>data-role="calendar"</code>).</p>
 
-                            <a class="jsbin-embed" href="http://jsbin.com/pikafo/3/embed?html&height=500px">JS Bin</a>
+                            <p>In the code below, I am passing the <code>init()</code> function a reference to the <code>&lt;body&gt;</code> element in the HTML which it uses as the starting point for converting markup to widgets. The <code>&lt;body&gt;</code> element contains <code>&lt;div data-role=&quot;calendar&quot;&gt;&lt;/div&gt;</code> and this element is turned into a Kendo UI calendar when <code>kendo.init(document.body)</code> is invoked.</p>
 
-                            <p>Note that any widget configuration arguments required during instantiation are also being passed as HTML attributes in the form of <code>data-[configuration-option-name]="value"</code>. For example, in the previous code example I am setting the <code><a href="http://docs.telerik.com/kendo-ui/api/javascript/ui/autocomplete#configuration-dataSource">dataSource</a></code> configuration option (i.e. <code>data-source="['Ant', 'Antilope', 'Badger', 'Beaver', 'Bird']"</code>) using an HTML attribute and value. Configuration options from the API can be converted to attributes by changing the camel case configuration name to dash-separated, and then pre-pending with "data-". For example, the auto complete widget configuration <code>{ignoreCase='false'};</code> when used in HTML would become <code>data-ignore-case="false"</code>.</p>
+                            <a class="jsbin-embed" href="http://jsbin.com/rutepe/4/embed?html&height=500px">JS Bin</a>
 
-                            <p>A lot more can be said about using MVVM and widgets together. However, at this point, you just need to realize that instantiating widgets from markup (i.e. declaratively) can be accomplished during data binding and this is an alternative to creating widgets the jQuery way.</p>
+                            <p>By default <code><a href="http://docs.telerik.com/kendo-ui/api/javascript/kendo#methods-init">kendo.init()</a></code> will only instantiate widgets found in the <code>kendo.ui</code> namespace (i.e. not mobile widgets or dataViz widgets). But multiple arguments can be passed to the <code>init()</code> function, after first passing a DOM reference, that specifically identifies the namespaces that should be check for <code>data-role</code> instantiation. For example, the follow code will instantiate web widgets, mobile widgets, and dataViz widgets on HTML elements in the &lt;body&gt; that have the proper <code>data-role=""</code> attribute values.</p>
+<pre class="brush: js">
+kendo.init($('body'), kendo.ui, kendo.mobile.ui, kendo.dataviz.ui);
+</pre>
 
                             <div class="note">
                             <div class="notes-title">Notes</div>
                             <div class="notes">
                                     <ul>
-                                        <li>Configuration options which start with "data" do not require an additional "data" in the attribute name e.g. the <code>dataTextField</code> option is set via the <code>data-text-field</code> attribute and <code>dataSource</code> is set via the <code>data-source attribute</code>.</li>
-                                        <li>Initializing a widget during data binding works, by default, for any widget in the <code>kendo.ui.[NAME OF WIDGET]</code> namespace.</li>
+                                        <li>The first argument passed to<code>init()</code> can be a DOM reference (<code>document.body</code> or <code>document.querySelector('#body')</code>) or a jQuery object (e.g. <code>$('#body')</code>).</li>
+                                        <li>The <code>data-role</code> value for a widget is the name of a widget in all lowercase. For example, to instantiate a <code><a href="https://github.com/telerik/kendo-ui-core/blob/master/src/kendo.autocomplete.js">kendo.ui.AutoComplete</a></code> widget from markup you'd use <code>data-role="autocomplete"</code>.</li>
+                                        <li>A widgets configuration options and events can be declared as HTML attributes by changing the camel case configuration name or event name to dash-separated, and then pre-pending with "data-". For example, the auto complete widget configuration <code>ignoreCase</code> when used in HTML would become <code>data-ignore-case="false"</code>. Configuration options which start with "data" do not require an additional "data" in the attribute name e.g. the <code>dataTextField</code> option is set using the <code>data-text-field</code> attribute and <code>dataSource</code> is set using the <code>data-source attribute</code>.</li>
+                                        <li>Event handlers, set as HTML attribute values will <a href="http://docs.telerik.com/kendo-ui/framework/data-attribute-initialization#events">be resolved from a string in HTML (e.g. <code>data-change="change"</code>) to a JavaScript value found in the global scope (e.g. <code>window.change</code> where <code>change</code> is a JavaScript function)</a>.</li>
+                                        <li>The <code>template</code> configuration option, set as an HTML attribute value (e.g. <code>data-template="foo"</code>), is used to select a template in the HTML document with that value as it's <code>id</code> value. (e.g. <code>&lt;script id=&quot;foo&quot; type=&quot;text/x-kendo-template&quot;&gt;&lt;/script&gt;</code>).</li>
                                     </ul>
                                 </div>
                             </div>
 
-                            <h3><strong>4.4</strong> Instantiate widgets declaratively (from markup) in <code>kendo.View</code>'s</h3>
 
-                            <p>Kendo UI offers a <code><a href="http://docs.telerik.com/kendo-ui/framework/spa/view">View</a></code> abstraction similar to a <a href="http://backbonejs.org/#View">Backbone view</a> but a little more light weight. When a <code>View</code> is <code>render()</code>ed any HTML elements with a <code>data-role</code> attribute and widget name value will get instantiated upon rendering. This is identical to how widgets are instantiated from HTML during MVVM binding in terms of declaring which HTML elements should be turned into Kendo UI widgets.</p>
+                            <h3><strong>4.4</strong> Instantiate widgets declaratively (from template markup) using <code>kendo.View</code>'s</h3>
 
-                            <p>In the code below, an auto complete widget is being instantiated from HTML contained in a Kendo UI template when the <code>myView</code> <code>View</code> renders the template to the DOM.</p>
+                            <p>Kendo UI offers a <code><a href="http://docs.telerik.com/kendo-ui/framework/spa/view">View</a></code> abstraction similar to a <a href="http://backbonejs.org/#View">Backbone view</a> but a little more light weight. When a <code>View</code> is <code>render()</code>ed any HTML elements with a <code>data-role</code> attribute and widget name value will get instantiated upon rendering. This is identical to how widgets are instantiated from HTML using <code>kendo.init()</code>.</p>
+
+                            <p>In the code below, an auto complete widget is being instantiated from HTML contained in a Kendo UI template when the <code>myView</code> <code>View</code> renders the HTML template to the DOM.</p>
 
                             <a class="jsbin-embed" href="http://jsbin.com/novini/3/embed?html&height=550px">JS Bin</a>
 
-                            <p>Don't concern yourself with the details of a <code>View</code> if you are unfamiliar with such an abstraction. Just keep in mind that widgets can be instantiated from view markup (i.e. <code>data-role="[name of widget]"</code>) when the view is being rendered to the DOM.</p>
+                            <p>Don't concern yourself with the details of a <code>View</code> if you are unfamiliar with such an abstraction. Just keep in mind that widgets can be instantiated from markup when the view's markup is being rendered to the DOM.</p>
 
-                            <div class="note">
+                                                        <div class="note">
                             <div class="notes-title">Notes</div>
                             <div class="notes">
                                     <ul>
-                                        <li>A Kendo UI mobile application can instantiate, upon creation (i.e. <code>new kendo.mobile.Application()</code>), widgets in the same way a widget can be created using <code><a href="http://docs.telerik.com/kendo-ui/framework/spa/view">render()</a></code></li>
-                                        <li>Internally, MVVM is used to create widgets from markup in <code>View</code>'s and mobile applications.</li>
-                                        <li>It's possible to sidestep Kendo UI <code>View</code>'s and simply use <code>kendo.init()</code> to <a href="http://docs.telerik.com/kendo-ui/api/javascript/kendo#methods-init">instantiate Kendo UI widgets in a given DOM element based on role data attributes</a>.</li>
+                                        <li>The <code>data-role</code> value for a widget is the name of a widget in all lowercase. For example, to instantiate a <code><a href="https://github.com/telerik/kendo-ui-core/blob/master/src/kendo.autocomplete.js">kendo.ui.AutoComplete</a></code> widget from markup you'd use <code>data-role="autocomplete"</code>.</li>
+                                        <li>A widgets configuration options and events can be declared as HTML attributes by changing the camel case configuration name or event name to dash-separated, and then pre-pending with "data-". For example, the auto complete widget configuration <code>ignoreCase</code> when used in HTML would become <code>data-ignore-case="false"</code>. Configuration options which start with "data" do not require an additional "data" in the attribute name e.g. the <code>dataTextField</code> option is set using the <code>data-text-field</code> attribute and <code>dataSource</code> is set using the <code>data-source attribute</code>.</li>
+                                        <li>Event handlers, set as HTML attribute values will <a href="http://docs.telerik.com/kendo-ui/framework/data-attribute-initialization#events">be resolved from a string in HTML (e.g. <code>data-change="change"</code>) to a JavaScript value found in the global scope (e.g. <code>window.change</code> where <code>change</code> is a JavaScript function in the global scope)</a>.</li>
+                                        <li>The <code>template</code> configuration option, set as an HTML attribute value (e.g. <code>data-template="foo"</code>), is used to select a template in the HTML document with that value as it's <code>id</code> value. (e.g. <code>&lt;script id=&quot;foo&quot; type=&quot;text/x-kendo-template&quot;&gt;&lt;/script&gt;</code>).</li>
                                     </ul>
                                 </div>
                             </div>
 
-                            <h3><strong>4.5</strong> Instantiate widgets declaratively (from markup) using AngularJS directives</h3>
+                            <h3><strong>4.5</strong> Instantiate widgets declaratively (from markup) using MVVM</h3>
+
+                            <p>Kendo UI offers an MVVM (aka Model View ViewModel) solution similar to <a href="http://knockoutjs.com/">Knockout</a> that <a href="http://www.html5rocks.com/en/tutorials/es7/observe/">two way binds</a> a model (i.e. the data) to a view (i.e. the HTML). Anytime a binding (i.e. <code>kendo.bind()</code>) occurs the HTML involved can also be used to declaratively instantiate a widget.</p>
+
+                            <p>To instantiate a widget during data binding, place a <code>data-role</code> <a href="http://docs.telerik.com/kendo-ui/framework/data-attribute-initialization">attribute</a> on the appropriate HTML element. When <code>kendo.bind()</code> is called on the HTML it will examine the HTML and for <code>data-role</code> attributes and then instantiate widgets as directed by the <code>data-role</code> attribute value.</p>
+
+                            <a class="jsbin-embed" href="http://jsbin.com/pikafo/3/embed?html&height=500px">JS Bin</a>
+
+                            <p>A lot more can be said about using MVVM and widgets together. However, at this point, you just need to realize that instantiating widgets from markup (i.e. declaratively) can be accomplished during data binding and this is an alternative to creating widgets the jQuery way.</p>
+
+                                                                                    <div class="note">
+                            <div class="notes-title">Notes</div>
+                            <div class="notes">
+                                    <ul>
+                                        <li>The <code>data-role</code> value for a widget is the name of a widget in all lowercase. For example, to instantiate a <code><a href="https://github.com/telerik/kendo-ui-core/blob/master/src/kendo.autocomplete.js">kendo.ui.AutoComplete</a></code> widget from markup you'd use <code>data-role="autocomplete"</code>.</li>
+                                        <li>A widgets configuration options and events can be declared as HTML attributes by changing the camel case configuration name or event name to dash-separated, and then pre-pending with "data-". For example, the auto complete widget configuration <code>ignoreCase</code> when used in HTML would become <code>data-ignore-case="false"</code>. Configuration options which start with "data" do not require an additional "data" in the attribute name e.g. the <code>dataTextField</code> option is set using the <code>data-text-field</code> attribute and <code>dataSource</code> is set using the <code>data-source attribute</code>.</li>
+                                        <li>Event handlers, set as HTML attribute values will <a href="http://docs.telerik.com/kendo-ui/framework/data-attribute-initialization#events">be resolved from a string in HTML (e.g. <code>data-change="change"</code>) to a JavaScript value found in the global scope (e.g. <code>window.change</code> where <code>change</code> is a JavaScript function)</a>.</li>
+                                        <li>The <code>template</code> configuration option, set as an HTML attribute value (e.g. <code>data-template="foo"</code>), is used to select a template in the HTML document with that value as it's <code>id</code> value. (e.g. <code>&lt;script id=&quot;foo&quot; type=&quot;text/x-kendo-template&quot;&gt;&lt;/script&gt;</code>).</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <h3><strong>4.6</strong> Instantiate widgets declaratively (from markup) using AngularJS directives</h3>
 
                             <p>Kendo UI provides official AngularJS directives for initializing widgets the Angular way using custom element attributes or custom tag names. In the code example <code><a href="https://github.com/telerik/kendo-ui-core/blob/master/src/kendo.angular.js">kendo.directives</a></code> are injected into the "ctrl" controller making the <code>kendo-auto-complete</code> directive available to instantiate a widget from markup the Angular way.</p>
 
@@ -1991,7 +2021,7 @@ $ bower install https://bower.telerik.com/bower-kendo-ui.git
                                 </div>
                             </div>
 
-                            <h3><strong>4.6</strong> Using <code>Template</code> and <code>DataSource</code> as configuration values with widgets</h3>
+                            <h3><strong>4.7</strong> Using <code>Template</code> and <code>DataSource</code> as configuration values with widgets</h3>
 
                             <p>Kendo UI provides standalone abstractions for templating (i.e. <code>template</code>) and data management (i.e. <code>DataSource</code>). Both of these abstractions are decoupled from widgets but are intended to be used in conjunction with widgets as configuration values for widgets. A good deal of the widgets have configuration options that optionally accept <code><a href="http://docs.telerik.com/kendo-ui/framework/templates/overview">template</a></code> or <code><a href="http://docs.telerik.com/kendo-ui/framework/datasource/overview">DataSource</a></code> instances.</p>
 
