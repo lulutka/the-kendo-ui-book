@@ -1885,7 +1885,7 @@ $ bower install https://bower.telerik.com/bower-kendo-ui.git
 
                             <h3><strong>4.1</strong> Overview of instantiating widgets</h3>
 
-                            <p>A Kendo UI widget can be created (i.e. instantiated) in four ways.</p>
+                            <p>A Kendo UI widget is typically created (i.e. instantiated) in the following five ways.</p>
 
                             <ol>
                                 <li>Imperatively using jQuery methods</li>
@@ -1932,13 +1932,13 @@ $ bower install https://bower.telerik.com/bower-kendo-ui.git
 
                             <h3><strong>4.3</strong> Instantiate widgets declaratively (from markup) using <code>kendo.init()</code></h3>
 
-                            <p>Kendo UI offers the <code><a href="http://docs.telerik.com/kendo-ui/api/javascript/kendo#methods-init">kendo.init()</a></code> function to instantiate widgets from markup. The function when called will instantiates widgets on the passed element argument and all child elements with data role attributes defining what type of widget should be created (e.g. <code>data-role="calendar"</code>).</p>
+                            <p>Kendo UI offers the <code><a href="http://docs.telerik.com/kendo-ui/api/javascript/kendo#methods-init">kendo.init()</a></code> function to instantiate widgets from markup. The function when called will instantiates widgets on the passed element argument and all child elements with a data role attribute and value defining what type of widget should be created (e.g. <code>data-role="calendar"</code>).</p>
 
                             <p>In the code below, I am passing the <code>init()</code> function a reference to the <code>&lt;body&gt;</code> element in the HTML which it uses as the starting point for converting markup to widgets. The <code>&lt;body&gt;</code> element contains <code>&lt;div data-role=&quot;calendar&quot;&gt;&lt;/div&gt;</code> and this element is turned into a Kendo UI calendar when <code>kendo.init(document.body)</code> is invoked.</p>
 
                             <a class="jsbin-embed" href="http://jsbin.com/rutepe/4/embed?html&height=500px">JS Bin</a>
 
-                            <p>By default <code><a href="http://docs.telerik.com/kendo-ui/api/javascript/kendo#methods-init">kendo.init()</a></code> will only instantiate widgets found in the <code>kendo.ui</code> namespace (i.e. not mobile widgets or dataViz widgets). But multiple arguments can be passed to the <code>init()</code> function, after first passing a DOM reference, that specifically identifies the namespaces that should be check for <code>data-role</code> instantiation. For example, the follow code will instantiate web widgets, mobile widgets, and dataViz widgets on HTML elements in the &lt;body&gt; that have the proper <code>data-role=""</code> attribute values.</p>
+                            <p>By default <code><a href="http://docs.telerik.com/kendo-ui/api/javascript/kendo#methods-init">kendo.init()</a></code> will only instantiate widgets found in the <code>kendo.ui</code> namespace (i.e. not mobile widgets or dataViz widgets). But multiple arguments can be passed to the <code>init()</code> function, after first passing a DOM reference argument, that specifically identifies the namespaces that should be check for <code>data-role</code> instantiation. For example, the follow code will instantiate web widgets, mobile widgets, and dataViz widgets on HTML elements in the &lt;body&gt; that have the proper <code>data-role=""</code> attribute values.</p>
 <pre class="brush: js">
 kendo.init($('body'), kendo.ui, kendo.mobile.ui, kendo.dataviz.ui);
 </pre>
@@ -1959,7 +1959,7 @@ kendo.init($('body'), kendo.ui, kendo.mobile.ui, kendo.dataviz.ui);
 
                             <h3><strong>4.4</strong> Instantiate widgets declaratively (from template markup) using <code>kendo.View</code>'s</h3>
 
-                            <p>Kendo UI offers a <code><a href="http://docs.telerik.com/kendo-ui/framework/spa/view">View</a></code> abstraction similar to a <a href="http://backbonejs.org/#View">Backbone view</a> but a little more light weight. When a <code>View</code> is <code>render()</code>ed any HTML elements with a <code>data-role</code> attribute and widget name value will get instantiated upon rendering. This is identical to how widgets are instantiated from HTML using <code>kendo.init()</code>.</p>
+                            <p>Kendo UI offers a <code><a href="http://docs.telerik.com/kendo-ui/framework/spa/view">View</a></code> abstraction similar to a <a href="http://backbonejs.org/#View">Backbone view</a> but a little more light weight. When a <code>View</code> is <code>render()</code>ed any HTML elements in the view with a <code>data-role</code> attribute and widget name value will get instantiated upon rendering. This is identical to how widgets are instantiated from HTML using <code>kendo.init()</code>.</p>
 
                             <p>In the code below, an auto complete widget is being instantiated from HTML contained in a Kendo UI template when the <code>myView</code> <code>View</code> renders the HTML template to the DOM.</p>
 
@@ -1981,17 +1981,17 @@ kendo.init($('body'), kendo.ui, kendo.mobile.ui, kendo.dataviz.ui);
 
                             <h3><strong>4.5</strong> Instantiate widgets declaratively (from markup) using MVVM</h3>
 
-                            <p>Kendo UI offers an MVVM (aka Model View ViewModel) solution similar to <a href="http://knockoutjs.com/">Knockout</a> that <a href="http://www.html5rocks.com/en/tutorials/es7/observe/">two way binds</a> a model (i.e. the data) to a view (i.e. the HTML) via the viewModel. 
+                            <p>Kendo UI offers an MVVM (aka Model View ViewModel) pattern, similar to <a href="http://knockoutjs.com/">Knockout</a>, that <a href="http://www.html5rocks.com/en/tutorials/es7/observe/">two way binds</a> a model (i.e. the data) to a view (i.e. the HTML) via a viewModel. 
 
-                            <p>Anytime a binding (i.e. <code>kendo.bind()</code>) occurs, setting up this MVVM pattern, the HTML involved can also be used to declaratively instantiate a widget.</p>
+                            <p>Anytime a binding (i.e. <code>kendo.bind(view,viewModel)</code>) occurs, setting up the MVVM pattern, the HTML involved can also be used to declaratively instantiate a widget.</p>
 
-                            <p>To instantiate a widget during data binding, place a <code>data-role</code> <a href="http://docs.telerik.com/kendo-ui/framework/data-attribute-initialization">attribute</a> on the appropriate HTML element. When <code>kendo.bind()</code> is called on the HTML it will examine the HTML and for <code>data-role</code> attributes and then instantiate widgets as directed by the <code>data-role</code> attribute value.</p>
+                            <p>When <code>kendo.bind()</code> is called on the HTML/view it will examine the HTML for <code>data-role</code> attributes and then instantiate widgets as directed by the <code>data-role</code> attribute value.</p>
 
                             <p>In the code example below I declaratively setup a slider widget that is created when a viewModel is bound to the view (i.e. <code>kendo.bind($('#view'),viewModel);</code>)</p>
 
                             <a class="jsbin-embed" href="http://jsbin.com/xejuze/2/embed?html&height=700px">JS Bin</a>
 
-                            <p>A lot more can be said about using MVVM and widgets together. However, at this point, you just need to realize that instantiating widgets from markup (i.e. declaratively) can be accomplished during data binding and this is an alternative to creating widgets the jQuery way.</p>
+                            <p>A lot more can be said about using MVVM and widgets together. However, at this point, you just need to realize that instantiating widgets from markup can be accomplished during MVVM data binding and this is an alternative to creating widgets the jQuery way.</p>
 
                                                                                     <div class="note">
                             <div class="notes-title">Notes</div>
@@ -2007,9 +2007,9 @@ kendo.init($('body'), kendo.ui, kendo.mobile.ui, kendo.dataviz.ui);
 
                             <h3><strong>4.6</strong> Instantiate widgets declaratively (from markup) using AngularJS directives</h3>
 
-                            <p>Kendo UI provides official AngularJS directives for initializing widgets the Angular way using custom element attributes or custom tag names. In the code example <code><a href="https://github.com/telerik/kendo-ui-core/blob/master/src/kendo.angular.js">kendo.directives</a></code> are injected into the "ctrl" controller making the <code>kendo-auto-complete</code> directive available to instantiate a widget from markup the Angular way.</p>
+                            <p>Kendo UI provides official AngularJS directives for initializing widgets from markup the Angular way using custom element attributes or custom tag names. In the code example below the <code><a href="https://github.com/telerik/kendo-ui-core/blob/master/src/kendo.angular.js">kendo.directives</a></code> are injected into the "ctrl" controller aiding the instantiation of a slide widget from the <code>kendo-slider</code> directive found in the HTML.</p>
 
-                            <a class="jsbin-embed" href="http://jsbin.com/nibeta/1/embed?html&height=500px">JS Bin</a>
+                            <a class="jsbin-embed" href="http://jsbin.com/qivuhi/2/embed?html&height=600px">JS Bin</a>
 
                             <p>For more details about using Kendo UI AngularJS directives read the "<a href="http://docs.telerik.com/kendo-ui/AngularJS/introduction">Using Kendo with AngualrJS</a>" and associating documents.</p>
 
@@ -2018,6 +2018,7 @@ kendo.init($('body'), kendo.ui, kendo.mobile.ui, kendo.dataviz.ui);
                                 <div class="notes">
                                     <ul>
                                         <li>Kendo officially supports AngularJS v1.3.x</li>
+                                        <li>When instantiate widgets from markup using Angular directives widget configuration options don't start with "data" they start with "k".</li>
                                         <li>Be aware <a href="https://blog.angularjs.org/2013/12/angularjs-13-new-release-approaches.html">AngularJS 1.3 drops support for IE8</a>. AngularJS 1.2 will continue to support IE8, but the core AngularJS team does not plan to spend time addressing issues specific to IE8 or earlier.</li>
                                         <li>Choose either AngularJS data binding/routing or Kendo MVVM/routing don't mix the solutions in a single application.</li>
                                         <li>When loading individual Kendo UI files you need to also load <code>kendo.angular.js</code> (or <code>kendo.angular.min.js</code>) after <code>kendo.core.js</code> (or <code>kendo.core.min.js</code>) because this file contains the actual directives.</li>
