@@ -1981,11 +1981,15 @@ kendo.init($('body'), kendo.ui, kendo.mobile.ui, kendo.dataviz.ui);
 
                             <h3><strong>4.5</strong> Instantiate widgets declaratively (from markup) using MVVM</h3>
 
-                            <p>Kendo UI offers an MVVM (aka Model View ViewModel) solution similar to <a href="http://knockoutjs.com/">Knockout</a> that <a href="http://www.html5rocks.com/en/tutorials/es7/observe/">two way binds</a> a model (i.e. the data) to a view (i.e. the HTML). Anytime a binding (i.e. <code>kendo.bind()</code>) occurs the HTML involved can also be used to declaratively instantiate a widget.</p>
+                            <p>Kendo UI offers an MVVM (aka Model View ViewModel) solution similar to <a href="http://knockoutjs.com/">Knockout</a> that <a href="http://www.html5rocks.com/en/tutorials/es7/observe/">two way binds</a> a model (i.e. the data) to a view (i.e. the HTML) via the viewModel. 
+
+                            <p>Anytime a binding (i.e. <code>kendo.bind()</code>) occurs, setting up this MVVM pattern, the HTML involved can also be used to declaratively instantiate a widget.</p>
 
                             <p>To instantiate a widget during data binding, place a <code>data-role</code> <a href="http://docs.telerik.com/kendo-ui/framework/data-attribute-initialization">attribute</a> on the appropriate HTML element. When <code>kendo.bind()</code> is called on the HTML it will examine the HTML and for <code>data-role</code> attributes and then instantiate widgets as directed by the <code>data-role</code> attribute value.</p>
 
-                            <a class="jsbin-embed" href="http://jsbin.com/pikafo/3/embed?html&height=500px">JS Bin</a>
+                            <p>In the code example below I declaratively setup a slider widget that is created when a viewModel is bound to the view (i.e. <code>kendo.bind($('#view'),viewModel);</code>)</p>
+
+                            <a class="jsbin-embed" href="http://jsbin.com/xejuze/2/embed?html&height=700px">JS Bin</a>
 
                             <p>A lot more can be said about using MVVM and widgets together. However, at this point, you just need to realize that instantiating widgets from markup (i.e. declaratively) can be accomplished during data binding and this is an alternative to creating widgets the jQuery way.</p>
 
